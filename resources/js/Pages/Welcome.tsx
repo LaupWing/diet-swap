@@ -22,7 +22,7 @@ export default function Welcome() {
                     </div>
                 </header>
 
-                <main className="flex flex-col w-full flex-1 min-h-0 my-8 items-center">
+                <main className="flex flex-col w-full flex-1 min-h-0 mt-8 items-center">
                     <div className="flex gap-2 w-full px-4 pt-2 pb-4 text-sm">
                         <div className="px-2 py-1 rounded-lg bg-green-300">
                             1800 calories
@@ -103,6 +103,7 @@ export default function Welcome() {
                                 <Plus className="text-slate-400" />
                             </button>
                         </div>
+                        <div className="h-8"></div>
                     </ScrollArea>
                 </main>
             </div>
@@ -132,7 +133,7 @@ const Dates = () => {
             <li
                 ref={date_item}
                 className={cn(
-                    "w-[14.3%] snap-start opacity-20 flex flex-col py-2 rounded-xl flex-shrink-0 text-center",
+                    "w-[14.3%] snap-start opacity-10 flex flex-col py-2 rounded-xl flex-shrink-0 text-center",
                     date.toLocaleDateString() === today.toLocaleDateString() &&
                         "opacity-100"
                 )}
