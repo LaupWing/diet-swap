@@ -5,6 +5,7 @@ import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
 import { useState } from "react"
+import heic2any from "heic2any"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
