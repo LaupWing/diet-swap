@@ -152,7 +152,7 @@ const Dates = () => {
         <div className="relative">
             <ul
                 ref={date_container}
-                className="flex border-b snap-x gap-2 pb-2 w-full overflow-x-auto"
+                className="flex border-b border-slate-100 snap-x gap-2 pb-2 w-full overflow-x-auto"
             >
                 {date_array.map((date) => (
                     <DateItem key={date.toISOString()} date={date} />
