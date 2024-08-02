@@ -8,7 +8,7 @@ export default function Welcome() {
             <Head title="Welcome" />
             <div className="w-screen h-screen bg-background">
                 <header>
-                    <div className="p-4 py-2">
+                    <div className="py-2">
                         <h2 className="text-2xl font-bold">
                             {date.toLocaleString("en-US", {
                                 month: "long",
@@ -44,9 +44,9 @@ const Dates = () => {
             <li
                 ref={date_item}
                 className={cn(
-                    "w-[14.3%] snap-start flex flex-col py-2 rounded-xl flex-shrink-0 text-center",
+                    "w-[14.3%] snap-start opacity-20 flex flex-col py-2 rounded-xl flex-shrink-0 text-center",
                     date.toLocaleDateString() === today.toLocaleDateString() &&
-                        "bg-yellow-400"
+                        "opacity-100"
                 )}
             >
                 <b className="text-lg">{date.getDate()}</b>
@@ -62,7 +62,7 @@ const Dates = () => {
     return (
         <ul
             ref={date_container}
-            className="flex mt-4 snap-x gap-2 pb-4 w-full overflow-x-auto"
+            className="flex mt-4 border-b snap-x gap-2 pb-2 w-full overflow-x-auto"
         >
             {date_array.map((date) => (
                 <DateItem key={date.toISOString()} date={date} />
