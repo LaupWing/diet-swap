@@ -1,21 +1,11 @@
-import { Button } from "@/Components/ui/button"
 import { Card } from "@/Components/ui/card"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/Components/ui/dialog"
-import { Label } from "@/Components/ui/label"
+import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
-import { Textarea } from "@/Components/ui/textarea"
 import { UploadModal } from "@/Components/UploadModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Camera, ImageUp, Plus } from "lucide-react"
+import { Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
 export default function Welcome() {
     const date = new Date()
