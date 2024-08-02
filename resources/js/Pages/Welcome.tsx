@@ -8,6 +8,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/Components/ui/dialog"
+import { Label } from "@/Components/ui/label"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { Textarea } from "@/Components/ui/textarea"
 import { cn, generateDateArray } from "@/lib/utils"
@@ -137,10 +138,14 @@ export default function Welcome() {
                                             <ImageUp />
                                             Upload Photo
                                         </Button>
-                                        <div className="grid gap-2 w-full">
+                                        <div className="grid gap-2 w-full mt-4">
+                                            <Label htmlFor="description">
+                                                Description
+                                            </Label>
                                             <Textarea
+                                                name="description"
                                                 placeholder="Give a short description"
-                                                className="w-full mt-4"
+                                                className="w-full"
                                             />
                                         </div>
                                     </div>
