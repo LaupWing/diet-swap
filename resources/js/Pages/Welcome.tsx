@@ -78,11 +78,7 @@ export default function Welcome() {
                             </div>
                         </Card>
                         <div className="flex flex-col items-center">
-                            <div className="w-[2px] h-14 bg-slate-200"></div>
-                            <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
-                                <Plus className="text-slate-400" />
-                            </button>
-                            <div className="w-[2px] h-14 bg-slate-200"></div>
+                            <div className="w-[2px] h-20 bg-slate-200"></div>
                         </div>
 
                         <Card className="max-w-[300px] mx-auto text-sm w-full">
