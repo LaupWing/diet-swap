@@ -1,4 +1,12 @@
 import { Card } from "@/Components/ui/card"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
@@ -99,9 +107,26 @@ export default function Welcome() {
                         </Card>
                         <div className="flex flex-col items-center">
                             <div className="w-[2px] h-14 bg-slate-200"></div>
-                            <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
-                                <Plus className="text-slate-400" />
-                            </button>
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
+                                        <Plus className="text-slate-400" />
+                                    </button>
+                                </DialogTrigger>
+                                <DialogContent>
+                                    <DialogHeader>
+                                        <DialogTitle>
+                                            Are you absolutely sure?
+                                        </DialogTitle>
+                                        <DialogDescription>
+                                            This action cannot be undone. This
+                                            will permanently delete your account
+                                            and remove your data from our
+                                            servers.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                         <div className="h-8"></div>
                     </ScrollArea>
