@@ -27,20 +27,26 @@ export default function Welcome() {
                     </div>
                 </header>
                 <main className="flex flex-col p-6 my-8 items-center">
-                    <Card className="max-w-[260px] text-sm w-full">
+                    <Card className="max-w-[300px] text-sm w-full">
                         <div className="flex flex-col p-6 gap-2">
                             <header className="flex flex-col">
                                 <span className="text-slate-400">18:15</span>
-                                <h2 className="font-bold">
+                                <h2 className="font-bold text-base">
                                     Spaghetti Bolgonese
                                 </h2>
-                                <div className="flex text-xs mt-1 gap-2">
-                                    <span className="bg-green-300 text-[11px] text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                <div className="flex text-xs flex-wrap text-[10px] mt-2 gap-x-2 gap-y-1">
+                                    <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                                         913 calories
+                                    </span>
+                                    <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        98 protein
+                                    </span>
+                                    <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        98 carb
                                     </span>
                                 </div>
                             </header>
-                            <div>
+                            <div className="mt-2">
                                 <img
                                     className="w-full rounded h-32 object-cover"
                                     src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
