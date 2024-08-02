@@ -60,6 +60,12 @@ export default function Welcome() {
                                         <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                                             98 carb
                                         </span>
+                                        <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            98 fiber
+                                        </span>
+                                        <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            98 fats
+                                        </span>
                                     </div>
                                 </header>
                                 <div className="mt-2">
