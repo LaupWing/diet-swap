@@ -28,19 +28,18 @@ export default function Welcome() {
                 </header>
                 <main className="flex flex-col p-6 my-8 items-center">
                     <Card className="max-w-[260px] text-sm w-full">
-                        <CardHeader>
-                            <h2>Spaghetti Bolgonese</h2>
-                        </CardHeader>
-                        <CardContent>
-                            <img
-                                className="w-full rounded h-32 object-cover"
-                                src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
-                                alt=""
-                            />
-                        </CardContent>
-                        <CardFooter>
-                            <p>Card Footer</p>
-                        </CardFooter>
+                        <div className="flex flex-col p-6 gap-2">
+                            <header>
+                                <h2>Spaghetti Bolgonese</h2>
+                            </header>
+                            <div>
+                                <img
+                                    className="w-full rounded h-32 object-cover"
+                                    src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
                     </Card>
                 </main>
             </div>
