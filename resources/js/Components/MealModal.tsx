@@ -1,4 +1,9 @@
-import { DialogContent, DialogHeader, DialogTitle } from "./ui/dialog"
+import {
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "./ui/dialog"
 import { Button } from "./ui/button"
 import { Camera, ImageUp } from "lucide-react"
 import { Label } from "./ui/label"
@@ -28,8 +33,11 @@ export const MealModal = () => {
 
     return (
         <DialogContent className="max-w-[90%] rounded">
-            <DialogHeader>
+            <DialogHeader className="text-left">
                 <DialogTitle>Add Meal</DialogTitle>
+                <DialogDescription>
+                    Make sure that the photo only contains the meal
+                </DialogDescription>
             </DialogHeader>
             <div className="flex items-center flex-col">
                 {!preview ? (
@@ -56,7 +64,10 @@ export const MealModal = () => {
                         </Button>
                     </div>
                 ) : (
-                    <img className="aspect-video object-cover" src={preview} />
+                    <img
+                        className="aspect-video object-cover rounded"
+                        src={preview}
+                    />
                 )}
                 <Input
                     onChange={handleChange}
