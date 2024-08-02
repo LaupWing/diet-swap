@@ -18,28 +18,32 @@ export const MealModal = () => {
                 <DialogTitle>Add Meal</DialogTitle>
             </DialogHeader>
             <div className="flex items-center flex-col">
-                <div className="flex items-center w-full flex-col">
-                    <Button
-                        className="uppercase w-full gap-2 h-12 flex items-center justify-center text-slate-400"
-                        variant={"outline"}
-                    >
-                        <Camera />
-                        Make Photo
-                    </Button>
-                    <span className="text-slate-200 my-2">OR</span>
-                    <Button
-                        className="uppercase w-full  h-12 flex items-center justify-center text-slate-400"
-                        variant={"outline"}
-                    >
-                        <Label
-                            htmlFor="picture"
-                            className="w-full flex items-center justify-center gap-2"
+                {!preview ? (
+                    <div className="flex items-center w-full flex-col">
+                        <Button
+                            className="uppercase w-full gap-2 h-12 flex items-center justify-center text-slate-400"
+                            variant={"outline"}
                         >
-                            <ImageUp />
-                            Upload Photo
-                        </Label>
-                    </Button>
-                </div>
+                            <Camera />
+                            Make Photo
+                        </Button>
+                        <span className="text-slate-200 my-2">OR</span>
+                        <Button
+                            className="uppercase w-full  h-12 flex items-center justify-center text-slate-400"
+                            variant={"outline"}
+                        >
+                            <Label
+                                htmlFor="picture"
+                                className="w-full flex items-center justify-center gap-2"
+                            >
+                                <ImageUp />
+                                Upload Photo
+                            </Label>
+                        </Button>
+                    </div>
+                ) : (
+                    <img src={preview} />
+                )}
                 <Input
                     onChange={handleChange}
                     className="hidden"
