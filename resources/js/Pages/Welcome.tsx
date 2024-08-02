@@ -12,7 +12,7 @@ import { ScrollArea } from "@/Components/ui/scroll-area"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Plus } from "lucide-react"
+import { Camera, ImageUp, Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
 export default function Welcome() {
     const date = new Date()
@@ -118,9 +118,23 @@ export default function Welcome() {
                                     <DialogHeader>
                                         <DialogTitle>Add Meal</DialogTitle>
                                     </DialogHeader>
-                                    <div className="flex flex-col">
-                                        <Button variant={"outline"}>
-                                            photo
+                                    <div className="flex items-center flex-col">
+                                        <Button
+                                            className="uppercase w-full gap-2 h-12 flex items-center justify-center text-slate-400"
+                                            variant={"outline"}
+                                        >
+                                            <Camera />
+                                            Make Photo
+                                        </Button>
+                                        <span className="text-slate-200 my-2">
+                                            OR
+                                        </span>
+                                        <Button
+                                            className="uppercase w-full gap-2 h-12 flex items-center justify-center text-slate-400"
+                                            variant={"outline"}
+                                        >
+                                            <ImageUp />
+                                            Upload Photo
                                         </Button>
                                     </div>
                                 </DialogContent>
