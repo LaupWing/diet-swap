@@ -6,6 +6,10 @@ import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
 
 export const MealModal = () => {
+    const handleChange = (e: any) => {
+        console.log(e.target!.files)
+    }
+
     return (
         <DialogContent className="max-w-[90%] rounded">
             <DialogHeader>
@@ -32,7 +36,12 @@ export const MealModal = () => {
                         Upload Photo
                     </Label>
                 </Button>
-                <Input className="hidden" id="picture" type="file" />
+                <Input
+                    onChange={handleChange}
+                    className="hidden"
+                    id="picture"
+                    type="file"
+                />
                 <div className="grid gap-2 w-full mt-4">
                     <Label htmlFor="description">Description</Label>
                     <Textarea
