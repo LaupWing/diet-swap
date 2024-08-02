@@ -29,8 +29,16 @@ export default function Welcome() {
                 <main className="flex flex-col p-6 my-8 items-center">
                     <Card className="max-w-[260px] text-sm w-full">
                         <div className="flex flex-col p-6 gap-2">
-                            <header>
-                                <h2>Spaghetti Bolgonese</h2>
+                            <header className="flex flex-col">
+                                <span className="text-slate-400">18:15</span>
+                                <h2 className="font-bold">
+                                    Spaghetti Bolgonese
+                                </h2>
+                                <div className="flex text-xs mt-1 gap-2">
+                                    <span className="bg-green-300 text-[11px] text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        913 calories
+                                    </span>
+                                </div>
                             </header>
                             <div>
                                 <img
