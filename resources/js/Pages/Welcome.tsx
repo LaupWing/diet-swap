@@ -9,6 +9,7 @@ import {
     DialogTrigger,
 } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
+import { Textarea } from "@/Components/ui/textarea"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
@@ -136,6 +137,12 @@ export default function Welcome() {
                                             <ImageUp />
                                             Upload Photo
                                         </Button>
+                                        <div className="grid gap-2 w-full">
+                                            <Textarea
+                                                placeholder="Give a short description"
+                                                className="w-full mt-4"
+                                            />
+                                        </div>
                                     </div>
                                 </DialogContent>
                             </Dialog>
