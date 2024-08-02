@@ -29,7 +29,7 @@ export default function Welcome() {
                         </div>
                     </div>
                     <ScrollArea className="flex w-full flex-col justify-center items-center">
-                        <Card className="max-w-[300px] text-sm w-full">
+                        <Card className="max-w-[300px] text-sm mx-auto w-full">
                             <div className="flex flex-col p-6 gap-2">
                                 <header className="flex flex-col">
                                     <span className="text-slate-400">
@@ -66,7 +66,8 @@ export default function Welcome() {
                             </button>
                             <div className="w-[2px] h-14 bg-slate-200"></div>
                         </div>
-                        <Card className="max-w-[300px] text-sm w-full">
+
+                        <Card className="max-w-[300px] mx-auto text-sm w-full">
                             <div className="flex flex-col p-6 gap-2">
                                 <header className="flex flex-col">
                                     <span className="text-slate-400">
@@ -96,6 +97,12 @@ export default function Welcome() {
                                 </div>
                             </div>
                         </Card>
+                        <div className="flex flex-col items-center">
+                            <div className="w-[2px] h-14 bg-slate-200"></div>
+                            <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
+                                <Plus className="text-slate-400" />
+                            </button>
+                        </div>
                     </ScrollArea>
                 </main>
             </div>
