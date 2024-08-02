@@ -10,7 +10,7 @@ export default function Welcome() {
     return (
         <>
             <Head title="Welcome" />
-            <div className="w-screen h-screen bg-background">
+            <div className="w-screen h-screen bg-background flex flex-col">
                 <header>
                     <div className="">
                         <h2 className="px-4 pt-3 pb-2 uppercase text-slate-300 font-bold">
@@ -22,13 +22,13 @@ export default function Welcome() {
                     </div>
                 </header>
 
-                <main className="flex flex-col p-6 my-8 items-center">
+                <main className="flex flex-col w-full flex-1 min-h-0 my-8 items-center">
                     <div className="flex gap-2 w-full pb-4 text-sm">
                         <div className="px-2 py-1 rounded-lg bg-green-300">
                             1800 calories
                         </div>
                     </div>
-                    <ScrollArea className="flex flex-col items-center">
+                    <ScrollArea className="flex w-full flex-col justify-center items-center">
                         <Card className="max-w-[300px] text-sm w-full">
                             <div className="flex flex-col p-6 gap-2">
                                 <header className="flex flex-col">
