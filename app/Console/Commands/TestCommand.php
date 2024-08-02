@@ -45,7 +45,7 @@ class TestCommand extends Command
                     "content" => [
                         [
                             "type" => "text",
-                            "text" => "Give me the info for this meal. Here is a short description of the meal: carpaccio salad with garlic sauce"
+                            "text" => "Give me the info for this meal. Here is a short description of the meal: carpaccio salad with garlic sauce and cheese"
                         ],
                         [
                             "type" => "image_url",
