@@ -1,3 +1,4 @@
+import { Button } from "@/Components/ui/button"
 import { Card } from "@/Components/ui/card"
 import {
     Dialog,
@@ -113,18 +114,15 @@ export default function Welcome() {
                                         <Plus className="text-slate-400" />
                                     </button>
                                 </DialogTrigger>
-                                <DialogContent>
+                                <DialogContent className="max-w-[90%] rounded">
                                     <DialogHeader>
-                                        <DialogTitle>
-                                            Are you absolutely sure?
-                                        </DialogTitle>
-                                        <DialogDescription>
-                                            This action cannot be undone. This
-                                            will permanently delete your account
-                                            and remove your data from our
-                                            servers.
-                                        </DialogDescription>
+                                        <DialogTitle>Add Meal</DialogTitle>
                                     </DialogHeader>
+                                    <div className="flex flex-col">
+                                        <Button variant={"outline"}>
+                                            photo
+                                        </Button>
+                                    </div>
                                 </DialogContent>
                             </Dialog>
                         </div>
