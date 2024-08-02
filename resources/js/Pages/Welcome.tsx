@@ -23,7 +23,7 @@ export default function Welcome() {
                 </header>
 
                 <main className="flex flex-col w-full flex-1 min-h-0 my-8 items-center">
-                    <div className="flex gap-2 w-full pb-4 text-sm">
+                    <div className="flex gap-2 w-full px-4 pt-2 pb-4 text-sm">
                         <div className="px-2 py-1 rounded-lg bg-green-300">
                             1800 calories
                         </div>
