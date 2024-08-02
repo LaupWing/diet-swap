@@ -65,9 +65,13 @@ export const MealModal = () => {
                     </div>
                 ) : (
                     <div className="relative">
-                        <button className="absolute top-2 right-2">
+                        <Button
+                            size={"icon"}
+                            className="absolute top-2 right-2"
+                            onClick={() => setPreview(null)}
+                        >
                             <X />
-                        </button>
+                        </Button>
                         <img
                             className="aspect-video object-cover rounded"
                             src={preview}
