@@ -11,6 +11,7 @@ import {
 import { Label } from "@/Components/ui/label"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { Textarea } from "@/Components/ui/textarea"
+import { UploadModal } from "@/Components/UploadModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
@@ -116,6 +117,7 @@ export default function Welcome() {
                                         <Plus className="text-slate-400" />
                                     </button>
                                 </DialogTrigger>
+                                <UploadModal />
                             </Dialog>
                         </div>
                         <div className="h-8"></div>

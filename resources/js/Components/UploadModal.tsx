@@ -26,6 +26,7 @@ export const UploadModal = () => {
                     <ImageUp />
                     Upload Photo
                 </Button>
+                {/* <Input id="picture" type="file" /> */}
                 <div className="grid gap-2 w-full mt-4">
                     <Label htmlFor="description">Description</Label>
                     <Textarea
