@@ -29,34 +29,36 @@ class TestCommand extends Command
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
         $content =  "";
         $response = $open_ai->chat()->create([
-            "model" => "gpt-3.5-turbo-1106",
+            "model" => "gpt-4o-mini",
             "response_format" => [
                 "type" => "json_object",
             ],
             "messages" => [
                 [
                     "role" => "system",
-                    "content" => "You are a helpful assistant designed to generate recipes and output in JSON format. Each recipe should include the properties 'name', 'description', 'nutrients', 'ingredients', 'cooktime_in_minutes', and 'instructions'. 
-                    
-                    The 'nutrients' property should have the following sub-properties: 'calories' (IMPORTANT TO GET THIS ONE CORRECT), 'protein', 'carbohydrates', 'fats', 'fiber', 'sugars'. 
-                    
-                    The 'ingredients' property should be an array of objects containing string 'unit', number or decimal 'quantity', string 'name', and a boolean 'optional'. 
-                    
-                    The 'cooktime_in_minutes' property should be a number.
-                    
-                    The 'instructions' property should be an array of objects containing number 'step' and string 'description'.
+                    "content" => "You are a helpful assistant designed to analyze a meal and output in JSON format.
+                    You return an object with the following properties: name, protein, calories, fats, fiber, carbohydrates.
                     "
                 ],
                 [
                     "role" => "user",
-                    "content" => $content
+                    "content" => [
+                        [
+                            "type" => "text",
+                            "text" => "Give me the info for this meal. Here is a short description of the meal: carpaccio salad with garlic sauce"
+                        ],
+                        [
+                            "type" => "image_url",
+                            "image_url" => [
+                                "url" => "https://i.imghippo.com/files/6CX4m1722608547.jpg"
+                            ]
+                        ]
+                    ]
                 ]
             ],
-            "temperature" => 1.0,
             "max_tokens" => 4000,
-            "frequency_penalty" => 0,
-            "presence_penalty" => 0,
         ]);
-        "https://i.imghippo.com/files/6CX4m1722608547.jpg";
+
+        logger($response->choices[0]->message->content);
     }
 }
