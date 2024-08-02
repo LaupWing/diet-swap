@@ -9,6 +9,7 @@ import {
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
+import { Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
 export default function Welcome() {
     const date = new Date()
@@ -33,7 +34,7 @@ export default function Welcome() {
                             1800 calories
                         </div>
                     </div>
-                    <section className="flex flex-col">
+                    <section className="flex flex-col items-center">
                         <Card className="max-w-[300px] text-sm w-full">
                             <div className="flex flex-col p-6 gap-2">
                                 <header className="flex flex-col">
@@ -64,6 +65,10 @@ export default function Welcome() {
                                 </div>
                             </div>
                         </Card>
+                        <div className="w-[2px] h-14 bg-slate-200"></div>
+                        <button>
+                            <Plus />
+                        </button>
                     </section>
                 </main>
             </div>
