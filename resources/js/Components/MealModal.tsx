@@ -5,7 +5,7 @@ import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
 
-export const UploadModal = () => {
+export const MealModal = () => {
     return (
         <DialogContent className="max-w-[90%] rounded">
             <DialogHeader>

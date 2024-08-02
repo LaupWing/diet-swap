@@ -1,12 +1,13 @@
 import { Card } from "@/Components/ui/card"
 import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
-import { UploadModal } from "@/Components/UploadModal"
+import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
+
 export default function Welcome() {
     const date = new Date()
     return (
@@ -109,7 +110,7 @@ export default function Welcome() {
                                         <Plus className="text-slate-400" />
                                     </button>
                                 </DialogTrigger>
-                                <UploadModal />
+                                <MealModal />
                             </Dialog>
                         </div>
                         <div className="h-8"></div>
