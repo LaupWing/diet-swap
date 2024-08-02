@@ -5,7 +5,7 @@ import {
     DialogTitle,
 } from "./ui/dialog"
 import { Button } from "./ui/button"
-import { Camera, ImageUp } from "lucide-react"
+import { Camera, ImageUp, X } from "lucide-react"
 import { Label } from "./ui/label"
 import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
@@ -64,10 +64,15 @@ export const MealModal = () => {
                         </Button>
                     </div>
                 ) : (
-                    <img
-                        className="aspect-video object-cover rounded"
-                        src={preview}
-                    />
+                    <div className="relative">
+                        <button className="absolute top-2 right-2">
+                            <X />
+                        </button>
+                        <img
+                            className="aspect-video object-cover rounded"
+                            src={preview}
+                        />
+                    </div>
                 )}
                 <Input
                     onChange={handleChange}
