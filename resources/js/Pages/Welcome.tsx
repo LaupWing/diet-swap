@@ -66,8 +66,8 @@ export default function Welcome() {
                             </div>
                         </Card>
                         <div className="w-[2px] h-14 bg-slate-200"></div>
-                        <button>
-                            <Plus />
+                        <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
+                            <Plus className="text-slate-400" />
                         </button>
                     </section>
                 </main>
