@@ -148,6 +148,9 @@ export default function Welcome() {
                                                 className="w-full"
                                             />
                                         </div>
+                                        <Button className="ml-auto mt-4">
+                                            Next
+                                        </Button>
                                     </div>
                                 </DialogContent>
                             </Dialog>
