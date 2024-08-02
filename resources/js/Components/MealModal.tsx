@@ -56,7 +56,7 @@ export const MealModal = () => {
                         </Button>
                     </div>
                 ) : (
-                    <img src={preview} />
+                    <img className="aspect-video object-cover" src={preview} />
                 )}
                 <Input
                     onChange={handleChange}
