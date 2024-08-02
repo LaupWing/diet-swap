@@ -10,7 +10,20 @@ import heic2any from "heic2any"
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
     const handleChange = (e: any) => {
-        setPreview(URL.createObjectURL(e.target!.files[0]))
+        console.log(e.target.files[0])
+        if (
+            e.target.files[0].type.includes("heic") ||
+            e.target.files[0].type.includes("heif")
+        ) {
+            heic2any({
+                blob: e.target.files[0],
+                toType: "image/jpeg",
+                quality: 1,
+            }).then((file: any) => {
+                setPreview(URL.createObjectURL(file))
+            })
+        }
+        // setPreview(URL.createObjectURL(e.target!.files[0]))
     }
 
     return (
