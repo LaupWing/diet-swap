@@ -14,7 +14,7 @@ export default function Welcome() {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className="flex h-screen">
+        <>
             {/* <div
                 className={cn(
                     "border-r duration-200 bg-primary-foreground",
@@ -145,7 +145,7 @@ export default function Welcome() {
                     </ScrollArea>
                 </main>
             </div>
-        </div>
+        </>
     )
 }
 
