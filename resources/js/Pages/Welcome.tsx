@@ -14,10 +14,10 @@ export default function Welcome() {
     const [open, setOpen] = useState(false)
 
     return (
-        <>
-            {/* <div
+        <div className="flex min-w-0">
+            <div
                 className={cn(
-                    "border-r duration-200 bg-primary-foreground",
+                    "border-r duration-200 bg-primary-foreground flex-shrink-0",
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
@@ -30,9 +30,9 @@ export default function Welcome() {
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
                 </a>
-            </div> */}
+            </div>
             <Head title="Welcome" />
-            <div className="flex-1 bg-background flex flex-col">
+            <div className="flex-1 w-full bg-background flex flex-col">
                 <header>
                     <div className="">
                         <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
@@ -145,7 +145,7 @@ export default function Welcome() {
                     </ScrollArea>
                 </main>
             </div>
-        </>
+        </div>
     )
 }
 
