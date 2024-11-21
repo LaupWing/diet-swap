@@ -17,7 +17,23 @@ export default function Welcome() {
         <div className="flex min-w-0">
             <div
                 className={cn(
-                    "border-r duration-200 bg-primary-foreground flex-shrink-0",
+                    "border-r hidden duration-200 bg-primary-foreground sm:flex-shrink-0",
+                    open ? "w-52 p-4 " : "w-0 p-0"
+                )}
+            >
+                <a className="flex items-center gap-2" href="#">
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                        <Command className="size-4" />
+                    </div>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                        <span className="truncate font-semibold">Acme Inc</span>
+                        <span className="truncate text-xs">Enterprise</span>
+                    </div>
+                </a>
+            </div>
+            <div
+                className={cn(
+                    "border-r hidden duration-200 bg-primary-foreground sm:flex-shrink-0",
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
