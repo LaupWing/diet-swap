@@ -19,7 +19,7 @@ createInertiaApp({
         const root = createRoot(el)
 
         root.render(
-            <ThemeProvider defaultTheme="dark">
+            <ThemeProvider defaultTheme="light">
                 <App {...props} />
             </ThemeProvider>
         )
