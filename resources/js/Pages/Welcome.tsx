@@ -21,11 +21,11 @@ export default function Welcome() {
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
-                <a href="#">
+                <a className="flex items-center gap-2" href="#">
                     <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                         <Command className="size-4" />
                     </div>
-                    <div className="grid flex-1 mt-1 text-left text-sm leading-tight">
+                    <div className="grid flex-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">Acme Inc</span>
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
