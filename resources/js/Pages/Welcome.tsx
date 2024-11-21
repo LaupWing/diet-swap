@@ -12,16 +12,16 @@ import { Button } from "@/Components/ui/button"
 export default function Welcome() {
     const date = new Date()
     return (
-        <>
+        <div>
             <Head title="Welcome" />
             <div className="mx-auto bg-background flex flex-col">
                 <header>
                     <div className="">
-                        <div className="px-4 pt-3 pb-2 flex items-center gap-1">
+                        <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
                             <Button variant={"ghost"} size={"icon"}>
                                 <PanelsTopLeft />
                             </Button>
-                            <h2 className="uppercase text-slate-300 font-bold">
+                            <h2 className="uppercase  font-bold">
                                 {date.toLocaleString("en-US", {
                                     month: "long",
                                 })}
@@ -123,7 +123,7 @@ export default function Welcome() {
                     </ScrollArea>
                 </main>
             </div>
-        </>
+        </div>
     )
 }
 
