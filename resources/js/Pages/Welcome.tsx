@@ -13,7 +13,7 @@ export default function Welcome() {
     return (
         <>
             <Head title="Welcome" />
-            <div className="max-w-xl mx-auto bg-background flex flex-col">
+            <div className="mx-auto bg-background flex flex-col">
                 <header>
                     <div className="">
                         <h2 className="px-4 pt-3 pb-2 uppercase text-slate-300 font-bold">
