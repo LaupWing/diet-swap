@@ -6,19 +6,26 @@ import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, PanelsTopLeft, Plus } from "lucide-react"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 
 export default function Welcome() {
     const date = new Date()
+    const [open, setOpen] = useState(false)
+
     return (
         <div className="flex h-screen">
-            <div className="p-4 border-r bg-primary-foreground">
+            <div
+                className={cn(
+                    "border-r duration-200 bg-primary-foreground",
+                    open ? "w-52 p-4 " : "w-0 p-0"
+                )}
+            >
                 <a href="#">
                     <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                         <Command className="size-4" />
                     </div>
-                    <div className="grid flex-1 text-left text-sm leading-tight">
+                    <div className="grid flex-1 mt-1 text-left text-sm leading-tight">
                         <span className="truncate font-semibold">Acme Inc</span>
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
@@ -29,7 +36,11 @@ export default function Welcome() {
                 <header>
                     <div className="">
                         <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
-                            <Button variant={"ghost"} size={"icon"}>
+                            <Button
+                                onClick={() => setOpen(!open)}
+                                variant={"ghost"}
+                                size={"icon"}
+                            >
                                 <PanelsTopLeft />
                             </Button>
                             <h2 className="uppercase  font-bold">
