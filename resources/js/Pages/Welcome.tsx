@@ -5,16 +5,27 @@ import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { PanelsTopLeft, Plus } from "lucide-react"
+import { Command, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
 import { Button } from "@/Components/ui/button"
 
 export default function Welcome() {
     const date = new Date()
     return (
-        <div>
+        <div className="flex h-screen">
+            <div className="p-4 border-r bg-primary-foreground">
+                <a href="#">
+                    <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                        <Command className="size-4" />
+                    </div>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                        <span className="truncate font-semibold">Acme Inc</span>
+                        <span className="truncate text-xs">Enterprise</span>
+                    </div>
+                </a>
+            </div>
             <Head title="Welcome" />
-            <div className="mx-auto bg-background flex flex-col">
+            <div className="flex-1 bg-background flex flex-col">
                 <header>
                     <div className="">
                         <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
