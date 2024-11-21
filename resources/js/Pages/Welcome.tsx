@@ -15,7 +15,7 @@ export default function Welcome() {
 
     return (
         <div className="flex h-screen">
-            <div
+            {/* <div
                 className={cn(
                     "border-r duration-200 bg-primary-foreground",
                     open ? "w-52 p-4 " : "w-0 p-0"
@@ -30,7 +30,7 @@ export default function Welcome() {
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
                 </a>
-            </div>
+            </div> */}
             <Head title="Welcome" />
             <div className="flex-1 bg-background flex flex-col">
                 <header>
