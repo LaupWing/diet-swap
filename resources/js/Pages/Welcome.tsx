@@ -20,19 +20,30 @@ import {
     SidebarMenuSubButton,
     SidebarMenuSubItem,
     SidebarProvider,
+    SidebarTrigger,
 } from "@/Components/ui/sidebar"
 
 export default function Welcome() {
     const date = new Date()
     return (
-        <SidebarProvider>
+        <SidebarProvider
+            style={
+                {
+                    "--sidebar-width": "19rem",
+                } as React.CSSProperties
+            }
+        >
             <Head title="Dashboard" />
             <AppSidebar />
             <SidebarInset>
                 <div className="bg-background flex flex-col">
                     <header>
                         <div className="">
-                            <h2 className="px-4 pt-3 pb-2 uppercase text-slate-300 font-bold">
+                            <h2 className="px-4 pt-3 pb-2 uppercase  font-bold">
+                                <SidebarTrigger
+                                    variant={"outline"}
+                                    className=""
+                                />
                                 {date.toLocaleString("en-US", {
                                     month: "long",
                                 })}
