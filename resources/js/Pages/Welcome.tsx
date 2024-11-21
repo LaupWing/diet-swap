@@ -5,8 +5,9 @@ import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Plus } from "lucide-react"
+import { PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef } from "react"
+import { Button } from "@/Components/ui/button"
 
 export default function Welcome() {
     const date = new Date()
@@ -16,11 +17,16 @@ export default function Welcome() {
             <div className="mx-auto bg-background flex flex-col">
                 <header>
                     <div className="">
-                        <h2 className="px-4 pt-3 pb-2 uppercase text-slate-300 font-bold">
-                            {date.toLocaleString("en-US", {
-                                month: "long",
-                            })}
-                        </h2>
+                        <div className="px-4 pt-3 pb-2 flex items-center gap-1">
+                            <Button variant={"ghost"} size={"icon"}>
+                                <PanelsTopLeft />
+                            </Button>
+                            <h2 className="uppercase text-slate-300 font-bold">
+                                {date.toLocaleString("en-US", {
+                                    month: "long",
+                                })}
+                            </h2>
+                        </div>
                         <Dates />
                     </div>
                 </header>
