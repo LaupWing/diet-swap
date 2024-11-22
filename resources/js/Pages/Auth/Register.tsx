@@ -43,11 +43,20 @@ export default function Register() {
                 return false
         }
     }
+    console.log(disableNext())
 
     const renderStep = () => {
         switch (currentStep) {
             case 1:
-                return <Step1 nextStep={() => setCurrentStep(2)} />
+                return (
+                    <Step1
+                        setData={(data) =>
+                            form.setData({
+                                ...data,
+                            })
+                        }
+                    />
+                )
             case 3:
                 return <Step3 />
             case 4:
@@ -76,6 +85,9 @@ export default function Register() {
                     <Button
                         disabled={disableNext()}
                         className={cn(currentStep === 1 && "ml-auto")}
+                        onClick={() => {
+                            setCurrentStep(currentStep + 1)
+                        }}
                     >
                         <span>Next</span>
                         <ChevronRight className="size-6" />
@@ -87,16 +99,10 @@ export default function Register() {
 }
 
 const Step1: FC<{
-    nextStep: () => void
-}> = ({ nextStep }) => {
+    setData?: (data: any) => void
+}> = ({ setData }) => {
     return (
-        <form
-            onSubmit={(e) => {
-                e.preventDefault()
-                nextStep()
-            }}
-            className="flex flex-col"
-        >
+        <div className="flex flex-col">
             <div className="my-8 flex flex-col">
                 <h2 className="text-xl font-bold">Login Info</h2>
                 <p className="text-sm">
@@ -129,7 +135,7 @@ const Step1: FC<{
                 <span>Next</span>
                 <ChevronRight className="size-6" />
             </Button> */}
-        </form>
+        </div>
     )
 }
 
