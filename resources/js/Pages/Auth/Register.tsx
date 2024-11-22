@@ -32,7 +32,7 @@ interface FormData {
 }
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(2)
+    const [currentStep, setCurrentStep] = useState(1)
     const form = useForm<FormData>({
         email: "",
         password: "",
@@ -125,7 +125,12 @@ export default function Register() {
                 {renderStep()}
                 <div className="mt-6 flex justify-between">
                     {currentStep != 1 && (
-                        <Button variant={"outline"}>
+                        <Button
+                            onClick={() => {
+                                setCurrentStep(currentStep - 1)
+                            }}
+                            variant={"outline"}
+                        >
                             <span>Prev</span>
                             <ChevronLeft className="size-6" />
                         </Button>
