@@ -57,7 +57,7 @@ class AiController extends Controller
                 ],
                 [
                     "role" => "user",
-                    "content" => "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity and I want to reach $goal_weight $unit in $goal_months months."
+                    "content" => "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity_level and I want to reach $goal_weight $unit in $goal_months months."
                 ]
             ],
             "max_tokens" => 4000,
