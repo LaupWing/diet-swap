@@ -27,6 +27,7 @@ interface FormData {
     height: string
     height_unit: string
     ideal_weight: string
+    gender: string
     ideal_weight_timespan: string
 }
 
@@ -39,6 +40,7 @@ export default function Register() {
         firstname: "",
         lastname: "",
         dateOfBirth: "",
+        gender: "",
         weight: "inch",
         weight_unit: "",
         height: "lbs",
@@ -81,7 +83,12 @@ export default function Register() {
                     />
                 )
             case 2:
-                return <Step2 setData={(data) => setFormData(data)} />
+                return (
+                    <Step2
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
             case 3:
                 return <Step3 />
             case 4:
@@ -189,7 +196,8 @@ const Step1: FC<{
 
 const Step2: FC<{
     setData: (data: any) => void
-}> = ({ setData }) => {
+    formData: FormData
+}> = ({ setData, formData }) => {
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
@@ -209,6 +217,7 @@ const Step2: FC<{
                         }}
                         type="text"
                         autoCorrect="off"
+                        value={formData.firstname}
                     />
                 </div>
                 <div className="grid gap-1 ">
@@ -220,6 +229,7 @@ const Step2: FC<{
                         id="lastname"
                         type="text"
                         autoCorrect="off"
+                        value={formData.lastname}
                     />
                 </div>
                 <div className="grid gap-1 ">
@@ -231,6 +241,7 @@ const Step2: FC<{
                         id="dateOfBirth"
                         type="date"
                         autoCorrect="off"
+                        value={formData.dateOfBirth}
                     />
                 </div>
                 <div className="grid gap-1 ">
@@ -241,6 +252,7 @@ const Step2: FC<{
                                 gender: e,
                             })
                         }}
+                        value={formData.gender || ""}
                     >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
