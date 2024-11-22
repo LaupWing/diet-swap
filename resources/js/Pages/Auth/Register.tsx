@@ -19,6 +19,7 @@ export default function Register() {
     const form = useForm({
         email: "",
         password: "",
+        confirm_password: "",
         firstname: "",
         lastname: "",
         dateOfBirth: "",
