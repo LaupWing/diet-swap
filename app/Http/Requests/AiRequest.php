@@ -22,14 +22,23 @@ class AiRequest extends FormRequest
     public function rules(): array
     {
         return [
+            "email" => ["required", "string", "email"],
+            "password" => ["required", "string"],
+            "firstname" => ["required", "string"],
+            "lastname" => ["required", "string"],
+            "dateOfBirth" => ["required", "date"],
             "gender" => ["required", "string"],
-            "age" => ["required", "integer"],
-            "height" => ["required", "integer"],
             "weight" => ["required", "integer"],
-            "activity" => ["required", "string"],
-            "goal_weight" => ["required", "integer"],
-            "goal_months" => ["required", "integer"],
-            "unit" => ["required", "string"],
+            "weight_unit" => ["required", "string"],
+            "height" => ["required", "integer"],
+            "height_unit" => ["required", "string"],
+            "ideal_weight" => ["required", "integer"],
+            "ideal_weight_timespan_in_months" => ["required", "integer"],
+            "dietary" => ["nullable", "string"],
+            "cuisine" => ["nullable", "string"],
+            "allergies" => ["nullable", "string"],
+            "special_notes" => ["nullable", "string"],
+            "activity_level" => ["required", "string"],
         ];
     }
 }
