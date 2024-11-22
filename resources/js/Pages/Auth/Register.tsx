@@ -285,6 +285,7 @@ const Step2: FC<{
                                     height: e.target.value,
                                 })
                             }}
+                            value={formData.height}
                         />
                         <Select
                             onValueChange={(e) => {
@@ -316,6 +317,7 @@ const Step2: FC<{
                             id="weight"
                             type="number"
                             autoCorrect="off"
+                            value={formData.weight}
                         />
                         <Select
                             onValueChange={(e) => {
