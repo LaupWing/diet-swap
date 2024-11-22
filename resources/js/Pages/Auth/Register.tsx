@@ -31,7 +31,7 @@ export default function Register() {
 
     return (
         <div className="text-black">
-            <div className="max-w-sm mx-auto">
+            <div className="max-w-sm mx-auto mt-[10vh] px-8 pb-6">
                 <div className="w-full max-w-xs flex-col justify-center">
                     <span className="text-sm text-foreground/40">
                         {currentStep} / 6
