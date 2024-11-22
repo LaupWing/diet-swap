@@ -12,7 +12,7 @@ import {
 } from "@/Components/ui/select"
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(3)
+    const [currentStep, setCurrentStep] = useState(4)
 
     const renderStep = () => {
         switch (currentStep) {
@@ -20,6 +20,8 @@ export default function Register() {
                 return <Step2 />
             case 3:
                 return <Step3 />
+            case 4:
+                return <Step4 />
             default:
                 return <Step2 />
         }
@@ -233,6 +235,17 @@ const Step4 = () => {
                             <SelectItem value="greek">Greek</SelectItem>
                         </SelectContent>
                     </Select>
+                </div>
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">
+                        Allergies (seperated by comma)
+                    </Label>
+                    <Input
+                        id="dateOfBirth"
+                        type="text"
+                        placeholder="Allergies (seperated by comma)"
+                        autoCorrect="off"
+                    />
                 </div>
             </div>
         </form>
