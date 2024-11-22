@@ -475,7 +475,14 @@ const Step4: FC<{
             <div className="grid gap-4">
                 <div className="grid gap-1 ">
                     <Label htmlFor="dietary">Dietary</Label>
-                    <Select value={formData.dietary}>
+                    <Select
+                        onValueChange={(e) => {
+                            setData({
+                                dietary: e,
+                            })
+                        }}
+                        value={formData.dietary}
+                    >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Dietary" />
                         </SelectTrigger>
@@ -496,7 +503,14 @@ const Step4: FC<{
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="cuisine">Cuisine</Label>
-                    <Select value={formData.cuisine}>
+                    <Select
+                        onValueChange={(e) => {
+                            setData({
+                                cuisine: e,
+                            })
+                        }}
+                        value={formData.cuisine}
+                    >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Cuisine" />
                         </SelectTrigger>
