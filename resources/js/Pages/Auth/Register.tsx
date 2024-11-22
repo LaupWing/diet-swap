@@ -136,6 +136,10 @@ export default function Register() {
         }
     }
 
+    const submitInfo = () => {
+        console.log(form.data)
+    }
+
     return (
         <div className="text-black">
             <div className="max-w-sm mx-auto mt-[10vh] px-8 pb-6">
@@ -169,7 +173,10 @@ export default function Register() {
                             <ChevronRight className="size-6" />
                         </Button>
                     ) : (
-                        <Button className="bg-green-400 hover:bg-green-500">
+                        <Button
+                            onClick={submitInfo}
+                            className="bg-green-400 hover:bg-green-500"
+                        >
                             <Check className="size-6 mx-2" />
                         </Button>
                     )}
@@ -428,11 +435,11 @@ const Step3: FC<{
                         }}
                     >
                         <SelectTrigger className="w-auto">
-                            <SelectValue placeholder="Gender" />
+                            <SelectValue placeholder="Months" />
                         </SelectTrigger>
                         <SelectContent>
                             {new Array(12).fill(0).map((_, i) => (
-                                <SelectItem value={(i + 1).toString()}>
+                                <SelectItem key={i} value={(i + 1).toString()}>
                                     {i + 1}
                                 </SelectItem>
                             ))}
