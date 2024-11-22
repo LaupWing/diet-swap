@@ -216,7 +216,6 @@ const Step2: FC<{
                                 gender: e,
                             })
                         }}
-                        defaultValue="inch"
                     >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
@@ -260,14 +259,26 @@ const Step2: FC<{
                     </div>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Weight</Label>
+                    <Label htmlFor="weight">Weight</Label>
                     <div className="flex gap-1">
                         <Input
-                            id="dateOfBirth"
+                            onChange={(e) => {
+                                setData({
+                                    weight: e.target.value,
+                                })
+                            }}
+                            id="weight"
                             type="number"
                             autoCorrect="off"
                         />
-                        <Select defaultValue="lbs">
+                        <Select
+                            onValueChange={(e) => {
+                                setData({
+                                    weight_unit: e,
+                                })
+                            }}
+                            defaultValue="lbs"
+                        >
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="weight" />
                             </SelectTrigger>
