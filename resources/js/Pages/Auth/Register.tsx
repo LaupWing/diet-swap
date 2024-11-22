@@ -82,6 +82,8 @@ export default function Register() {
                     !form.data.ideal_weight ||
                     !form.data.ideal_weight_timespan_in_months
                 )
+            case 4:
+                return false
             default:
                 return false
         }
