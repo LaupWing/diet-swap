@@ -28,7 +28,7 @@ interface FormData {
     height_unit: string
     ideal_weight: string
     gender: string
-    ideal_weight_timespan: string
+    ideal_weight_timespan_in_months: string
 }
 
 export default function Register() {
@@ -46,7 +46,7 @@ export default function Register() {
         height: "lbs",
         height_unit: "",
         ideal_weight: "",
-        ideal_weight_timespan: "",
+        ideal_weight_timespan_in_months: "",
     })
     const disableNext = () => {
         switch (currentStep) {
@@ -69,7 +69,8 @@ export default function Register() {
                 )
             case 3:
                 return (
-                    !form.data.ideal_weight || !form.data.ideal_weight_timespan
+                    !form.data.ideal_weight ||
+                    !form.data.ideal_weight_timespan_in_months
                 )
             default:
                 return false
@@ -363,7 +364,7 @@ const Step3 = () => {
                     <Label htmlFor="dateOfBirth">Ideal Weight</Label>
                     <div className="flex gap-1">
                         <Input
-                            id="dateOfBirth"
+                            id="ideal_weight"
                             type="number"
                             autoCorrect="off"
                         />
@@ -379,7 +380,9 @@ const Step3 = () => {
                     </div>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Months to hit the goal</Label>
+                    <Label htmlFor="ideal_weight_timespan_in_months">
+                        Months to hit the goal
+                    </Label>
                     <Select defaultValue="inch">
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
