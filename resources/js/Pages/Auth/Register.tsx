@@ -95,7 +95,7 @@ export default function Register() {
             ...data,
         })
     }
-    console.log(form.data)
+
     const renderStep = () => {
         switch (currentStep) {
             case 1:
@@ -120,7 +120,12 @@ export default function Register() {
                     />
                 )
             case 4:
-                return <Step4 />
+                return (
+                    <Step4
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
             case 5:
                 return <Step5 />
             default:
@@ -435,7 +440,10 @@ const Step3: FC<{
     )
 }
 
-const Step4 = () => {
+const Step4: FC<{
+    setData: (data: any) => void
+    formData: FormData
+}> = ({ setData, formData }) => {
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
