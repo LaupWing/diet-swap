@@ -73,7 +73,10 @@ export default function Register() {
                             <ChevronLeft className="size-6" />
                         </Button>
                     )}
-                    <Button className={cn(currentStep === 1 && "ml-auto")}>
+                    <Button
+                        disabled={disableNext()}
+                        className={cn(currentStep === 1 && "ml-auto")}
+                    >
                         <span>Next</span>
                         <ChevronRight className="size-6" />
                     </Button>
