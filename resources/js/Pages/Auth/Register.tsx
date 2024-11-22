@@ -100,7 +100,12 @@ export default function Register() {
                     />
                 )
             case 3:
-                return <Step3 />
+                return (
+                    <Step3
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
             case 4:
                 return <Step4 />
             case 5:
@@ -348,7 +353,10 @@ const Step2: FC<{
     )
 }
 
-const Step3 = () => {
+const Step3: FC<{
+    setData: (data: any) => void
+    formData: FormData
+}> = ({ setData, formData }) => {
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
