@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(5)
+    const [currentStep, setCurrentStep] = useState(1)
     const form = useForm({
         email: "",
         password: "",
@@ -111,8 +111,7 @@ const Step1: FC<{
             <div className="my-8 flex flex-col">
                 <h2 className="text-xl font-bold">Login Info</h2>
                 <p className="text-sm">
-                    You cannot change email, because the payment subscription is
-                    linked to this email.
+                    The info is used to login to the diet swap app.
                 </p>
             </div>
             <div className="grid gap-4">
