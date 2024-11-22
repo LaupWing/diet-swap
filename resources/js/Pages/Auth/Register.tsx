@@ -31,7 +31,7 @@ export default function Register() {
 
     return (
         <div className="text-black">
-            <div>{renderStep()}</div>
+            <div className="max-w-sm mx-auto">{renderStep()}</div>
         </div>
     )
 }
@@ -58,6 +58,19 @@ const Step2 = () => {
                 <div className="grid gap-1 ">
                     <Label htmlFor="dateOfBirth">Date of Birth</Label>
                     <Input id="dateOfBirth" type="date" autoCorrect="off" />
+                </div>
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">Gender</Label>
+                    <Select defaultValue="inch">
+                        <SelectTrigger className="w-auto">
+                            <SelectValue placeholder="Gender" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="male">Male</SelectItem>
+                            <SelectItem value="female">Female</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="dateOfBirth">Height</Label>
