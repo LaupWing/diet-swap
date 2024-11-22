@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import { Label } from "@/Components/ui/label"
 import { Input } from "@/Components/ui/input"
 import { Button } from "@/Components/ui/button"
@@ -13,12 +13,12 @@ import {
 import { Textarea } from "@/Components/ui/textarea"
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(4)
+    const [currentStep, setCurrentStep] = useState(1)
 
     const renderStep = () => {
         switch (currentStep) {
             case 1:
-                return <Step2 />
+                return <Step1 nextStep={() => setCurrentStep(2)} />
             case 3:
                 return <Step3 />
             case 4:
@@ -49,6 +49,56 @@ export default function Register() {
                 </div>
             </div>
         </div>
+    )
+}
+
+const Step1: FC<{
+    nextStep: () => void
+}> = ({ nextStep }) => {
+    return (
+        <form
+            onSubmit={(e) => {
+                e.preventDefault()
+                nextStep()
+            }}
+            className="flex flex-col"
+        >
+            <div className="text-background my-8 flex flex-col">
+                <h2 className="text-xl font-bold">Login Info</h2>
+                <p className="text-sm">
+                    You cannot change email, because the payment subscription is
+                    linked to this email.
+                </p>
+            </div>
+            <div className="grid gap-4">
+                <div className="grid gap-1 text-background">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                        id="email"
+                        readOnly
+                        placeholder="name@example.com"
+                        type="email"
+                        autoCapitalize="none"
+                        autoComplete="email"
+                        autoCorrect="off"
+                        disabled
+                        value={"test@hotmail.com"}
+                    />
+                </div>
+                <div className="grid gap-1 text-background">
+                    <Label htmlFor="email">Password</Label>
+                    <Input id="password" type="password" autoCorrect="off" />
+                </div>
+                <div className="grid gap-1 text-background">
+                    <Label htmlFor="email">Confirm Password</Label>
+                    <Input id="password" type="password" autoCorrect="off" />
+                </div>
+            </div>
+            <Button variant={"secondary"} className="ml-auto mt-4">
+                <span>Next</span>
+                <ChevronRight className="size-6" />
+            </Button>
+        </form>
     )
 }
 
