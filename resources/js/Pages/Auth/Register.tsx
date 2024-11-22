@@ -1,10 +1,4 @@
-import { FormEventHandler, useState } from "react"
-import GuestLayout from "@/Layouts/GuestLayout"
-import InputError from "@/Components/InputError"
-import InputLabel from "@/Components/InputLabel"
-import PrimaryButton from "@/Components/PrimaryButton"
-import TextInput from "@/Components/TextInput"
-import { Head, Link, useForm } from "@inertiajs/react"
+import { useState } from "react"
 import { Label } from "@/Components/ui/label"
 import { Input } from "@/Components/ui/input"
 import { Button } from "@/Components/ui/button"
@@ -130,10 +124,6 @@ const Step2 = () => {
                     </div>
                 </div>
             </div>
-            <Button className="ml-auto mt-4">
-                <span>Next</span>
-                <ChevronRight className="size-6" />
-            </Button>
         </form>
     )
 }
