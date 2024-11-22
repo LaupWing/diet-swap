@@ -32,7 +32,7 @@ export const MealModal = () => {
     }
 
     return (
-        <DialogContent className="max-w-[90%] rounded">
+        <DialogContent className="max-w-md w-[90%] rounded">
             <DialogHeader className="text-left">
                 <DialogTitle>Add Meal</DialogTitle>
                 <DialogDescription>
