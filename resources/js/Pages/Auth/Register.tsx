@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import { Label } from "@/Components/ui/label"
 import { Input } from "@/Components/ui/input"
 import { Button } from "@/Components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { Check, ChevronLeft, ChevronRight } from "lucide-react"
 import {
     Select,
     SelectContent,
@@ -157,16 +157,22 @@ export default function Register() {
                             <ChevronLeft className="size-6" />
                         </Button>
                     )}
-                    <Button
-                        disabled={disableNext()}
-                        className={cn(currentStep === 1 && "ml-auto")}
-                        onClick={() => {
-                            setCurrentStep(currentStep + 1)
-                        }}
-                    >
-                        <span>Next</span>
-                        <ChevronRight className="size-6" />
-                    </Button>
+                    {currentStep !== 5 ? (
+                        <Button
+                            disabled={disableNext()}
+                            className={cn(currentStep === 1 && "ml-auto")}
+                            onClick={() => {
+                                setCurrentStep(currentStep + 1)
+                            }}
+                        >
+                            <span>Next</span>
+                            <ChevronRight className="size-6" />
+                        </Button>
+                    ) : (
+                        <Button className="bg-green-400 hover:bg-green-500">
+                            <Check className="size-6 mx-2" />
+                        </Button>
+                    )}
                 </div>
             </div>
         </div>
