@@ -99,20 +99,20 @@ const Step2 = () => {
                     </div>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Height</Label>
+                    <Label htmlFor="dateOfBirth">Weight</Label>
                     <div className="flex gap-1">
                         <Input
                             id="dateOfBirth"
                             type="number"
                             autoCorrect="off"
                         />
-                        <Select defaultValue="inch">
+                        <Select defaultValue="lbs">
                             <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Height" />
+                                <SelectValue placeholder="weight" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="cm">CM</SelectItem>
-                                <SelectItem value="inch">INCH</SelectItem>
+                                <SelectItem value="kg">KG</SelectItem>
+                                <SelectItem value="lbs">LBS</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
