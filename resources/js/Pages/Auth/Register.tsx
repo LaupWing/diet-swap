@@ -63,7 +63,7 @@ const Step1: FC<{
             }}
             className="flex flex-col"
         >
-            <div className="text-background my-8 flex flex-col">
+            <div className="my-8 flex flex-col">
                 <h2 className="text-xl font-bold">Login Info</h2>
                 <p className="text-sm">
                     You cannot change email, because the payment subscription is
@@ -71,33 +71,30 @@ const Step1: FC<{
                 </p>
             </div>
             <div className="grid gap-4">
-                <div className="grid gap-1 text-background">
+                <div className="grid gap-1">
                     <Label htmlFor="email">Email</Label>
                     <Input
                         id="email"
-                        readOnly
-                        placeholder="name@example.com"
                         type="email"
                         autoCapitalize="none"
                         autoComplete="email"
                         autoCorrect="off"
-                        disabled
-                        value={"test@hotmail.com"}
+                        placeholder="test@example.com"
                     />
                 </div>
-                <div className="grid gap-1 text-background">
+                <div className="grid gap-1">
                     <Label htmlFor="email">Password</Label>
                     <Input id="password" type="password" autoCorrect="off" />
                 </div>
-                <div className="grid gap-1 text-background">
+                <div className="grid gap-1">
                     <Label htmlFor="email">Confirm Password</Label>
                     <Input id="password" type="password" autoCorrect="off" />
                 </div>
             </div>
-            <Button variant={"secondary"} className="ml-auto mt-4">
+            {/* <Button variant={"secondary"} className="ml-auto mt-4">
                 <span>Next</span>
                 <ChevronRight className="size-6" />
-            </Button>
+            </Button> */}
         </form>
     )
 }
