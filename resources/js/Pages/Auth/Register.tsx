@@ -411,7 +411,14 @@ const Step3: FC<{
                             }}
                             value={formData.ideal_weight}
                         />
-                        <Select value={formData.weight_unit}>
+                        <Select
+                            onValueChange={(e) => {
+                                setData({
+                                    weight_unit: e,
+                                })
+                            }}
+                            value={formData.weight_unit}
+                        >
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="weight" />
                             </SelectTrigger>
