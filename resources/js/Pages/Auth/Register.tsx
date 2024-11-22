@@ -12,6 +12,7 @@ import {
 } from "@/Components/ui/select"
 import { Textarea } from "@/Components/ui/textarea"
 import { useForm } from "@inertiajs/react"
+import { cn } from "@/lib/utils"
 
 export default function Register() {
     const [currentStep, setCurrentStep] = useState(1)
@@ -52,11 +53,13 @@ export default function Register() {
                 </div>
                 {renderStep()}
                 <div className="mt-4 flex justify-between">
-                    <Button variant={"outline"}>
-                        <span>Prev</span>
-                        <ChevronLeft className="size-6" />
-                    </Button>
-                    <Button className="">
+                    {currentStep != 1 && (
+                        <Button variant={"outline"}>
+                            <span>Prev</span>
+                            <ChevronLeft className="size-6" />
+                        </Button>
+                    )}
+                    <Button className={cn(currentStep === 1 && "ml-auto")}>
                         <span>Next</span>
                         <ChevronRight className="size-6" />
                     </Button>
