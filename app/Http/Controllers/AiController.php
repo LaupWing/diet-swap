@@ -37,6 +37,8 @@ class AiController extends Controller
 
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
 
+        $content = "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity_level and I want to reach $goal_weight $unit in $goal_months months.";
+
         $response = $open_ai->chat()->create([
             "model" => "gpt-3.5-turbo-1106",
             "response_format" => [
@@ -54,9 +56,6 @@ class AiController extends Controller
                     'goal_bodyfat' - The exact bodyfat percentage the user aim for as a number.
 
                     'calories' - The amount of calories that the user should consume daily.
-
-                    'meal_plan' - A list of meals that the user should consume daily. Each meal should have a 'recipe_name'(name of the recipe),'calories', and 'meal_type'(breakfast, lunch, diner, or snack) key.
-                    
                     "
                 ],
                 [
