@@ -22,11 +22,11 @@ class AiController extends Controller
         $unit = $data["unit"];
 
         $activities = [
-            "sedentary" => "Little or no exercise.",
-            "lightly" => "Light exercise 1-3 days a week.",
-            "moderately" => "Moderate 3-5 days a week.",
-            "very" => "Hard exercise 6-7 days a week.",
-            "extra" => "Very hard exercise or physical job.",
+            "sedentary" => "Sedentary (office job)",
+            "light-exercise" => "Light Exercise (1-2 days/week)",
+            "moderate-exercise" => "Moderate Exercise (3-5 days/week)",
+            "heavy-exercise" => "Heavy Exercise (6-7 days/week)",
+            "athlete" => "Athlete (2x per day)",
         ];
 
         $activity = $activities[$activity];
