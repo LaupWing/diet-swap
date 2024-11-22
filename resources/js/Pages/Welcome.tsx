@@ -49,7 +49,7 @@ export default function Welcome() {
             </div>
             <Head title="Welcome" />
             <div className="flex-1 w-full bg-background flex flex-col">
-                <header>
+                <header className="sticky top-0 z-50 bg-background">
                     <div className="">
                         <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
                             <Button
