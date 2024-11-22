@@ -229,16 +229,28 @@ const Step2: FC<{
                     </Select>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Height</Label>
+                    <Label htmlFor="height">Height</Label>
                     <div className="flex gap-1">
                         <Input
-                            id="dateOfBirth"
+                            id="height"
                             type="number"
                             autoCorrect="off"
+                            onChange={(e) => {
+                                setData({
+                                    height: e.target.value,
+                                })
+                            }}
                         />
-                        <Select defaultValue="inch">
+                        <Select
+                            onValueChange={(e) => {
+                                setData({
+                                    height_unit: e,
+                                })
+                            }}
+                            defaultValue="inch"
+                        >
                             <SelectTrigger className="w-[180px]">
-                                <SelectValue placeholder="Height" />
+                                <SelectValue placeholder="Unit" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="cm">CM</SelectItem>
