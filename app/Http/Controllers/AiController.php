@@ -37,7 +37,24 @@ class AiController extends Controller
 
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
 
+        $age = date_diff(date_create($age), date_create("now"))->y;
+        logger($age);
+        return back();
+
         $content = "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity_level and I want to reach $goal_weight $unit in $goal_months months.";
+
+        if ($allergies) {
+            $content .= " I have $allergies.";
+        }
+        if ($cuisine) {
+            $content .= " I prefer $cuisine cuisine.";
+        }
+        if ($dietary) {
+            $content .= " I'm on a $dietary diet.";
+        }
+        if ($special_notes) {
+            $content .= " $special_notes";
+        }
 
         $response = $open_ai->chat()->create([
             "model" => "gpt-3.5-turbo-1106",
