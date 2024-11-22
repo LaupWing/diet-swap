@@ -13,9 +13,10 @@ import {
 import { Textarea } from "@/Components/ui/textarea"
 import { useForm } from "@inertiajs/react"
 import { cn } from "@/lib/utils"
+import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(3)
+    const [currentStep, setCurrentStep] = useState(5)
     const form = useForm({
         email: "",
         password: "",
@@ -63,6 +64,8 @@ export default function Register() {
                 return <Step3 />
             case 4:
                 return <Step4 />
+            case 5:
+                return <Step5 />
             default:
                 return <Step2 />
         }
@@ -363,6 +366,57 @@ const Step4 = () => {
                     />
                 </div>
             </div>
+        </form>
+    )
+}
+
+const Step5 = () => {
+    return (
+        <form className="flex flex-col">
+            <div className=" my-8 flex flex-col">
+                <h2 className="text-xl font-bold">Activity Level</h2>
+                <p className="text-sm">
+                    Your activity level is used to get a better understanding of
+                    your daily calorie needs.
+                </p>
+            </div>
+            <RadioGroup className="grid gap-4" defaultValue="option-one">
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="sedentary" id="sedentary" />
+                    <Label htmlFor="sedentary">Sedentary (office job)</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem
+                        value="light-exercise"
+                        id="light-exercise"
+                    />
+                    <Label htmlFor="light-exercise">
+                        Light Exercise (1-2 days/week)
+                    </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem
+                        value="moderate-exercise"
+                        id="moderate-exercise"
+                    />
+                    <Label htmlFor="moderate-exercise">
+                        Moderate Exercise (3-5 days/week)
+                    </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem
+                        value="heavy-exercise"
+                        id="heavy-exercise"
+                    />
+                    <Label htmlFor="heavy-exercise">
+                        Heavy Exercise (6-7 days/week)
+                    </Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="athlete" id="athlete" />
+                    <Label htmlFor="athlete">Athlete (2x per day)</Label>
+                </div>
+            </RadioGroup>
         </form>
     )
 }
