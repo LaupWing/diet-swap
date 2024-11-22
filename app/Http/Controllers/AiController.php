@@ -16,12 +16,12 @@ class AiController extends Controller
         $gender = $data["gender"];
         $height = $data["height"];
         $weight = $data["weight"];
-        $activity = $data["activity"];
+        $activity_level = $data["activity_level"];
         $goal_weight = $data["goal_weight"];
         $goal_months = $data["goal_months"];
         $unit = $data["unit"];
 
-        $activities = [
+        $activity_levels = [
             "sedentary" => "Sedentary (office job)",
             "light-exercise" => "Light Exercise (1-2 days/week)",
             "moderate-exercise" => "Moderate Exercise (3-5 days/week)",
@@ -29,7 +29,7 @@ class AiController extends Controller
             "athlete" => "Athlete (2x per day)",
         ];
 
-        $activity = $activities[$activity];
+        $activity_level = $activity_levels[$activity_level];
 
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
 
