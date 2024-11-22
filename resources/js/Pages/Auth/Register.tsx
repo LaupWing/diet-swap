@@ -57,7 +57,16 @@ export default function Register() {
                     form.data.confirm_password !== form.data.password
                 )
             case 2:
-                return !form.data.firstname || !form.data.lastname
+                return (
+                    !form.data.firstname ||
+                    !form.data.lastname ||
+                    !form.data.dateOfBirth ||
+                    !form.data.gender ||
+                    !form.data.height ||
+                    !form.data.weight ||
+                    !form.data.weight_unit ||
+                    !form.data.height_unit
+                )
             case 3:
                 return (
                     !form.data.ideal_weight || !form.data.ideal_weight_timespan
