@@ -298,7 +298,7 @@ const Step2: FC<{
                                     height_unit: e,
                                 })
                             }}
-                            defaultValue="inch"
+                            value={formData.height_unit}
                         >
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="Unit" />
@@ -330,7 +330,7 @@ const Step2: FC<{
                                     weight_unit: e,
                                 })
                             }}
-                            defaultValue="lbs"
+                            value={formData.weight_unit}
                         >
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="weight" />
