@@ -49,19 +49,19 @@ export default function Register() {
         }
     }
     console.log(disableNext())
+    console.log(form.data)
 
+    const setFormData = (data: any) => {
+        console.log(data)
+        form.setData({
+            ...form.data,
+            ...data,
+        })
+    }
     const renderStep = () => {
         switch (currentStep) {
             case 1:
-                return (
-                    <Step1
-                        setData={(data) =>
-                            form.setData({
-                                ...data,
-                            })
-                        }
-                    />
-                )
+                return <Step1 setData={(data) => setFormData(data)} />
             case 3:
                 return <Step3 />
             case 4:
@@ -104,7 +104,7 @@ export default function Register() {
 }
 
 const Step1: FC<{
-    setData?: (data: any) => void
+    setData: (data: any) => void
 }> = ({ setData }) => {
     return (
         <div className="flex flex-col">
@@ -125,15 +125,32 @@ const Step1: FC<{
                         autoComplete="email"
                         autoCorrect="off"
                         placeholder="test@example.com"
+                        onChange={(e) => {
+                            setData({ email: e.target.value })
+                        }}
                     />
                 </div>
                 <div className="grid gap-1">
                     <Label htmlFor="email">Password</Label>
-                    <Input id="password" type="password" autoCorrect="off" />
+                    <Input
+                        onChange={(e) => {
+                            setData({ password: e.target.value })
+                        }}
+                        id="password"
+                        type="password"
+                        autoCorrect="off"
+                    />
                 </div>
                 <div className="grid gap-1">
                     <Label htmlFor="email">Confirm Password</Label>
-                    <Input id="password" type="password" autoCorrect="off" />
+                    <Input
+                        id="confirm_password"
+                        type="password"
+                        autoCorrect="off"
+                        onChange={(e) => {
+                            setData({ confirm_password: e.target.value })
+                        }}
+                    />
                 </div>
             </div>
             {/* <Button variant={"secondary"} className="ml-auto mt-4">
