@@ -33,7 +33,11 @@ export default function Register() {
     const disableNext = () => {
         switch (currentStep) {
             case 1:
-                return !form.data.email || !form.data.password
+                return (
+                    !form.data.email ||
+                    !form.data.password ||
+                    form.data.confirm_password !== form.data.password
+                )
             case 2:
                 return !form.data.firstname || !form.data.lastname
             case 3:
