@@ -29,6 +29,10 @@ interface FormData {
     ideal_weight: string
     gender: string
     ideal_weight_timespan_in_months: string
+    dietary: string
+    cuisine: string
+    allergies: string
+    special_notes: string
 }
 
 export default function Register() {
@@ -47,6 +51,10 @@ export default function Register() {
         height_unit: "",
         ideal_weight: "",
         ideal_weight_timespan_in_months: "",
+        dietary: "",
+        cuisine: "",
+        allergies: "",
+        special_notes: "",
     })
     const disableNext = () => {
         switch (currentStep) {
