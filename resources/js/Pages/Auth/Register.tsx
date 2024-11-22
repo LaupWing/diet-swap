@@ -29,6 +29,20 @@ export default function Register() {
         ideal_weight: "",
         ideal_weight_timespan: "",
     })
+    const disableNext = () => {
+        switch (currentStep) {
+            case 1:
+                return !form.data.email || !form.data.password
+            case 2:
+                return !form.data.firstname || !form.data.lastname
+            case 3:
+                return (
+                    !form.data.ideal_weight || !form.data.ideal_weight_timespan
+                )
+            default:
+                return false
+        }
+    }
 
     const renderStep = () => {
         switch (currentStep) {
