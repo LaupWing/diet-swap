@@ -11,9 +11,23 @@ import {
     SelectValue,
 } from "@/Components/ui/select"
 import { Textarea } from "@/Components/ui/textarea"
+import { useForm } from "@inertiajs/react"
 
 export default function Register() {
     const [currentStep, setCurrentStep] = useState(1)
+    const form = useForm({
+        email: "",
+        password: "",
+        firstname: "",
+        lastname: "",
+        dateOfBirth: "",
+        weight: "",
+        weight_unit: "",
+        height: "",
+        height_unit: "",
+        ideal_weight: "",
+        ideal_weight_timespan: "",
+    })
 
     const renderStep = () => {
         switch (currentStep) {
