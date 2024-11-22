@@ -40,6 +40,16 @@ export default function Register() {
                     </span>
                 </div>
                 {renderStep()}
+                <div className="mt-4 flex justify-between">
+                    <Button variant={"outline"}>
+                        <span>Prev</span>
+                        <ChevronLeft className="size-6" />
+                    </Button>
+                    <Button className="">
+                        <span>Next</span>
+                        <ChevronRight className="size-6" />
+                    </Button>
+                </div>
             </div>
         </div>
     )
@@ -174,16 +184,6 @@ const Step3 = () => {
                         </SelectContent>
                     </Select>
                 </div>
-            </div>
-            <div className="mt-4 flex justify-between">
-                <Button variant={"outline"}>
-                    <span>Prev</span>
-                    <ChevronLeft className="size-6" />
-                </Button>
-                <Button className="">
-                    <span>Next</span>
-                    <ChevronRight className="size-6" />
-                </Button>
             </div>
         </form>
     )
