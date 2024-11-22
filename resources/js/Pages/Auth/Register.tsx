@@ -15,9 +15,24 @@ import { useForm } from "@inertiajs/react"
 import { cn } from "@/lib/utils"
 import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
 
+interface FormData {
+    email: string
+    password: string
+    confirm_password: string
+    firstname: string
+    lastname: string
+    dateOfBirth: string
+    weight: string
+    weight_unit: string
+    height: string
+    height_unit: string
+    ideal_weight: string
+    ideal_weight_timespan: string
+}
+
 export default function Register() {
     const [currentStep, setCurrentStep] = useState(2)
-    const form = useForm({
+    const form = useForm<FormData>({
         email: "",
         password: "",
         confirm_password: "",
@@ -59,7 +74,12 @@ export default function Register() {
     const renderStep = () => {
         switch (currentStep) {
             case 1:
-                return <Step1 setData={(data) => setFormData(data)} />
+                return (
+                    <Step1
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
             case 2:
                 return <Step2 setData={(data) => setFormData(data)} />
             case 3:
@@ -69,7 +89,12 @@ export default function Register() {
             case 5:
                 return <Step5 />
             default:
-                return <Step1 setData={(data) => setFormData(data)} />
+                return (
+                    <Step1
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
         }
     }
 
@@ -107,7 +132,8 @@ export default function Register() {
 
 const Step1: FC<{
     setData: (data: any) => void
-}> = ({ setData }) => {
+    formData: FormData
+}> = ({ setData, formData }) => {
     return (
         <div className="flex flex-col">
             <div className="my-8 flex flex-col">
@@ -129,6 +155,7 @@ const Step1: FC<{
                         onChange={(e) => {
                             setData({ email: e.target.value })
                         }}
+                        value={formData.email}
                     />
                 </div>
                 <div className="grid gap-1">
@@ -140,6 +167,7 @@ const Step1: FC<{
                         id="password"
                         type="password"
                         autoCorrect="off"
+                        value={formData.password}
                     />
                 </div>
                 <div className="grid gap-1">
@@ -151,13 +179,10 @@ const Step1: FC<{
                         onChange={(e) => {
                             setData({ confirm_password: e.target.value })
                         }}
+                        value={formData.confirm_password}
                     />
                 </div>
             </div>
-            {/* <Button variant={"secondary"} className="ml-auto mt-4">
-                <span>Next</span>
-                <ChevronRight className="size-6" />
-            </Button> */}
         </div>
     )
 }
