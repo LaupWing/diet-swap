@@ -48,11 +48,8 @@ export default function Register() {
                 return false
         }
     }
-    console.log(disableNext())
-    console.log(form.data)
 
     const setFormData = (data: any) => {
-        console.log(data)
         form.setData({
             ...form.data,
             ...data,
