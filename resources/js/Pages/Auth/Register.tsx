@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
 import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
 
 export default function Register() {
-    const [currentStep, setCurrentStep] = useState(1)
+    const [currentStep, setCurrentStep] = useState(2)
     const form = useForm({
         email: "",
         password: "",
@@ -60,6 +60,8 @@ export default function Register() {
         switch (currentStep) {
             case 1:
                 return <Step1 setData={(data) => setFormData(data)} />
+            case 2:
+                return <Step2 setData={(data) => setFormData(data)} />
             case 3:
                 return <Step3 />
             case 4:
@@ -67,7 +69,7 @@ export default function Register() {
             case 5:
                 return <Step5 />
             default:
-                return <Step2 />
+                return <Step1 setData={(data) => setFormData(data)} />
         }
     }
 
@@ -160,7 +162,9 @@ const Step1: FC<{
     )
 }
 
-const Step2 = () => {
+const Step2: FC<{
+    setData: (data: any) => void
+}> = ({ setData }) => {
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
@@ -173,19 +177,47 @@ const Step2 = () => {
             <div className="grid gap-4">
                 <div className="grid gap-1 ">
                     <Label htmlFor="firstname">Firstname</Label>
-                    <Input id="firstname" type="text" autoCorrect="off" />
+                    <Input
+                        id="firstname"
+                        onChange={(e) => {
+                            setData({ firstname: e.target.value })
+                        }}
+                        type="text"
+                        autoCorrect="off"
+                    />
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="lastname">Lastname</Label>
-                    <Input id="lastname" type="text" autoCorrect="off" />
+                    <Input
+                        onChange={(e) => {
+                            setData({ lastname: e.target.value })
+                        }}
+                        id="lastname"
+                        type="text"
+                        autoCorrect="off"
+                    />
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="dateOfBirth">Date of Birth</Label>
-                    <Input id="dateOfBirth" type="date" autoCorrect="off" />
+                    <Input
+                        onChange={(e) => {
+                            setData({ dateOfBirth: e.target.value })
+                        }}
+                        id="dateOfBirth"
+                        type="date"
+                        autoCorrect="off"
+                    />
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Gender</Label>
-                    <Select defaultValue="inch">
+                    <Label htmlFor="gender">Gender</Label>
+                    <Select
+                        onValueChange={(e) => {
+                            setData({
+                                gender: e,
+                            })
+                        }}
+                        defaultValue="inch"
+                    >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
                         </SelectTrigger>
