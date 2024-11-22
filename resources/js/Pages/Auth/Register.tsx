@@ -133,13 +133,6 @@ export default function Register() {
                         setData={(data) => setFormData(data)}
                     />
                 )
-            default:
-                return (
-                    <Step1
-                        formData={form.data}
-                        setData={(data) => setFormData(data)}
-                    />
-                )
         }
     }
 
