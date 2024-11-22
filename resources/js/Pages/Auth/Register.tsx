@@ -80,7 +80,7 @@ export default function Register() {
                     </span>
                 </div>
                 {renderStep()}
-                <div className="mt-4 flex justify-between">
+                <div className="mt-6 flex justify-between">
                     {currentStep != 1 && (
                         <Button variant={"outline"}>
                             <span>Prev</span>
@@ -380,7 +380,7 @@ const Step5 = () => {
                     your daily calorie needs.
                 </p>
             </div>
-            <RadioGroup className="grid gap-4" defaultValue="option-one">
+            <RadioGroup className="grid gap-4" defaultValue="sedentary">
                 <div className="flex items-center space-x-2">
                     <RadioGroupItem value="sedentary" id="sedentary" />
                     <Label htmlFor="sedentary">Sedentary (office job)</Label>
