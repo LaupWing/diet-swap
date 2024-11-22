@@ -375,8 +375,14 @@ const Step3: FC<{
                             id="ideal_weight"
                             type="number"
                             autoCorrect="off"
+                            onChange={(e) => {
+                                setData({
+                                    ideal_weight: e.target.value,
+                                })
+                            }}
+                            value={formData.ideal_weight}
                         />
-                        <Select defaultValue="lbs">
+                        <Select value={formData.weight_unit}>
                             <SelectTrigger className="w-[180px]">
                                 <SelectValue placeholder="weight" />
                             </SelectTrigger>
@@ -391,7 +397,14 @@ const Step3: FC<{
                     <Label htmlFor="ideal_weight_timespan_in_months">
                         Months to hit the goal
                     </Label>
-                    <Select defaultValue="inch">
+                    <Select
+                        value={formData.ideal_weight_timespan_in_months}
+                        onValueChange={(e) => {
+                            setData({
+                                ideal_weight_timespan_in_months: e,
+                            })
+                        }}
+                    >
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
                         </SelectTrigger>
