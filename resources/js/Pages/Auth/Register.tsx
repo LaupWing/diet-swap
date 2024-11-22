@@ -457,7 +457,7 @@ const Step4: FC<{
                     <Label htmlFor="dietary">Dietary</Label>
                     <Select value={formData.dietary}>
                         <SelectTrigger className="w-auto">
-                            <SelectValue placeholder="Gender" />
+                            <SelectValue placeholder="Dietary" />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="none">None</SelectItem>
@@ -478,7 +478,7 @@ const Step4: FC<{
                     <Label htmlFor="cuisine">Cuisine</Label>
                     <Select value={formData.cuisine}>
                         <SelectTrigger className="w-auto">
-                            <SelectValue placeholder="Gender" />
+                            <SelectValue placeholder="Cuisine" />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="none">None</SelectItem>
@@ -518,7 +518,7 @@ const Step4: FC<{
                     <Textarea
                         id="special_notes"
                         placeholder="Anything else you want to mention. Maybe you don't like spicy food?"
-                        className="h-36"
+                        className="h-36 resize-none"
                         value={formData.special_notes}
                         onChange={(e) => {
                             setData({
