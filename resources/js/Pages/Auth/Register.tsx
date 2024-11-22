@@ -83,6 +83,7 @@ export default function Register() {
             ...data,
         })
     }
+    console.log(form.data)
     const renderStep = () => {
         switch (currentStep) {
             case 1:
