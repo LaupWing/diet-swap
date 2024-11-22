@@ -10,6 +10,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/Components/ui/select"
+import { Textarea } from "@/Components/ui/textarea"
 
 export default function Register() {
     const [currentStep, setCurrentStep] = useState(4)
@@ -245,6 +246,14 @@ const Step4 = () => {
                         type="text"
                         placeholder="Allergies (seperated by comma)"
                         autoCorrect="off"
+                    />
+                </div>
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">Special Notes</Label>
+                    <Textarea
+                        id="dateOfBirth"
+                        placeholder="Anything else you want to mention. Maybe you don't like spicy food?"
+                        className="h-36"
                     />
                 </div>
             </div>
