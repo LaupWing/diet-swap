@@ -12,14 +12,18 @@ class AiController extends Controller
     {
         $data = $request->validated();
 
-        $age = $data["age"];
+        $age = $data["dateOfBirth"];
         $gender = $data["gender"];
         $height = $data["height"];
         $weight = $data["weight"];
         $activity_level = $data["activity_level"];
-        $goal_weight = $data["goal_weight"];
-        $goal_months = $data["goal_months"];
-        $unit = $data["unit"];
+        $goal_weight = $data["ideal_weight"];
+        $goal_months = $data["ideal_weight_timespan_in_months"];
+        $unit = $data["weight_unit"];
+        $allergies = $data["allergies"];
+        $cuisine = $data["cuisine"];
+        $dietary = $data["dietary"];
+        $special_notes = $data["special_notes"];
 
         $activity_levels = [
             "sedentary" => "Sedentary (office job)",
