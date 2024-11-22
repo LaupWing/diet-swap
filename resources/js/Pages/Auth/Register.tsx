@@ -31,7 +31,14 @@ export default function Register() {
 
     return (
         <div className="text-black">
-            <div className="max-w-sm mx-auto">{renderStep()}</div>
+            <div className="max-w-sm mx-auto">
+                <div className="w-full max-w-xs flex-col justify-center">
+                    <span className="text-sm text-foreground/40">
+                        {currentStep} / 6
+                    </span>
+                </div>
+                {renderStep()}
+            </div>
         </div>
     )
 }
@@ -71,6 +78,25 @@ const Step2 = () => {
                             <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                     </Select>
+                </div>
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">Height</Label>
+                    <div className="flex gap-1">
+                        <Input
+                            id="dateOfBirth"
+                            type="number"
+                            autoCorrect="off"
+                        />
+                        <Select defaultValue="inch">
+                            <SelectTrigger className="w-[180px]">
+                                <SelectValue placeholder="Height" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="cm">CM</SelectItem>
+                                <SelectItem value="inch">INCH</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="dateOfBirth">Height</Label>
