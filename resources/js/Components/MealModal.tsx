@@ -89,7 +89,7 @@ export const MealModal = () => {
                     <Textarea
                         name="description"
                         placeholder="Give a short description"
-                        className="w-full"
+                        className="w-full resize-none h-36"
                     />
                 </div>
                 <Button className="ml-auto mt-4">Next</Button>
