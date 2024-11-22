@@ -127,7 +127,12 @@ export default function Register() {
                     />
                 )
             case 5:
-                return <Step5 />
+                return (
+                    <Step5
+                        formData={form.data}
+                        setData={(data) => setFormData(data)}
+                    />
+                )
             default:
                 return (
                     <Step1
@@ -534,7 +539,10 @@ const Step4: FC<{
     )
 }
 
-const Step5 = () => {
+const Step5: FC<{
+    setData: (data: any) => void
+    formData: FormData
+}> = ({ setData, formData }) => {
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
@@ -544,7 +552,16 @@ const Step5 = () => {
                     your daily calorie needs.
                 </p>
             </div>
-            <RadioGroup className="grid gap-4" defaultValue="sedentary">
+            <RadioGroup
+                className="grid gap-4"
+                value={formData.activity_level}
+                onValueChange={(e) => {
+                    setData({
+                        activity_level: e,
+                    })
+                }}
+                defaultValue="sedentary"
+            >
                 <div className="flex items-center space-x-2">
                     <RadioGroupItem value="sedentary" id="sedentary" />
                     <Label htmlFor="sedentary">Sedentary (office job)</Label>
