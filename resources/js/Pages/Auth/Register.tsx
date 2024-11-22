@@ -33,6 +33,7 @@ interface FormData {
     cuisine: string
     allergies: string
     special_notes: string
+    activity_level: string
 }
 
 export default function Register() {
@@ -45,16 +46,17 @@ export default function Register() {
         lastname: "",
         dateOfBirth: "",
         gender: "",
-        weight: "inch",
-        weight_unit: "",
-        height: "lbs",
-        height_unit: "",
+        weight: "",
+        weight_unit: "kg",
+        height: "",
+        height_unit: "lbs",
         ideal_weight: "",
         ideal_weight_timespan_in_months: "",
         dietary: "",
         cuisine: "",
         allergies: "",
         special_notes: "",
+        activity_level: "sedentary",
     })
     const disableNext = () => {
         switch (currentStep) {
