@@ -178,3 +178,63 @@ const Step3 = () => {
         </form>
     )
 }
+
+const Step4 = () => {
+    return (
+        <form className="flex flex-col">
+            <div className=" my-8 flex flex-col">
+                <h2 className="text-xl font-bold">Meal Preferences</h2>
+                <p className="text-sm">
+                    Your meal preferences are used to personalize your
+                    experience for the fitness app. You can skip this step and
+                    fill it later.
+                </p>
+            </div>
+            <div className="grid gap-4">
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">Dietary</Label>
+                    <Select defaultValue="inch">
+                        <SelectTrigger className="w-auto">
+                            <SelectValue placeholder="Gender" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="none">None</SelectItem>
+                            <SelectItem value="vegetarian">
+                                Vegetarian
+                            </SelectItem>
+                            <SelectItem value="vegan">Vegan</SelectItem>
+                            <SelectItem value="dairy-free">
+                                Dairy Free
+                            </SelectItem>
+                            <SelectItem value="low-carb-high-protein">
+                                Low Carb, High Protein
+                            </SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="grid gap-1 ">
+                    <Label htmlFor="dateOfBirth">Cuisine</Label>
+                    <Select defaultValue="inch">
+                        <SelectTrigger className="w-auto">
+                            <SelectValue placeholder="Gender" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectItem value="none">None</SelectItem>
+                            <SelectItem value="italian">Italian</SelectItem>
+                            <SelectItem value="mexican">Mexican</SelectItem>
+                            <SelectItem value="indian">Indian</SelectItem>
+                            <SelectItem value="chinese">Chinese</SelectItem>
+                            <SelectItem value="japanese">Japanese</SelectItem>
+                            <SelectItem value="mediterranean">
+                                Mediterranean
+                            </SelectItem>
+                            <SelectItem value="thai">Thai</SelectItem>
+                            <SelectItem value="french">French</SelectItem>
+                            <SelectItem value="greek">Greek</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+            </div>
+        </form>
+    )
+}
