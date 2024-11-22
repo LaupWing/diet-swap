@@ -456,8 +456,8 @@ const Step4: FC<{
             </div>
             <div className="grid gap-4">
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Dietary</Label>
-                    <Select defaultValue="inch">
+                    <Label htmlFor="dietary">Dietary</Label>
+                    <Select value={formData.dietary}>
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
                         </SelectTrigger>
@@ -477,8 +477,8 @@ const Step4: FC<{
                     </Select>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Cuisine</Label>
-                    <Select defaultValue="inch">
+                    <Label htmlFor="cuisine">Cuisine</Label>
+                    <Select value={formData.cuisine}>
                         <SelectTrigger className="w-auto">
                             <SelectValue placeholder="Gender" />
                         </SelectTrigger>
@@ -499,22 +499,34 @@ const Step4: FC<{
                     </Select>
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">
+                    <Label htmlFor="allergies">
                         Allergies (seperated by comma)
                     </Label>
                     <Input
-                        id="dateOfBirth"
+                        id="allergies"
                         type="text"
                         placeholder="Allergies (seperated by comma)"
                         autoCorrect="off"
+                        value={formData.allergies}
+                        onChange={(e) => {
+                            setData({
+                                allergies: e.target.value,
+                            })
+                        }}
                     />
                 </div>
                 <div className="grid gap-1 ">
-                    <Label htmlFor="dateOfBirth">Special Notes</Label>
+                    <Label htmlFor="special_notes">Special Notes</Label>
                     <Textarea
-                        id="dateOfBirth"
+                        id="special_notes"
                         placeholder="Anything else you want to mention. Maybe you don't like spicy food?"
                         className="h-36"
+                        value={formData.special_notes}
+                        onChange={(e) => {
+                            setData({
+                                special_notes: e.target.value,
+                            })
+                        }}
                     />
                 </div>
             </div>
