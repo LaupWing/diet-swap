@@ -20,6 +20,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/generate', [AiController::class, 'generate'])->name('generate');
+Route::prefix('meals')->group(function () {
+    Route::post('/analyze', [AiController::class, 'store'])->name('meals.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
