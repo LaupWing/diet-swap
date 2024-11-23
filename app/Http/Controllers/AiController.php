@@ -88,8 +88,6 @@ class AiController extends Controller
 
         $data = json_decode($response->choices[0]->message->content);
 
-        logger($data);
-
         return back()->with("data", $data);
     }
 }
