@@ -19,7 +19,7 @@ class AiController extends Controller
         $activity_level = $data["activity_level"];
         $goal_weight = $data["ideal_weight"];
         $goal_months = $data["ideal_weight_timespan_in_months"];
-        $unit = $data["weight_unit"];
+        $weight_unit = $data["weight_unit"];
         $allergies = $data["allergies"];
         $cuisine = $data["cuisine"];
         $dietary = $data["dietary"];
@@ -38,10 +38,8 @@ class AiController extends Controller
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
 
         $age = date_diff(date_create($age), date_create("now"))->y;
-        logger($age);
-        return back();
 
-        $content = "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity_level and I want to reach $goal_weight $unit in $goal_months months.";
+        $content = "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months.";
 
         if ($allergies) {
             $content .= " I have $allergies.";
@@ -77,7 +75,7 @@ class AiController extends Controller
                 ],
                 [
                     "role" => "user",
-                    "content" => "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $unit. I'm $activity_level and I want to reach $goal_weight $unit in $goal_months months."
+                    "content" => "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months."
                 ]
             ],
             "max_tokens" => 4000,
