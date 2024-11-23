@@ -12,6 +12,10 @@ class AiController extends Controller
     {
         $data = $request->validated();
 
+        $email = $data["email"];
+        $password = $data["password"];
+        $firstname = $data["firstname"];
+        $lastname = $data["lastname"];
         $age = $data["dateOfBirth"];
         $gender = $data["gender"];
         $height = $data["height"];
