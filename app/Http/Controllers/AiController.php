@@ -40,7 +40,7 @@ class AiController extends Controller
 
         $age = date_diff(date_create($age), date_create("now"))->y;
 
-        $content = "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months.";
+        $content = "I'm a $gender and $age years old. I'm $height $height_unit tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months.";
 
         if ($allergies) {
             $content .= " I have $allergies.";
@@ -52,7 +52,7 @@ class AiController extends Controller
             $content .= " I'm on a $dietary diet.";
         }
         if ($special_notes) {
-            $content .= " $special_notes";
+            $content .= " $special_notes.";
         }
 
         $response = $open_ai->chat()->create([
@@ -76,7 +76,7 @@ class AiController extends Controller
                 ],
                 [
                     "role" => "user",
-                    "content" => "I'm a $gender and $age years old. I'm $height cm tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months."
+                    "content" => $content
                 ]
             ],
             "max_tokens" => 4000,
