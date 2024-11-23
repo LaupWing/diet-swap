@@ -18,8 +18,9 @@ export const MealModal = () => {
     const form = useForm({
         name: "",
         description: "",
-        file: null,
+        picture: null,
     })
+    console.log(form.errors)
 
     const handleChange = (e: any) => {
         if (
@@ -31,11 +32,12 @@ export const MealModal = () => {
                 toType: "image/jpeg",
                 quality: 1,
             }).then((file: any) => {
-                form.setData("file", file)
+                console.log(file)
+                form.setData("picture", file)
                 setPreview(URL.createObjectURL(file))
             })
         } else {
-            form.setData("file", e.target.files[0])
+            form.setData("picture", e.target.files[0])
             setPreview(URL.createObjectURL(e.target!.files[0]))
         }
     }
@@ -129,7 +131,8 @@ export const MealModal = () => {
                 </div>
                 <Button
                     onClick={() => {
-                        console.log(form.data)
+                        console.log(form.data.picture)
+                        form.post(route("meals.analyze"))
                     }}
                     className="ml-auto mt-4"
                 >

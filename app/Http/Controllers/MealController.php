@@ -11,6 +11,7 @@ class MealController extends Controller
     public function analyze(AnalyzeMealRequest $request)
     {
         $data = $request->validated();
+        logger($data);
 
         $picture = $data["picture"];
         $name = $data["name"];
@@ -61,5 +62,8 @@ class MealController extends Controller
         ]);
 
         $data = json_decode($response->choices[0]->message->content);
+
+        logger(print_r($data, true));
+        back();
     }
 }
