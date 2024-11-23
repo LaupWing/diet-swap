@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Meal::class);
     }
+
+    public function userGoal(): HasOne
+    {
+        return $this->hasOne(UserGoal::class);
+    }
 }
