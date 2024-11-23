@@ -42,15 +42,20 @@ export const MealModal = () => {
                 {!preview ? (
                     <div className="flex items-center w-full flex-col">
                         <Button
-                            className="uppercase w-full gap-2 h-12 flex items-center justify-center text-slate-400"
+                            className="uppercase w-full h-12 text-slate-400"
                             variant={"outline"}
                         >
-                            <Camera />
-                            Make Photo
+                            <Label
+                                htmlFor="picture-capture"
+                                className="w-full flex items-center justify-center gap-2"
+                            >
+                                <Camera />
+                                Make Photo
+                            </Label>
                         </Button>
                         <span className="text-slate-200 my-2">OR</span>
                         <Button
-                            className="uppercase w-full  h-12 flex items-center justify-center text-slate-400"
+                            className="uppercase w-full h-12 flex items-center justify-center text-slate-400"
                             variant={"outline"}
                         >
                             <Label
@@ -66,6 +71,14 @@ export const MealModal = () => {
                             className="hidden"
                             id="picture"
                             type="file"
+                        />
+                        <Input
+                            onChange={handleChange}
+                            className="hidden"
+                            id="picture-capture"
+                            type="file"
+                            accept="image/*"
+                            capture="environment"
                         />
                     </div>
                 ) : (
