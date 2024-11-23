@@ -55,6 +55,8 @@ class AiController extends Controller
             $content .= " $special_notes.";
         }
 
+        logger($content);
+
         $response = $open_ai->chat()->create([
             "model" => "gpt-3.5-turbo-1106",
             "response_format" => [
@@ -63,7 +65,7 @@ class AiController extends Controller
             "messages" => [
                 [
                     "role" => "system",
-                    "content" => "You are a helpful assistant designed to help users to achieve their bodyweight goal by providing them with a personalized diet plan. The output should be a JSON object with the following keys: 'protein', 'bodyfat', 'calories', 'meal_plan'.
+                    "content" => "You are a helpful assistant designed to help users to achieve their bodyweight goal by providing them with a personalized diet plan. The output should be a JSON object with the following keys: 'protein', 'bodyfat', 'current_bodyfat', 'calories', 'meal_plan'.
                     
                     'protein' - The amount of protein in grams that the user should consume daily.
 
@@ -86,7 +88,7 @@ class AiController extends Controller
 
         $data = json_decode($response->choices[0]->message->content);
 
-        logger(print_r($data, true));
+        logger(print_r($data));
 
         return back()->with("data", $data);
     }
