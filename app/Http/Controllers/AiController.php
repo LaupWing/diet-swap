@@ -72,6 +72,8 @@ class AiController extends Controller
                     'goal_bodyfat' - The exact bodyfat percentage the user aim for as a number.
 
                     'calories' - The amount of calories that the user should consume daily.
+
+                    'meal_plan' - A short description of what fo meals the user can expect as a meal plan.
                     "
                 ],
                 [
@@ -83,6 +85,9 @@ class AiController extends Controller
         ]);
 
         $data = json_decode($response->choices[0]->message->content);
-        return back();
+
+        logger(print_r($data, true));
+
+        return back()->with("data", $data);
     }
 }
