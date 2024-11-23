@@ -61,6 +61,12 @@ export const MealModal = () => {
                                 Upload Photo
                             </Label>
                         </Button>
+                        <Input
+                            onChange={handleChange}
+                            className="hidden"
+                            id="picture"
+                            type="file"
+                        />
                     </div>
                 ) : (
                     <div className="relative">
@@ -77,12 +83,7 @@ export const MealModal = () => {
                         />
                     </div>
                 )}
-                <Input
-                    onChange={handleChange}
-                    className="hidden"
-                    id="picture"
-                    type="file"
-                />
+
                 <div className="grid gap-2 w-full mt-4">
                     <Label htmlFor="name">Name</Label>
                     <Input
