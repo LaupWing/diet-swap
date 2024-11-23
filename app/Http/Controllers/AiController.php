@@ -34,9 +34,8 @@ class AiController extends Controller
         $special_notes = $data["special_notes"];
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'email' => $email,
+            'password' => Hash::make($password),
         ]);
 
         $user->userInfo()->create([
