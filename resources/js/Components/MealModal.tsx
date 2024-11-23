@@ -113,6 +113,7 @@ export const MealModal = () => {
                         name="name"
                         placeholder="Name of the meal"
                         className="w-full"
+                        onChange={(e) => form.setData("name", e.target.value)}
                     />
                 </div>
                 <div className="grid gap-2 w-full mt-4">
@@ -121,6 +122,9 @@ export const MealModal = () => {
                         name="description"
                         placeholder="Give a short description"
                         className="w-full resize-none h-36"
+                        onChange={(e) =>
+                            form.setData("description", e.target.value)
+                        }
                     />
                 </div>
                 <Button className="ml-auto mt-4">Next</Button>
