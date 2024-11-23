@@ -20,6 +20,7 @@ class AiController extends Controller
         $goal_weight = $data["ideal_weight"];
         $goal_months = $data["ideal_weight_timespan_in_months"];
         $weight_unit = $data["weight_unit"];
+        $height_unit = $data["height_unit"];
         $allergies = $data["allergies"];
         $cuisine = $data["cuisine"];
         $dietary = $data["dietary"];
