@@ -38,22 +38,7 @@ class AiController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        // 'user_id',
-        //         'firstname',
-        //         'lastname',
-        //         'weight',
-        //         'height',
-        //         'gender',
-        //         'date_of_birth',
-        //         'ideal_weight',
-        //         'ideal_weight_timespan_in_months',
-        //         'weight_unit',
-        //         'height_unit',
-        //         'activity_level',
-        //         'allergies',
-        //         'cuisine',
-        //         'dietary',
-        //         'special_notes',
+
         $user->userInfo()->create([
             'firstname' => $firstname,
             'lastname' => $lastname,
