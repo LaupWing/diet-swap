@@ -127,7 +127,14 @@ export const MealModal = () => {
                         }
                     />
                 </div>
-                <Button className="ml-auto mt-4">Next</Button>
+                <Button
+                    onClick={() => {
+                        console.log(form.data)
+                    }}
+                    className="ml-auto mt-4"
+                >
+                    Next
+                </Button>
             </div>
         </DialogContent>
     )
