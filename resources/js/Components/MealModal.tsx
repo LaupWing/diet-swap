@@ -84,6 +84,14 @@ export const MealModal = () => {
                     type="file"
                 />
                 <div className="grid gap-2 w-full mt-4">
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                        name="name"
+                        placeholder="Name of the meal"
+                        className="w-full"
+                    />
+                </div>
+                <div className="grid gap-2 w-full mt-4">
                     <Label htmlFor="description">Description</Label>
                     <Textarea
                         name="description"
