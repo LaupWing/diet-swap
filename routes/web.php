@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AiController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/generate', [AiController::class, 'generate'])->name('generate');
 Route::prefix('meals')->group(function () {
-    Route::post('/analyze', [AiController::class, 'store'])->name('meals.store');
+    Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.store');
 });
 
 Route::middleware('auth')->group(function () {
