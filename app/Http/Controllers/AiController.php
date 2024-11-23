@@ -87,8 +87,6 @@ class AiController extends Controller
             $content .= " $special_notes.";
         }
 
-        logger($content);
-
         $response = $open_ai->chat()->create([
             "model" => "gpt-3.5-turbo-1106",
             "response_format" => [
