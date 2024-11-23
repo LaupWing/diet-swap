@@ -14,7 +14,7 @@ export default function Welcome() {
     const [open, setOpen] = useState(false)
 
     return (
-        <div className="flex min-w-0">
+        <div className="flex min-w-0 min-h-screen">
             <div
                 className={cn(
                     "border-r hidden duration-200 bg-primary-foreground sm:flex-shrink-0",
