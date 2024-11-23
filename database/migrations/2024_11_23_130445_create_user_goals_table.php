@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('user_goals', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('calories');
+            $table->string('protein');
+            $table->string('current_bodyfat');
+            $table->string('goal_bodyfat');
+            $table->text('meal_plan');
             $table->timestamps();
         });
     }
