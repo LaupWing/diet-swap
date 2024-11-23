@@ -11,9 +11,16 @@ import { Textarea } from "./ui/textarea"
 import { Input } from "./ui/input"
 import { useState } from "react"
 import heic2any from "heic2any"
+import { useForm } from "@inertiajs/react"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
+    const form = useForm({
+        name: "",
+        description: "",
+        file: null,
+    })
+
     const handleChange = (e: any) => {
         if (
             e.target.files[0].type.includes("heic") ||
@@ -24,10 +31,13 @@ export const MealModal = () => {
                 toType: "image/jpeg",
                 quality: 1,
             }).then((file: any) => {
+                form.setData("file", file)
                 setPreview(URL.createObjectURL(file))
             })
+        } else {
+            form.setData("file", e.target.files[0])
+            setPreview(URL.createObjectURL(e.target!.files[0]))
         }
-        setPreview(URL.createObjectURL(e.target!.files[0]))
     }
 
     return (

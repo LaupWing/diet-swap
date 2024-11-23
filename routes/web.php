@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 
 Route::post('/generate', [AiController::class, 'generate'])->name('generate');
 Route::prefix('meals')->group(function () {
-    Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.store');
+    Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.analyze');
 });
 
 Route::middleware('auth')->group(function () {
