@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('weight');
+            $table->string('height');
+            $table->string('gender');
             $table->date('date_of_birth');
             $table->string('ideal_weight');
             $table->string('ideal_weight_timespan_in_months');
