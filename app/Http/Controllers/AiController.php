@@ -121,6 +121,14 @@ class AiController extends Controller
 
         $data = json_decode($response->choices[0]->message->content);
 
+        $user->userGoal()->create([
+            'calories' => $data->calories,
+            'protein' => $data->protein,
+            'current_bodyfat' => $data->current_bodyfat,
+            'goal_bodyfat' => $data->goal_bodyfat,
+            'meal_plan' => $data->meal_plan,
+        ]);
+
         return back()->with("data", $data);
     }
 }
