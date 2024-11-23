@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AiRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use OpenAI;
 
 class AiController extends Controller
@@ -29,6 +32,14 @@ class AiController extends Controller
         $cuisine = $data["cuisine"];
         $dietary = $data["dietary"];
         $special_notes = $data["special_notes"];
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        Auth::login($user);
 
         $activity_levels = [
             "sedentary" => "Sedentary (office job)",
