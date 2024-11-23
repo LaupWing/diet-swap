@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->date('date_of_birth');
+            $table->string('ideal_weight');
+            $table->string('ideal_weight_timespan_in_months');
+            $table->string('weight_unit');
+            $table->string('height_unit');
+            $table->string('activity_level');
+            $table->string('allergies')->nullable();
+            $table->string('cuisine')->nullable();
+            $table->string('dietary')->nullable();
+            $table->text('special_notes')->nullable();
             $table->timestamps();
         });
     }
