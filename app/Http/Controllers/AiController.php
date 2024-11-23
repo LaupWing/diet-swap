@@ -129,6 +129,6 @@ class AiController extends Controller
             'meal_plan' => $data->meal_plan,
         ]);
 
-        return back()->with("data", $data);
+        return redirect('/')->with("data", $data);
     }
 }
