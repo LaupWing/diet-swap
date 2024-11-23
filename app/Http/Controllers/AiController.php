@@ -19,7 +19,7 @@ class AiController extends Controller
         $password = $data["password"];
         $firstname = $data["firstname"];
         $lastname = $data["lastname"];
-        $age = $data["dateOfBirth"];
+        $dateOfBirth = $data["dateOfBirth"];
         $gender = $data["gender"];
         $height = $data["height"];
         $weight = $data["weight"];
@@ -38,6 +38,39 @@ class AiController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        // 'user_id',
+        //         'firstname',
+        //         'lastname',
+        //         'weight',
+        //         'height',
+        //         'gender',
+        //         'date_of_birth',
+        //         'ideal_weight',
+        //         'ideal_weight_timespan_in_months',
+        //         'weight_unit',
+        //         'height_unit',
+        //         'activity_level',
+        //         'allergies',
+        //         'cuisine',
+        //         'dietary',
+        //         'special_notes',
+        $user->userInfo()->create([
+            'firstname' => $firstname,
+            'lastname' => $lastname,
+            'weight' => $weight,
+            'height' => $height,
+            'gender' => $gender,
+            'date_of_birth' => $dateOfBirth,
+            'ideal_weight' => $goal_weight,
+            'ideal_weight_timespan_in_months' => $goal_months,
+            'weight_unit' => $weight_unit,
+            'height_unit' => $height_unit,
+            'activity_level' => $activity_level,
+            'allergies' => $allergies,
+            'cuisine' => $cuisine,
+            'dietary' => $dietary,
+            'special_notes' => $special_notes,
+        ]);
 
         Auth::login($user);
 
@@ -53,7 +86,7 @@ class AiController extends Controller
 
         $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
 
-        $age = date_diff(date_create($age), date_create("now"))->y;
+        $age = date_diff(date_create($dateOfBirth), date_create("now"))->y;
 
         $content = "I'm a $gender and $age years old. I'm $height $height_unit tall and weigh $weight $weight_unit. I'm $activity_level and I want to reach $goal_weight $weight_unit in $goal_months months.";
 
