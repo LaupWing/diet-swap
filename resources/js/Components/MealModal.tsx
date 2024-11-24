@@ -54,19 +54,6 @@ export const MealModal = () => {
                 {!preview ? (
                     <div className="flex items-center w-full flex-col">
                         <Button
-                            className="uppercase w-full h-12 text-slate-400"
-                            variant={"outline"}
-                        >
-                            <Label
-                                htmlFor="picture-capture"
-                                className="w-full flex items-center justify-center gap-2"
-                            >
-                                <Camera />
-                                Make Photo
-                            </Label>
-                        </Button>
-                        <span className="text-slate-200 my-2">OR</span>
-                        <Button
                             className="uppercase w-full h-12 flex items-center justify-center text-slate-400"
                             variant={"outline"}
                         >
