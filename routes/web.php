@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
+    logger(Auth::user()->userInfo);
     return Inertia::render('Welcome');
 });
 

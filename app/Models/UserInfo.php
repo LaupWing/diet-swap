@@ -27,6 +27,7 @@ class UserInfo extends Model
         'cuisine',
         'dietary',
         'special_notes',
+        'timezone',
     ];
 
     public function user(): BelongsTo
