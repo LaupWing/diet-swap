@@ -51,7 +51,7 @@ export const MealModal = () => {
                     Make sure that the photo only contains the meal
                 </DialogDescription>
             </DialogHeader>
-            <div className="absolute inset-0 z-50 flex items-center justify-center bg-background/90">
+            {/* <div className="absolute inset-0 z-50 flex items-center justify-center bg-background/90">
                 <MutatingDots
                     visible={true}
                     height="100"
@@ -63,7 +63,7 @@ export const MealModal = () => {
                     wrapperStyle={{}}
                     wrapperClass="fill-current text-slate-400"
                 />
-            </div>
+            </div> */}
             <div className="flex items-center flex-col">
                 {!preview ? (
                     <div className="flex items-center w-full flex-col">

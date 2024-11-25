@@ -41,7 +41,7 @@ class MealController extends Controller
 
                     'fats' - The amount of fats it has.
 
-                    'healthy' - An object with the following keys: 'is_healthy' - a boolean value, 'reason' - a string explaining why it is healthy or not.
+                    'healthy' - An object with the following keys: 'is_healthy' - an enum value which can be healhty, unhealthy or neutral, 'reason' - a string explaining why it is healthy or not.
                     "
                 ],
                 [
