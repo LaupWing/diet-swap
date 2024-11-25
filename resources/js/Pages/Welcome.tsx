@@ -5,7 +5,7 @@ import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Command, PanelsTopLeft, Plus } from "lucide-react"
+import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, UserGoal } from "@/types"
@@ -88,9 +88,12 @@ export default function Welcome(
                             <Card className="max-w-[300px] text-sm mx-auto w-full">
                                 <div className="flex flex-col p-6 gap-2">
                                     <header className="flex flex-col">
-                                        <span className="text-slate-400">
-                                            18:15
-                                        </span>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-slate-400">
+                                                18:15
+                                            </span>
+                                            <Info />
+                                        </div>
                                         <h2 className="font-bold text-base">
                                             Spaghetti Bolgonese
                                         </h2>
