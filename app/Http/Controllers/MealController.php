@@ -35,7 +35,7 @@ class MealController extends Controller
 
                     'carb' - The amount of carbs in grams.
 
-                    'calories' - The amount of calories, it is better to estimate it higher.
+                    'calories' - The amount of calories.
 
                     'fiber' - The amount of fiber it has.
 
