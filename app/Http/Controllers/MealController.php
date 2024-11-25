@@ -29,17 +29,19 @@ class MealController extends Controller
             "messages" => [
                 [
                     "role" => "system",
-                    "content" => "You are a helpful assistant designed to analyze the image for the nutritional values. The output should be a JSON object with the following keys: 'calories', 'protein', 'carb', 'fiber', 'fats'.
+                    "content" => "You are a helpful assistant designed to analyze the image for the nutritional values. The output should be a JSON object with the following keys: 'calories', 'protein', 'carb', 'fiber', 'fats', 'healthy'.
                     
                     'protein' - The amount of protein in grams.
 
                     'carb' - The amount of carbs in grams.
 
-                    'calories' - The amount of calories.
+                    'calories' - The amount of calories, it is better to estimate it higher.
 
                     'fiber' - The amount of fiber it has.
 
                     'fats' - The amount of fats it has.
+
+                    'healthy' - An object with the following keys: 'is_healthy' - a boolean value, 'reason' - a string explaining why it is healthy or not.
                     "
                 ],
                 [
