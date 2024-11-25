@@ -137,7 +137,6 @@ export default function Register() {
     }
 
     const submitInfo = () => {
-        console.log(form.data)
         form.post(route("generate"))
     }
 
