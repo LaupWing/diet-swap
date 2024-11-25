@@ -16,7 +16,6 @@ export default function Welcome(
     }>
 ) {
     const date = new Date()
-    console.log(props.userGoal)
     const [open, setOpen] = useState(false)
 
     return (
@@ -198,7 +197,7 @@ const Dates = () => {
             <li
                 ref={date_item}
                 className={cn(
-                    "w-[14.3%] snap-start opacity-10 flex flex-col py-2 rounded-xl flex-shrink-0 text-center",
+                    "w-[14.3%] snap-start opacity-10 flex flex-col pt-2 flex-shrink-0 text-center",
                     date.toLocaleDateString() === today.toLocaleDateString() &&
                         "opacity-100"
                 )}
@@ -209,6 +208,9 @@ const Dates = () => {
                         weekday: "short",
                     })}
                 </span>
+                {date.toLocaleDateString() === today.toLocaleDateString() && (
+                    <div className="h-1 rounded-full bg-foreground mt-3"></div>
+                )}
             </li>
         )
     }
@@ -217,7 +219,7 @@ const Dates = () => {
         <div className="relative">
             <ul
                 ref={date_container}
-                className="flex border-b border-slate-100 snap-x gap-2 pb-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
+                className="flex border-b border-slate-100 snap-x gap-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
             >
                 {date_array.map((date) => (
                     <DateItem key={date.toISOString()} date={date} />
