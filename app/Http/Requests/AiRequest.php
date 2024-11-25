@@ -39,6 +39,7 @@ class AiRequest extends FormRequest
             "allergies" => ["nullable", "string"],
             "special_notes" => ["nullable", "string"],
             "activity_level" => ["required", "string"],
+            "timezone" => ["required", "timezone"],
         ];
     }
 }

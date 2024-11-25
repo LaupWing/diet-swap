@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // create timezone column
+            $table->string('timezone')->default('UTC');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('weight');

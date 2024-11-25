@@ -34,6 +34,7 @@ interface FormData {
     allergies: string
     special_notes: string
     activity_level: string
+    timezone: string
 }
 
 export default function Register() {
@@ -57,6 +58,7 @@ export default function Register() {
         allergies: "",
         special_notes: "",
         activity_level: "sedentary",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     })
     const disableNext = () => {
         switch (currentStep) {
@@ -247,6 +249,10 @@ const Step2: FC<{
     setData: (data: any) => void
     formData: FormData
 }> = ({ setData, formData }) => {
+    const [timezones, setTimezones] = useState(
+        Intl.supportedValuesOf("timeZone")
+    )
+    console.log(formData)
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
@@ -310,6 +316,26 @@ const Step2: FC<{
                             <SelectItem value="male">Male</SelectItem>
                             <SelectItem value="female">Female</SelectItem>
                             <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="grid gap-1">
+                    <Label htmlFor="timezone">Timezone</Label>
+                    <Select
+                        onValueChange={(e) => {
+                            setData({ timezone: e })
+                        }}
+                        value={formData.timezone || ""}
+                    >
+                        <SelectTrigger className="w-auto">
+                            <SelectValue placeholder="Timezone" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {timezones.map((timezone) => (
+                                <SelectItem key={timezone} value={timezone}>
+                                    {timezone}
+                                </SelectItem>
+                            ))}
                         </SelectContent>
                     </Select>
                 </div>
