@@ -74,10 +74,9 @@ export const MealModal = () => {
                         <Input
                             onChange={handleChange}
                             className="hidden"
-                            id="picture-capture"
+                            id="picture"
                             type="file"
                             accept="image/*"
-                            capture="environment"
                         />
                     </div>
                 ) : (
