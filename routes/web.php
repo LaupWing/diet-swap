@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    logger(Auth::user()->userInfo);
-    return Inertia::render('Welcome');
+    logger(Auth::user()->userGoal);
+    return Inertia::render('Welcome', [
+        'userGoal' => Auth::user()->userGoal,
+    ]);
 });
 
 Route::get('/dashboard', function () {
