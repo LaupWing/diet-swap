@@ -32,6 +32,7 @@ class AiController extends Controller
         $cuisine = $data["cuisine"];
         $dietary = $data["dietary"];
         $special_notes = $data["special_notes"];
+        $timezone = $data["timezone"];
 
         $user = User::create([
             'email' => $email,
@@ -54,6 +55,7 @@ class AiController extends Controller
             'cuisine' => $cuisine,
             'dietary' => $dietary,
             'special_notes' => $special_notes,
+            'timezone' => $timezone,
         ]);
 
         Auth::login($user);
