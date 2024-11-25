@@ -22,7 +22,7 @@ class AnalyzeMealRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'picture' => ['required', 'file', 'mimes:jpg,jpeg,png,gif', 'max:20480'],
+            'picture' => ['required', 'file', 'mimes:jpg,jpeg,png,gif,webp', 'max:20480'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
         ];
