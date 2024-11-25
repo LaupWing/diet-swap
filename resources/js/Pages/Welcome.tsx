@@ -55,7 +55,7 @@ export default function Welcome(
             </div>
             <Head title="Welcome" />
             <div className="flex-1 w-full bg-background h-screen flex flex-col">
-                <header className="z-50 bg-background">
+                <header className="z-50 bg-background border-b">
                     <div className="">
                         <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
                             <Button
@@ -75,7 +75,7 @@ export default function Welcome(
                     </div>
                 </header>
 
-                <ScrollArea className="flex flex-col w-full flex-1 min-h-0 items-center">
+                <ScrollArea className="flex flex-col w-full bg-secondary/70 flex-1 min-h-0 items-center">
                     <div className="flex flex-col relative items-center mt-8">
                         <div className="flex gap-2 sticky top-8 w-full px-4 pt-2 pb-4 text-xs font-bold">
                             <div className="px-2 py-1 rounded-lg bg-green-300">
@@ -160,7 +160,7 @@ export default function Welcome(
                                 <div className="w-[2px] h-14 bg-slate-200"></div>
                                 <Dialog>
                                     <DialogTrigger asChild>
-                                        <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow">
+                                        <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow bg-background">
                                             <Plus className="text-slate-400" />
                                         </button>
                                     </DialogTrigger>
