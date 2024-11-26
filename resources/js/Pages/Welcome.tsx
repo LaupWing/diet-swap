@@ -26,8 +26,6 @@ export default function Welcome(
         mealsStore.setPictures(props.pictures)
     }, [])
 
-    console.log(mealsStore.date)
-
     return (
         <div className="flex min-w-0 min-h-screen">
             <div
@@ -95,7 +93,7 @@ export default function Welcome(
                             </div>
                         </div>
                         <div className="flex w-full flex-col justify-center items-center">
-                            {props.pictures.map((picture) => (
+                            {mealsStore.pictures.map((picture) => (
                                 <>
                                     <Card className="max-w-[300px] text-sm mx-auto w-full">
                                         <div className="flex flex-col p-6 gap-2">
