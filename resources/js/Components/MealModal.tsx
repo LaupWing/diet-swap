@@ -74,7 +74,7 @@ export const MealModal = () => {
             )}
             {response ? (
                 <div className="flex items-start px-4 gap-3 flex-col">
-                    <h2 className="text-xl font-bold">Reese's Chocolate</h2>
+                    <h2 className="text-xl font-bold">{response.name}</h2>
                     <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                         {response.calories} calories
                     </span>
