@@ -3,6 +3,7 @@
 use App\Http\Controllers\AiController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\ProfileController;
+use Carbon\Carbon;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -11,9 +12,19 @@ use Inertia\Inertia;
 Route::get('/', function () {
     /** @var \App\Models\User $user **/
     $user = Auth::user();
+    $timezone = $user->userInfo->timezone;
+
+    $startOfDay = Carbon::now($timezone)->startOfDay()->setTimezone('UTC');
+    $endOfDay = Carbon::now($timezone)->endOfDay()->setTimezone('UTC');
+
+    $pictures = $user->pictures()
+        ->with('meal')
+        ->whereBetween('created_at', [$startOfDay, $endOfDay])
+        ->get();
+
     return Inertia::render('Welcome', [
         'userGoal' => Auth::user()->userGoal,
-        'pictures' => $user->pictures()->with('meal')->get(),
+        'pictures' => $pictures
     ]);
 });
 
