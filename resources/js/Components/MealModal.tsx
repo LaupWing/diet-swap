@@ -104,7 +104,10 @@ export const MealModal = () => {
                             {response.is_healthy_reason}
                         </p>
                     </div>
-                    <Button className="ml-auto mt-4">Close</Button>
+                    <div className="flex mt-4 justify-between">
+                        <Button>Swap</Button>
+                        <Button variant={"outline"}>Close</Button>
+                    </div>
                 </div>
             ) : (
                 <div className="flex items-center flex-col">
