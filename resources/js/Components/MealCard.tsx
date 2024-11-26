@@ -1,5 +1,5 @@
 import { Meal, Picture } from "@/types"
-import { FC } from "react"
+import { FC, useState } from "react"
 import { Card } from "./ui/card"
 import { Info } from "lucide-react"
 import { IsHealthy } from "./IsHealthy"
@@ -13,6 +13,7 @@ import {
 } from "./ui/dialog"
 import { Button } from "./ui/button"
 import { InfinitySpin } from "react-loader-spinner"
+import axios from "axios"
 
 export const MealCard: FC<{
     picture: Picture
@@ -79,6 +80,18 @@ export const MealCard: FC<{
 const MealInfo: FC<{
     meal: Meal
 }> = ({ meal }) => {
+    const [loading, setLoading] = useState(false)
+    const swapMeal = async () => {
+        setLoading(true)
+        const res = await axios.get(
+            route("meals.swap", {
+                meal: meal.id,
+            })
+        )
+        console.log(res.data)
+        setLoading(false)
+    }
+
     return (
         <DialogContent className="max-w-md w-[90%] rounded">
             <DialogHeader className="text-left">
@@ -87,9 +100,11 @@ const MealInfo: FC<{
             </DialogHeader>
 
             <div className="flex items-start px-2 gap-3 flex-col relative">
-                <div className="absolute inset-0 bg-background/90 flex items-center justify-center">
-                    <InfinitySpin width="200" color="#818cf8" />
-                </div>
+                {loading && (
+                    <div className="absolute inset-0 bg-background/90 flex items-center justify-center">
+                        <InfinitySpin width="200" color="#818cf8" />
+                    </div>
+                )}
                 <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                     {meal.calories} calories
                 </span>
@@ -120,7 +135,7 @@ const MealInfo: FC<{
                     </p>
                 </div>
                 <div className="flex mt-4 justify-between w-full">
-                    <Button>Swap</Button>
+                    <Button onClick={swapMeal}>Swap</Button>
                     <Button variant={"outline"}>Close</Button>
                 </div>
             </div>
