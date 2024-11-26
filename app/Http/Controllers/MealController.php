@@ -137,7 +137,7 @@ class MealController extends Controller
             "messages" => [
                 [
                     "role" => "system",
-                    "content" => "You are a helpful assistant designed to find an alternative healthier food option. The output should be an Array with 5 objects with the following keys: 'name', 'descriptoin', 'calories', 'protein', 'carb', 'fiber', 'fats', 'calorie_difference', 'why'.
+                    "content" => "You are a helpful assistant designed to find an alternative healthier food option. The output should be an JSON object with the property 'alternatives'. 'alternatives' is an Array with 5 objects with the following keys: 'name', 'descriptoin', 'calories', 'protein', 'carb', 'fiber', 'fats', 'calorie_difference', 'why'.
 
                     'name' - The name of the meal.
 
