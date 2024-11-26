@@ -133,11 +133,26 @@ export const MealModal = () => {
                     />
                 </div>
                 <Button
+                    disabled={
+                        form.data.picture === null ||
+                        form.data.name === "" ||
+                        form.data.description === ""
+                    }
                     onClick={async () => {
                         setLoading(true)
+                        let formData = new FormData()
+                        formData.append("picture", form.data.picture!)
+                        formData.append("name", form.data.name)
+                        formData.append("description", form.data.description)
+
                         const res = await axios.post(
                             route("meals.analyze"),
-                            form.data
+                            formData,
+                            {
+                                headers: {
+                                    "Content-Type": "multipart/form-data",
+                                },
+                            }
                         )
                         console.log(res.data)
                         setLoading(false)
