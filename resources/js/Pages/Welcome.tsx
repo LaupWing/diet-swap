@@ -26,7 +26,7 @@ export default function Welcome(
         mealsStore.setPictures(props.pictures)
     }, [])
 
-    console.log(mealsStore.pictures)
+    console.log(mealsStore.date)
 
     return (
         <div className="flex min-w-0 min-h-screen">
