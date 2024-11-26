@@ -13,13 +13,14 @@ class MealController extends Controller
     public function analyze(AnalyzeMealRequest $request)
     {
         $data = $request->validated();
+        /** @var \App\Models\User $user **/
         $user = Auth::user();
 
         $picture = $data["picture"];
         $name = $data["name"];
         $description = $data["description"];
 
-        $pictureRecord = $user->pictures->create([
+        $pictureRecord = $user->pictures()->create([
             'file_extension' => $picture->extension(),
             'name' => $name,
             'description' => $description,
