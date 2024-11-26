@@ -18,7 +18,7 @@ class Picture extends Model
 
     public function getFilePathAttribute(): string
     {
-        return "/{$this->threadItem->thread->user_id}/{$this->threadItem->id}/{$this->id}.{$this->file_extension}";
+        return "/{$this->user->id}/{$this->id}.{$this->file_extension}";
     }
 
     public function getFileFromS3(): string
