@@ -154,11 +154,14 @@ export const MealModal = () => {
                         </div>
                     )}
 
-                    <div className="grid gap-2 w-full mt-4">
+                    <div className="grid gap-1 w-full mt-4">
                         <Label htmlFor="name">Name</Label>
+                        <p className="text-xs text-slate-400">
+                            Name of the meal with quantity: e.g. 1 x Croissant
+                        </p>
                         <Input
                             name="name"
-                            placeholder="Name of the meal"
+                            placeholder="Name of the meal with quantity: e.g. 1 Croissant"
                             className="w-full"
                             onChange={(e) =>
                                 form.setData("name", e.target.value)
@@ -167,6 +170,11 @@ export const MealModal = () => {
                     </div>
                     <div className="grid gap-2 w-full mt-4">
                         <Label htmlFor="description">Description</Label>
+                        <p className="text-xs text-slate-400">
+                            Description of the meal. The description should
+                            match the name and photo of the meal: e.g. I ate 1
+                            Croissant
+                        </p>
                         <Textarea
                             name="description"
                             placeholder="Give a short description"
