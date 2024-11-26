@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnalyzeMealRequest;
+use App\Models\Meal;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -116,4 +117,6 @@ class MealController extends Controller
 
         return response()->json($pictures);
     }
+
+    public function swapMeal(Meal $meal) {}
 }
