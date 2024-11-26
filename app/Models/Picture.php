@@ -39,7 +39,7 @@ class Picture extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function meals(): HasOne
+    public function meal(): HasOne
     {
         return $this->hasOne(Meal::class);
     }
