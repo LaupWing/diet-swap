@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('is_healthy');
+            $table->string('is_healthy_reason');
             $table->string('calories');
             $table->string('protein');
             $table->string('carbs');
