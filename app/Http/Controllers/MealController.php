@@ -89,7 +89,8 @@ class MealController extends Controller
             'is_healthy_reason' => $data->healthy->reason,
         ]);
 
-        logger(print_r($data, true));
-        back();
+        return response()->json([
+            'meal' => $pictureRecord->meal
+        ]);
     }
 }
