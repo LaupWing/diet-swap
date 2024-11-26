@@ -3,6 +3,7 @@ import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
+// @ts-ignore
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
