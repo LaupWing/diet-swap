@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AnalyzeMealRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use OpenAI;
 
 class MealController extends Controller
@@ -11,7 +12,7 @@ class MealController extends Controller
     public function analyze(AnalyzeMealRequest $request)
     {
         $data = $request->validated();
-        logger($data);
+        $user = Auth::user();
 
         $picture = $data["picture"];
         $name = $data["name"];
@@ -64,6 +65,19 @@ class MealController extends Controller
         ]);
 
         $data = json_decode($response->choices[0]->message->content);
+
+        $user->meals->create([
+            'name' => $name,
+            'description' => $description,
+            'calories' => $data->calories,
+            'protein' => $data->protein,
+            'carbs' => $data->carb,
+            'fats' => $data->fats,
+            'sugar' => 0,
+            'fiber' => $data->fiber,
+            'is_healthy' => $data->healthy->is_healthy,
+            'is_healthy_reason' => $data->healthy->reason,
+        ]);
 
         logger(print_r($data, true));
         back();
