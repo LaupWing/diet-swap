@@ -136,7 +136,7 @@ export default function Welcome(
                                             />
                                             <img
                                                 className="w-full rounded h-32 object-cover"
-                                                src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
+                                                src={picture.s3_url}
                                                 alt=""
                                             />
                                         </div>
