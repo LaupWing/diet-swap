@@ -16,6 +16,7 @@ import { MutatingDots } from "react-loader-spinner"
 import axios from "axios"
 import { Meal } from "@/types"
 import { IsHealthy } from "./IsHealthy"
+// import { Inertia } from '@inertiajs/inertia';
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
@@ -196,6 +197,7 @@ export const MealModal = () => {
                                 },
                             })
                             setResponse(res.data.meal)
+
                             setLoading(false)
                         }}
                         className="ml-auto mt-4"

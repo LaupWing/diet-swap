@@ -18,6 +18,7 @@ export default function Welcome(
     }>
 ) {
     console.log(props.pictures)
+
     const date = new Date()
     const [open, setOpen] = useState(false)
 
