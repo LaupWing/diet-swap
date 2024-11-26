@@ -202,6 +202,7 @@ export const MealModal = () => {
                             const mealPictures = await axios.get<Picture[]>(
                                 route("meals.get")
                             )
+                            console.log(mealPictures)
                             mealsStore.setPictures(mealPictures.data)
 
                             setLoading(false)

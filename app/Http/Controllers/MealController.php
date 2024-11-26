@@ -114,8 +114,6 @@ class MealController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
-        return response()->json([
-            'pictures' => $pictures
-        ]);
+        return response()->json($pictures);
     }
 }
