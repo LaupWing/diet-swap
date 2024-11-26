@@ -22,7 +22,7 @@ export default function Welcome(
         <div className="flex min-w-0 min-h-screen">
             <div
                 className={cn(
-                    "border-r hidden duration-200 bg-primary-foreground sm:flex-shrink-0",
+                    "border-r hidden duration-200 bg-background sm:flex-shrink-0",
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
@@ -38,7 +38,7 @@ export default function Welcome(
             </div>
             <div
                 className={cn(
-                    "border-r hidden duration-200 bg-primary-foreground sm:block flex-shrink-0",
+                    "border-r hidden duration-200 bg-background sm:block flex-shrink-0",
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
