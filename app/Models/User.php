@@ -52,10 +52,6 @@ class User extends Authenticatable
         return $this->hasOne(UserInfo::class);
     }
 
-    public function meals(): HasMany
-    {
-        return $this->hasMany(Meal::class);
-    }
 
     public function pictures(): HasMany
     {

@@ -9,7 +9,9 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    logger(Auth::user()->userGoal);
+    /** @var \App\Models\User $user **/
+    $user = Auth::user();
+    logger($user->pictures()->with('meal')->get());
     return Inertia::render('Welcome', [
         'userGoal' => Auth::user()->userGoal,
     ]);
