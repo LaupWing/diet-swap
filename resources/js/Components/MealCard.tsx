@@ -85,7 +85,7 @@ const MealInfo: FC<{
                 <DialogDescription>{meal.description}</DialogDescription>
             </DialogHeader>
 
-            <div className="flex items-start px-4 gap-3 flex-col">
+            <div className="flex items-start px-2 gap-3 flex-col">
                 <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                     {meal.calories} calories
                 </span>
