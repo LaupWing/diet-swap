@@ -73,19 +73,19 @@ export const MealModal = () => {
                 <div className="flex items-start px-4 gap-3 flex-col">
                     <h2 className="text-xl font-bold">Reese's Chocolate</h2>
                     <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                        913 calories
+                        {response.calories} calories
                     </span>
                     <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                        98 protein
+                        {response.protein} protein
                     </span>
                     <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                        98 carb
+                        {response.carbs} carb
                     </span>
                     <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                        98 fiber
+                        {response.fiber} fiber
                     </span>
                     <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                        98 fats
+                        {response.fats} fats
                     </span>
                     <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
                         <div className="flex items-center gap-1">
