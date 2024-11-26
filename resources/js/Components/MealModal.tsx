@@ -21,7 +21,6 @@ export const MealModal = () => {
         description: "",
         picture: null,
     })
-    console.log(form.errors)
 
     const handleChange = (e: any) => {
         if (
