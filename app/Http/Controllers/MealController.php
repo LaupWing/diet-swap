@@ -174,5 +174,6 @@ class MealController extends Controller
 
         $data = json_decode($response->choices[0]->message->content);
         logger(print_r($data, true));
+        return response()->json($data);
     }
 }
