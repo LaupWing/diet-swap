@@ -69,16 +69,37 @@ export const MealModal = () => {
                 </div>
             )}
             {true ? (
-                <div className="flex items-start px-10 gap-2 flex-col">
+                <div className="flex items-start px-10 gap-3 flex-col">
                     <h2 className="text-xl font-bold">Reese's Chocolate</h2>
-                    <p>Calories: 200</p>
-                    <p>Protein: 10g</p>
-                    <p>Carbs: 20g</p>
-                    <p>Fats: 10g</p>
-                    <p>Sugar: 10g</p>
-                    <p>Fiber: 0g</p>
-                    <p>Healthy: No</p>
-                    <p>Reason: High in sugar</p>
+                    <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        913 calories
+                    </span>
+                    <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        98 protein
+                    </span>
+                    <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        98 carb
+                    </span>
+                    <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        98 fiber
+                    </span>
+                    <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        98 fats
+                    </span>
+                    <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
+                        <p>
+                            <span className="uppercase text-slate-500">
+                                Healthy:
+                            </span>{" "}
+                            No
+                        </p>
+                        <p>
+                            <span className="uppercase text-slate-500">
+                                Reason:
+                            </span>{" "}
+                            High in sugar
+                        </p>
+                    </div>
                     <Button className="ml-auto mt-4">Close</Button>
                 </div>
             ) : (
