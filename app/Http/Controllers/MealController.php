@@ -118,5 +118,8 @@ class MealController extends Controller
         return response()->json($pictures);
     }
 
-    public function swapMeal(Meal $meal) {}
+    public function swapMeal(Meal $meal)
+    {
+        logger($meal);
+    }
 }
