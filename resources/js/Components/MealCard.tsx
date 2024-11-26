@@ -170,53 +170,39 @@ const MealInfo: FC<{
     }
 
     return (
-        <DialogContent className="max-w-md w-[90%] rounded">
+        <DialogContent className="max-w-md flex max-h-[90vh] flex-col w-[90%] min-h-0 rounded">
             <DialogHeader className="text-left">
                 <DialogTitle>{meal.name}</DialogTitle>
                 <DialogDescription>{meal.description}</DialogDescription>
             </DialogHeader>
 
             {showSwapList ? (
-                <ScrollArea className="max-h-[70vh]">
-                    <ul className="flex items-start px-2 gap-3 flex-col relative">
+                <ScrollArea className=" flex-1 flex flex-col">
+                    <ul className="flex items-start min-h-0 px-2 gap-3 flex-col relative">
                         {swapList.map((meal, i) => (
-                            <li className="text-xs" key={i}>
-                                <div className="flex items-center gap-1">
-                                    <span className="text-slate-500">
-                                        {meal.name}
-                                    </span>
-                                </div>
-                                <span className="text-slate-500">
+                            <li className="text-xs flex flex-col" key={i}>
+                                <h2 className="flex text-slate-500 items-center gap-1">
+                                    {meal.name}
+                                </h2>
+                                <p className="text-slate-500">
                                     {meal.description}
-                                </span>
-                                <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                    {meal.calories} calories
-                                </span>
-                                <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                    {meal.protein} protein
-                                </span>
-                                <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                    {meal.carb} carb
-                                </span>
-                                <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                    {meal.fiber} fiber
-                                </span>
-                                <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                    {meal.fats} fats
-                                </span>
-                                <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
-                                    <div className="flex items-center gap-1">
-                                        <span className="uppercase text-slate-500">
-                                            Healthy:
-                                        </span>{" "}
-                                        <IsHealthy healthy="healthy" />
-                                    </div>
-                                    <p>
-                                        <span className="uppercase text-slate-500">
-                                            Reason:
-                                        </span>{" "}
-                                        {meal.why}
-                                    </p>
+                                </p>
+                                <div>
+                                    <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        {meal.calories} calories
+                                    </span>
+                                    <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        {meal.protein} protein
+                                    </span>
+                                    <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        {meal.carb} carb
+                                    </span>
+                                    <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        {meal.fiber} fiber
+                                    </span>
+                                    <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                        {meal.fats} fats
+                                    </span>
                                 </div>
                             </li>
                         ))}
