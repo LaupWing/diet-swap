@@ -129,7 +129,7 @@ export const MealModal = () => {
                     />
                 </div>
                 <Button
-                    onClick={() => {
+                    onClick={async () => {
                         console.log(form.data.picture)
                         form.post(route("meals.analyze"))
                     }}
