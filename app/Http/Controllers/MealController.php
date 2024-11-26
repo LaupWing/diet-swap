@@ -120,6 +120,59 @@ class MealController extends Controller
 
     public function swapMeal(Meal $meal)
     {
-        logger($meal);
+        $open_ai = OpenAI::client(env("OPENAI_API_KEY"));
+        $name = $meal->name;
+        $description = $meal->description;
+        $calories = $meal->calories;
+        $protein = $meal->protein;
+        $carbs = $meal->carbs;
+        $fats = $meal->fats;
+        $fiber = $meal->fiber;
+
+        $response = $open_ai->chat()->create([
+            "model" => "gpt-4o-mini",
+            "response_format" => [
+                "type" => "json_object",
+            ],
+            "messages" => [
+                [
+                    "role" => "system",
+                    "content" => "You are a helpful assistant designed to find an alternative healthier food option. The output should be an Array with 5 objects with the following keys: 'name', 'descriptoin', 'calories', 'protein', 'carb', 'fiber', 'fats', 'calorie_difference', 'why'.
+
+                    'name' - The name of the meal.
+
+                    'description' - The description of the meal.
+                    
+                    'protein' - The total amount of protein in grams (Quantity of the item may be included in the description).
+
+                    'carb' - The total amount of carbs in grams (Quantity of the item may be included in the description).
+
+                    'calories' - The total amount of calories (Quantity of the item may be included in the description).
+
+                    'fiber' - The total amount of fiber it has (Quantity of the item may be included in the description).
+
+                    'fats' - The total amount of fats it has (Quantity of the item may be included in the description).
+
+                    'calorie_difference' - The difference in calories between the original meal.
+
+                    'why' - A string explaining why this meal is a healthier option.
+                    "
+                ],
+                [
+                    'role' => 'user',
+                    'content' => [
+                        [
+                            'type' => 'text',
+                            'text' => "The meal I want to have healthier options is:\nName: {$name}\nDescription: {$description}\nNutrients: Calories: {$calories}, Protein: {$protein}, Carbs: {$carbs}, Fats: {$fats}, Fiber: {$fiber}",
+                        ],
+
+                    ],
+                ],
+            ],
+            "max_tokens" => 4000,
+        ]);
+
+        $data = json_decode($response->choices[0]->message->content);
+        logger(print_r($data, true));
     }
 }
