@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import React, { FC } from "react"
+import { FC } from "react"
 
 export const IsHealthy: FC<{
     healthy: string
