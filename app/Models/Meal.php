@@ -20,6 +20,8 @@ class Meal extends Model
         'fats',
         'sugar',
         'fiber',
+        'is_healthy',
+        'is_healthy_reason',
     ];
 
     public function user(): BelongsTo
