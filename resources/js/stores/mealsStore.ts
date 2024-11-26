@@ -7,7 +7,7 @@ interface MealsState {
     date: Date
 }
 
-export const useUserSettingsStore = create<MealsState>((set) => ({
+export const useMealsStore = create<MealsState>((set) => ({
     meals: [],
     setMeals: (meals) => set({ meals }),
     date: new Date(),
