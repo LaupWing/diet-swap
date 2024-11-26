@@ -8,13 +8,15 @@ import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
-import { PageProps, UserGoal } from "@/types"
+import { PageProps, Picture, UserGoal } from "@/types"
 
 export default function Welcome(
     props: PageProps<{
         userGoal: UserGoal
+        pictures: Picture[]
     }>
 ) {
+    console.log(props.pictures)
     const date = new Date()
     const [open, setOpen] = useState(false)
 

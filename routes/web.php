@@ -11,9 +11,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     /** @var \App\Models\User $user **/
     $user = Auth::user();
-    logger($user->pictures()->with('meal')->get());
     return Inertia::render('Welcome', [
         'userGoal' => Auth::user()->userGoal,
+        'pictures' => $user->pictures()->with('meal')->get(),
     ]);
 });
 
