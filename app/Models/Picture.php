@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Storage;
 class Picture extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['file_extension', 'name', 'description'];
+
+    protected $appends = ['s3_url', 'file_path'];
+
+
     public function getFilePathAttribute(): string
     {
         return "/{$this->threadItem->thread->user_id}/{$this->threadItem->id}/{$this->id}.{$this->file_extension}";
