@@ -41,6 +41,6 @@
         "react-loader-spinner": "^6.1.6",
         "tailwind-merge": "^2.4.0",
         "tailwindcss-animate": "^1.0.7",
-        "zustand": "^5.0.1"
+        "zustand": "^5.0.0"
     }
 }
