@@ -128,7 +128,7 @@ class MealController extends Controller
         $carbs = $meal->carbs;
         $fats = $meal->fats;
         $fiber = $meal->fiber;
-
+        logger($meal);
         $response = $open_ai->chat()->create([
             "model" => "gpt-4o-mini",
             "response_format" => [
