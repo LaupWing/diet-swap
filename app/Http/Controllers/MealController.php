@@ -47,15 +47,15 @@ class MealController extends Controller
 
                     'description' - The description of the meal.
                     
-                    'protein' - The amount of protein in grams.
+                    'protein' - The total amount of protein in grams (Quantity of the item may be included in the description).
 
-                    'carb' - The amount of carbs in grams.
+                    'carb' - The total amount of carbs in grams (Quantity of the item may be included in the description).
 
-                    'calories' - The amount of calories.
+                    'calories' - The total amount of calories (Quantity of the item may be included in the description).
 
-                    'fiber' - The amount of fiber it has.
+                    'fiber' - The total amount of fiber it has (Quantity of the item may be included in the description).
 
-                    'fats' - The amount of fats it has.
+                    'fats' - The total amount of fats it has (Quantity of the item may be included in the description).
 
                     'healthy' - An object with the following keys: 'is_healthy' - an enum value which can be healthy, unhealthy or neutral, 'reason' - a string explaining why it is healthy or not.
                     "
