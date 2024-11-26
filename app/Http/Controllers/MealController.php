@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnalyzeMealRequest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -95,6 +96,26 @@ class MealController extends Controller
 
         return response()->json([
             'meal' => $pictureRecord->meal
+        ]);
+    }
+
+    public function getMeals()
+    {
+        /** @var \App\Models\User $user **/
+        $user = Auth::user();
+        $timezone = $user->userInfo->timezone;
+
+        $startOfDay = Carbon::now($timezone)->startOfDay()->setTimezone('UTC');
+        $endOfDay = Carbon::now($timezone)->endOfDay()->setTimezone('UTC');
+
+        $pictures = $user->pictures()
+            ->with('meal')
+            ->whereBetween('created_at', [$startOfDay, $endOfDay])
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return response()->json([
+            'pictures' => $pictures
         ]);
     }
 }

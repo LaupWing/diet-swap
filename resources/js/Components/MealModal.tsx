@@ -14,14 +14,16 @@ import heic2any from "heic2any"
 import { useForm } from "@inertiajs/react"
 import { MutatingDots } from "react-loader-spinner"
 import axios from "axios"
-import { Meal } from "@/types"
+import { Meal, Picture } from "@/types"
 import { IsHealthy } from "./IsHealthy"
+import { useMealsStore } from "@/stores/mealsStore"
 // import { Inertia } from '@inertiajs/inertia';
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
     const [response, setResponse] = useState<Meal | null>(null)
     const [loading, setLoading] = useState(false)
+    const mealsStore = useMealsStore()
     const form = useForm({
         name: "",
         description: "",
@@ -196,6 +198,11 @@ export const MealModal = () => {
                                 },
                             })
                             setResponse(res.data.meal)
+
+                            const mealPictures = await axios.get<Picture[]>(
+                                route("meals.get")
+                            )
+                            mealsStore.setPictures(mealPictures.data)
 
                             setLoading(false)
                         }}

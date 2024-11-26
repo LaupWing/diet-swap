@@ -36,6 +36,7 @@ Route::get('/dashboard', function () {
 Route::post('/generate', [AiController::class, 'generate'])->name('generate');
 Route::prefix('meals')->group(function () {
     Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.analyze');
+    Route::get('/', [MealController::class, 'getMeals'])->name('meals.get');
 });
 
 Route::middleware('auth')->group(function () {
