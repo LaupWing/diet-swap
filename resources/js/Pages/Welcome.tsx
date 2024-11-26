@@ -3,7 +3,6 @@ import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
-// @ts-ignore
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
@@ -11,6 +10,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, Picture, UserGoal } from "@/types"
 import { IsHealthy } from "@/Components/IsHealthy"
+import { useMealsStore } from "@/stores/mealsStore"
 
 export default function Welcome(
     props: PageProps<{
@@ -18,10 +18,15 @@ export default function Welcome(
         pictures: Picture[]
     }>
 ) {
-    console.log(props.pictures)
-
     const date = new Date()
     const [open, setOpen] = useState(false)
+    const mealsStore = useMealsStore()
+
+    useEffect(() => {
+        mealsStore.setPictures(props.pictures)
+    }, [])
+
+    console.log(mealsStore.pictures)
 
     return (
         <div className="flex min-w-0 min-h-screen">

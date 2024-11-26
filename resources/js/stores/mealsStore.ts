@@ -1,14 +1,14 @@
-import { Meal } from "@/types"
+import { Meal, Picture } from "@/types"
 import { create } from "zustand"
 
 interface MealsState {
-    meals: Meal[]
-    setMeals: (meals: Meal[]) => void
+    pictures: Picture[]
+    setPictures: (meals: Picture[]) => void
     date: Date
 }
 
 export const useMealsStore = create<MealsState>((set) => ({
-    meals: [],
-    setMeals: (meals) => set({ meals }),
+    pictures: [],
+    setPictures: (pictures) => set({ pictures }),
     date: new Date(),
 }))
