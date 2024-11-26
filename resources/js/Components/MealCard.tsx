@@ -81,6 +81,81 @@ const MealInfo: FC<{
     meal: Meal
 }> = ({ meal }) => {
     const [loading, setLoading] = useState(false)
+    const [swapList, setSwapList] = useState<
+        Array<{
+            name: string
+            description: string
+            calories: number
+            protein: number
+            carb: number
+            fiber: number
+            fats: number
+            calorie_difference: number
+            why: string
+        }>
+    >([
+        {
+            name: "Grilled Chicken Salad",
+            description:
+                "A fresh salad with 150g of grilled chicken breast, mixed greens, cherry tomatoes, cucumbers, and a light vinaigrette.",
+            calories: 400,
+            protein: 40,
+            carb: 20,
+            fiber: 5,
+            fats: 15,
+            calorie_difference: -900,
+            why: "This meal is lower in calories and fats while providing a good amount of protein and fiber, making it a healthier option for a balanced diet.",
+        },
+        {
+            name: "Quinoa Bowl with Black Beans",
+            description:
+                "A wholesome bowl with 1 cup of cooked quinoa, 1/2 cup of black beans, corn, diced bell peppers, and avocado.",
+            calories: 500,
+            protein: 20,
+            carb: 80,
+            fiber: 15,
+            fats: 10,
+            calorie_difference: -800,
+            why: "This quinoa bowl offers plant-based protein and fiber, is lower in calories, and contains healthy fats from avocado, promoting better digestion.",
+        },
+        {
+            name: "Turkey and Avocado Wrap",
+            description:
+                "A wrap made with a whole grain tortilla, 100g of turkey breast, lettuce, tomato, and slices of avocado.",
+            calories: 450,
+            protein: 30,
+            carb: 45,
+            fiber: 8,
+            fats: 15,
+            calorie_difference: -850,
+            why: "Using whole grains and lean turkey provides a healthier protein source along with beneficial fats from avocado, reducing calorie intake significantly.",
+        },
+        {
+            name: "Vegetable Stir-Fry with Tofu",
+            description:
+                "A 200g portion of tofu stir-fried with a variety of vegetables like bell peppers, broccoli, and carrots, served over brown rice.",
+            calories: 550,
+            protein: 25,
+            carb: 70,
+            fiber: 6,
+            fats: 12,
+            calorie_difference: -750,
+            why: "This is a well-balanced meal, rich in plant proteins and fiber, with lower calories and healthy fats, making it an excellent alternative.",
+        },
+        {
+            name: "Baked Salmon with Asparagus",
+            description:
+                "A healthy serving of 150g baked salmon with a side of roasted asparagus and a squeeze of lemon.",
+            calories: 500,
+            protein: 35,
+            carb: 10,
+            fiber: 4,
+            fats: 30,
+            calorie_difference: -800,
+            why: "Baked salmon is a great source of omega-3 fatty acids and protein while being lower in carbs and calories, making it a heart-healthy option.",
+        },
+    ])
+
     const swapMeal = async () => {
         setLoading(true)
         const res = await axios.get(
