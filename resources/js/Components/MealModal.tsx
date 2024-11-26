@@ -13,9 +13,11 @@ import { useState } from "react"
 import heic2any from "heic2any"
 import { useForm } from "@inertiajs/react"
 import { MutatingDots } from "react-loader-spinner"
+import axios from "axios"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
+    const [loading, setLoading] = useState(false)
     const form = useForm({
         name: "",
         description: "",
@@ -50,19 +52,21 @@ export const MealModal = () => {
                     Make sure that the photo only contains the meal
                 </DialogDescription>
             </DialogHeader>
-            {/* <div className="absolute inset-0 z-50 flex items-center justify-center bg-background/90">
-                <MutatingDots
-                    visible={true}
-                    height="100"
-                    width="100"
-                    color="#818cf8"
-                    secondaryColor="#a78bfa"
-                    radius="12.5"
-                    ariaLabel="mutating-dots-loading"
-                    wrapperStyle={{}}
-                    wrapperClass="fill-current text-slate-400"
-                />
-            </div> */}
+            {loading && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center bg-background/90">
+                    <MutatingDots
+                        visible={true}
+                        height="100"
+                        width="100"
+                        color="#818cf8"
+                        secondaryColor="#a78bfa"
+                        radius="12.5"
+                        ariaLabel="mutating-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClass="fill-current text-slate-400"
+                    />
+                </div>
+            )}
             <div className="flex items-center flex-col">
                 {!preview ? (
                     <div className="flex items-center w-full flex-col">
@@ -130,8 +134,13 @@ export const MealModal = () => {
                 </div>
                 <Button
                     onClick={async () => {
-                        console.log(form.data.picture)
-                        form.post(route("meals.analyze"))
+                        setLoading(true)
+                        const res = await axios.post(
+                            route("meals.analyze"),
+                            form.data
+                        )
+                        console.log(res.data)
+                        setLoading(false)
                     }}
                     className="ml-auto mt-4"
                 >
