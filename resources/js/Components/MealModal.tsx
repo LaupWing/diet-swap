@@ -145,16 +145,25 @@ export const MealModal = () => {
                         formData.append("name", form.data.name)
                         formData.append("description", form.data.description)
 
-                        const res = await axios.post(
-                            route("meals.analyze"),
-                            formData,
-                            {
-                                headers: {
-                                    "Content-Type": "multipart/form-data",
-                                },
+                        const res = await axios.post<{
+                            meal: {
+                                name: string
+                                description: string
+                                calories: number
+                                protein: number
+                                carbs: number
+                                fats: number
+                                sugar: number
+                                fiber: number
+                                is_healthy: boolean
+                                is_healthy_reason: string
                             }
-                        )
-                        console.log(res.data)
+                        }>(route("meals.analyze"), formData, {
+                            headers: {
+                                "Content-Type": "multipart/form-data",
+                            },
+                        })
+
                         setLoading(false)
                     }}
                     className="ml-auto mt-4"
