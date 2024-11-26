@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AnalyzeMealRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use OpenAI;
 
 class MealController extends Controller
@@ -17,6 +18,14 @@ class MealController extends Controller
         $picture = $data["picture"];
         $name = $data["name"];
         $description = $data["description"];
+
+        $pictureRecord = $user->pictures->create([
+            'file_extension' => $picture->extension(),
+            'name' => $name,
+            'description' => $description,
+        ]);
+
+        Storage::disk('pictures')->put($pictureRecord->file_path, file_get_contents($picture));
 
         $base64Image = base64_encode(file_get_contents($picture->getRealPath()));
 
