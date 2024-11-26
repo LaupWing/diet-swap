@@ -102,7 +102,9 @@ export default function Welcome(
                                                         hour12: false,
                                                     })}
                                                 </span>
-                                                <Info />
+                                                <button>
+                                                    <Info />
+                                                </button>
                                             </div>
                                             <h2 className="font-bold text-base">
                                                 {picture.meal.name}
