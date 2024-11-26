@@ -69,7 +69,7 @@ export const MealModal = () => {
                 </div>
             )}
             {true ? (
-                <div className="flex items-start px-10 gap-3 flex-col">
+                <div className="flex items-start px-4 gap-3 flex-col">
                     <h2 className="text-xl font-bold">Reese's Chocolate</h2>
                     <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                         913 calories
@@ -87,12 +87,14 @@ export const MealModal = () => {
                         98 fats
                     </span>
                     <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
-                        <p>
+                        <div className="flex items-center gap-1">
                             <span className="uppercase text-slate-500">
                                 Healthy:
                             </span>{" "}
-                            No
-                        </p>
+                            <div className="rounded-full bg-background px-2 py-[2px] text-xs uppercase font-bold text-yellow-500">
+                                It's okay 👍
+                            </div>
+                        </div>
                         <p>
                             <span className="uppercase text-slate-500">
                                 Reason:
