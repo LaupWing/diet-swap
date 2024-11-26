@@ -14,6 +14,7 @@ import {
 import { Button } from "./ui/button"
 import { InfinitySpin } from "react-loader-spinner"
 import axios from "axios"
+import { ScrollArea } from "@radix-ui/react-scroll-area"
 
 export const MealCard: FC<{
     picture: Picture
@@ -81,6 +82,7 @@ const MealInfo: FC<{
     meal: Meal
 }> = ({ meal }) => {
     const [loading, setLoading] = useState(false)
+    const [showSwapList, setShowSwapList] = useState(true)
     const [swapList, setSwapList] = useState<
         Array<{
             name: string
@@ -174,46 +176,94 @@ const MealInfo: FC<{
                 <DialogDescription>{meal.description}</DialogDescription>
             </DialogHeader>
 
-            <div className="flex items-start px-2 gap-3 flex-col relative">
-                {loading && (
-                    <div className="absolute inset-0 bg-background/90 flex items-center justify-center">
-                        <InfinitySpin width="200" color="#818cf8" />
+            {showSwapList ? (
+                <ScrollArea className="max-h-[70vh]">
+                    <ul className="flex items-start px-2 gap-3 flex-col relative">
+                        {swapList.map((meal, i) => (
+                            <li className="text-xs" key={i}>
+                                <div className="flex items-center gap-1">
+                                    <span className="text-slate-500">
+                                        {meal.name}
+                                    </span>
+                                </div>
+                                <span className="text-slate-500">
+                                    {meal.description}
+                                </span>
+                                <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.calories} calories
+                                </span>
+                                <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.protein} protein
+                                </span>
+                                <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.carb} carb
+                                </span>
+                                <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.fiber} fiber
+                                </span>
+                                <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.fats} fats
+                                </span>
+                                <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
+                                    <div className="flex items-center gap-1">
+                                        <span className="uppercase text-slate-500">
+                                            Healthy:
+                                        </span>{" "}
+                                        <IsHealthy healthy="healthy" />
+                                    </div>
+                                    <p>
+                                        <span className="uppercase text-slate-500">
+                                            Reason:
+                                        </span>{" "}
+                                        {meal.why}
+                                    </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </ScrollArea>
+            ) : (
+                <div className="flex items-start px-2 gap-3 flex-col relative">
+                    {loading && (
+                        <div className="absolute inset-0 bg-background/90 flex items-center justify-center">
+                            <InfinitySpin width="200" color="#818cf8" />
+                        </div>
+                    )}
+                    <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        {meal.calories} calories
+                    </span>
+                    <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        {meal.protein} protein
+                    </span>
+                    <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        {meal.carbs} carb
+                    </span>
+                    <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        {meal.fiber} fiber
+                    </span>
+                    <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                        {meal.fats} fats
+                    </span>
+                    <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
+                        <div className="flex items-center gap-1">
+                            <span className="uppercase text-slate-500">
+                                Healthy:
+                            </span>{" "}
+                            <IsHealthy healthy={meal.is_healthy!} />
+                        </div>
+                        <p>
+                            <span className="uppercase text-slate-500">
+                                Reason:
+                            </span>{" "}
+                            {meal.is_healthy_reason}
+                        </p>
                     </div>
-                )}
-                <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                    {meal.calories} calories
-                </span>
-                <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                    {meal.protein} protein
-                </span>
-                <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                    {meal.carbs} carb
-                </span>
-                <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                    {meal.fiber} fiber
-                </span>
-                <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                    {meal.fats} fats
-                </span>
-                <div className="flex flex-col text-sm gap-2 px-4 py-2 bg-slate-100 rounded">
-                    <div className="flex items-center gap-1">
-                        <span className="uppercase text-slate-500">
-                            Healthy:
-                        </span>{" "}
-                        <IsHealthy healthy={meal.is_healthy!} />
+                    <div className="flex mt-4 justify-between w-full">
+                        <Button onClick={swapMeal}>Swap</Button>
+                        <Button variant={"outline"}>Close</Button>
                     </div>
-                    <p>
-                        <span className="uppercase text-slate-500">
-                            Reason:
-                        </span>{" "}
-                        {meal.is_healthy_reason}
-                    </p>
                 </div>
-                <div className="flex mt-4 justify-between w-full">
-                    <Button onClick={swapMeal}>Swap</Button>
-                    <Button variant={"outline"}>Close</Button>
-                </div>
-            </div>
+            )}
         </DialogContent>
     )
 }
