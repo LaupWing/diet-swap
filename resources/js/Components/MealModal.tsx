@@ -38,7 +38,6 @@ export const MealModal = () => {
                 toType: "image/jpeg",
                 quality: 1,
             }).then((file: any) => {
-                console.log(file)
                 form.setData("picture", file)
                 setPreview(URL.createObjectURL(file))
             })
