@@ -18,6 +18,7 @@ import { Meal } from "@/types"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
+    const [response, setResponse] = useState<Meal | null>(null)
     const [loading, setLoading] = useState(false)
     const form = useForm({
         name: "",
@@ -68,7 +69,7 @@ export const MealModal = () => {
                     />
                 </div>
             )}
-            {true ? (
+            {response ? (
                 <div className="flex items-start px-4 gap-3 flex-col">
                     <h2 className="text-xl font-bold">Reese's Chocolate</h2>
                     <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
@@ -195,7 +196,7 @@ export const MealModal = () => {
                                     "Content-Type": "multipart/form-data",
                                 },
                             })
-
+                            setResponse(res.data.meal)
                             setLoading(false)
                         }}
                         className="ml-auto mt-4"
