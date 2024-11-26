@@ -14,6 +14,7 @@ import heic2any from "heic2any"
 import { useForm } from "@inertiajs/react"
 import { MutatingDots } from "react-loader-spinner"
 import axios from "axios"
+import { Meal } from "@/types"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
@@ -67,110 +68,119 @@ export const MealModal = () => {
                     />
                 </div>
             )}
-            <div className="flex items-center flex-col">
-                {!preview ? (
-                    <div className="flex items-center w-full flex-col">
-                        <Button
-                            className="uppercase w-full h-12 flex items-center justify-center text-slate-400"
-                            variant={"outline"}
-                        >
-                            <Label
-                                htmlFor="picture"
-                                className="w-full flex items-center justify-center gap-2"
+            {true ? (
+                <div className="flex items-start px-10 gap-2 flex-col">
+                    <h2>Reese's Chocolate</h2>
+                    <p>Calories: 200</p>
+                    <p>Protein: 10g</p>
+                    <p>Carbs: 20g</p>
+                    <p>Fats: 10g</p>
+                    <p>Sugar: 10g</p>
+                    <p>Fiber: 0g</p>
+                    <p>Healthy: No</p>
+                    <p>Reason: High in sugar</p>
+                    <Button className="ml-auto mt-4">Close</Button>
+                </div>
+            ) : (
+                <div className="flex items-center flex-col">
+                    {!preview ? (
+                        <div className="flex items-center w-full flex-col">
+                            <Button
+                                className="uppercase w-full h-12 flex items-center justify-center text-slate-400"
+                                variant={"outline"}
                             >
-                                <ImageUp />
-                                Upload Photo
-                            </Label>
-                        </Button>
-                        <Input
-                            onChange={handleChange}
-                            className="hidden"
-                            id="picture"
-                            type="file"
-                        />
-                        <Input
-                            onChange={handleChange}
-                            className="hidden"
-                            id="picture"
-                            type="file"
-                            accept="image/*"
-                        />
-                    </div>
-                ) : (
-                    <div className="relative">
-                        <Button
-                            size={"icon"}
-                            className="absolute top-2 right-2"
-                            onClick={() => setPreview(null)}
-                        >
-                            <X />
-                        </Button>
-                        <img
-                            className="aspect-video object-cover rounded"
-                            src={preview}
-                        />
-                    </div>
-                )}
+                                <Label
+                                    htmlFor="picture"
+                                    className="w-full flex items-center justify-center gap-2"
+                                >
+                                    <ImageUp />
+                                    Upload Photo
+                                </Label>
+                            </Button>
+                            <Input
+                                onChange={handleChange}
+                                className="hidden"
+                                id="picture"
+                                type="file"
+                            />
+                            <Input
+                                onChange={handleChange}
+                                className="hidden"
+                                id="picture"
+                                type="file"
+                                accept="image/*"
+                            />
+                        </div>
+                    ) : (
+                        <div className="relative">
+                            <Button
+                                size={"icon"}
+                                className="absolute top-2 right-2"
+                                onClick={() => setPreview(null)}
+                            >
+                                <X />
+                            </Button>
+                            <img
+                                className="aspect-video object-cover rounded"
+                                src={preview!}
+                            />
+                        </div>
+                    )}
 
-                <div className="grid gap-2 w-full mt-4">
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                        name="name"
-                        placeholder="Name of the meal"
-                        className="w-full"
-                        onChange={(e) => form.setData("name", e.target.value)}
-                    />
-                </div>
-                <div className="grid gap-2 w-full mt-4">
-                    <Label htmlFor="description">Description</Label>
-                    <Textarea
-                        name="description"
-                        placeholder="Give a short description"
-                        className="w-full resize-none h-36"
-                        onChange={(e) =>
-                            form.setData("description", e.target.value)
-                        }
-                    />
-                </div>
-                <Button
-                    disabled={
-                        form.data.picture === null ||
-                        form.data.name === "" ||
-                        form.data.description === ""
-                    }
-                    onClick={async () => {
-                        setLoading(true)
-                        let formData = new FormData()
-                        formData.append("picture", form.data.picture!)
-                        formData.append("name", form.data.name)
-                        formData.append("description", form.data.description)
-
-                        const res = await axios.post<{
-                            meal: {
-                                name: string
-                                description: string
-                                calories: number
-                                protein: number
-                                carbs: number
-                                fats: number
-                                sugar: number
-                                fiber: number
-                                is_healthy: boolean
-                                is_healthy_reason: string
+                    <div className="grid gap-2 w-full mt-4">
+                        <Label htmlFor="name">Name</Label>
+                        <Input
+                            name="name"
+                            placeholder="Name of the meal"
+                            className="w-full"
+                            onChange={(e) =>
+                                form.setData("name", e.target.value)
                             }
-                        }>(route("meals.analyze"), formData, {
-                            headers: {
-                                "Content-Type": "multipart/form-data",
-                            },
-                        })
+                        />
+                    </div>
+                    <div className="grid gap-2 w-full mt-4">
+                        <Label htmlFor="description">Description</Label>
+                        <Textarea
+                            name="description"
+                            placeholder="Give a short description"
+                            className="w-full resize-none h-36"
+                            onChange={(e) =>
+                                form.setData("description", e.target.value)
+                            }
+                        />
+                    </div>
+                    <Button
+                        disabled={
+                            form.data.picture === null ||
+                            form.data.name === "" ||
+                            form.data.description === ""
+                        }
+                        onClick={async () => {
+                            setLoading(true)
+                            let formData = new FormData()
+                            formData.append("picture", form.data.picture!)
+                            formData.append("name", form.data.name)
+                            formData.append(
+                                "description",
+                                form.data.description
+                            )
 
-                        setLoading(false)
-                    }}
-                    className="ml-auto mt-4"
-                >
-                    Next
-                </Button>
-            </div>
+                            const res = await axios.post<{
+                                meal: Meal
+                            }>(route("meals.analyze"), formData, {
+                                headers: {
+                                    "Content-Type": "multipart/form-data",
+                                },
+                            })
+
+                            setLoading(false)
+                        }}
+                        className="ml-auto mt-4"
+                    >
+                        Next
+                    </Button>
+                </div>
+            )}
         </DialogContent>
     )
 }
