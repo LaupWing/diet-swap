@@ -177,40 +177,46 @@ const MealInfo: FC<{
             </DialogHeader>
 
             {showSwapList ? (
-                <ScrollArea className=" flex-1 flex flex-col">
-                    <ul className="flex items-start min-h-0 px-2 gap-4 flex-col relative">
-                        {swapList.map((meal, i) => (
-                            <li
-                                className="text-xs flex gap-2 border rounded px-3 py-4 flex-col"
-                                key={i}
-                            >
-                                <h2 className="flex text-sm text-slate-500 items-center gap-1">
-                                    {meal.name}
-                                </h2>
-                                <p className="text-slate-500">
-                                    {meal.description}
-                                </p>
-                                <div className="flex gap-1 flex-wrap">
-                                    <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                        {meal.calories} calories
-                                    </span>
-                                    <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                        {meal.protein} protein
-                                    </span>
-                                    <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                        {meal.carb} carb
-                                    </span>
-                                    <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                        {meal.fiber} fiber
-                                    </span>
-                                    <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                        {meal.fats} fats
-                                    </span>
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                </ScrollArea>
+                <div className="flex flex-col flex-1 min-h-0">
+                    <ScrollArea className=" overflow-auto flex-1 flex flex-col">
+                        <ul className="flex items-start min-h-0 px-2 gap-4 flex-col relative">
+                            {swapList.map((meal, i) => (
+                                <li
+                                    className="text-xs flex gap-2 border rounded px-3 py-4 flex-col"
+                                    key={i}
+                                >
+                                    <h2 className="flex text-sm text-slate-500 items-center gap-1">
+                                        {meal.name}
+                                    </h2>
+                                    <p className="text-slate-500">
+                                        {meal.description}
+                                    </p>
+                                    <div className="flex gap-1 flex-wrap">
+                                        <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            {meal.calories} calories
+                                        </span>
+                                        <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            {meal.protein} protein
+                                        </span>
+                                        <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            {meal.carb} carb
+                                        </span>
+                                        <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            {meal.fiber} fiber
+                                        </span>
+                                        <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                            {meal.fats} fats
+                                        </span>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </ScrollArea>
+                    <div className="flex mt-6 justify-between w-full">
+                        <Button onClick={swapMeal}>Swap</Button>
+                        <Button variant={"outline"}>Close</Button>
+                    </div>
+                </div>
             ) : (
                 <div className="flex items-start px-2 gap-3 flex-col relative">
                     {loading && (
