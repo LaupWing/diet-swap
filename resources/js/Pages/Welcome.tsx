@@ -9,6 +9,7 @@ import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, Picture, UserGoal } from "@/types"
+import { IsHealthy } from "@/Components/IsHealthy"
 
 export default function Welcome(
     props: PageProps<{
@@ -86,6 +87,66 @@ export default function Welcome(
                                 0 / {props.userGoal.protein} protein
                             </div>
                         </div>
+                        {props.pictures.map((picture) => (
+                            <>
+                                <Card className="max-w-[300px] text-sm mx-auto w-full">
+                                    <div className="flex flex-col p-6 gap-2">
+                                        <header className="flex flex-col">
+                                            <div className="flex justify-between items-center">
+                                                <span className="text-slate-400">
+                                                    {new Date(
+                                                        picture.created_at
+                                                    ).toLocaleTimeString([], {
+                                                        hour: "2-digit",
+                                                        minute: "2-digit",
+                                                        hour12: false,
+                                                    })}
+                                                </span>
+                                                <Info />
+                                            </div>
+                                            <h2 className="font-bold text-base">
+                                                {picture.meal.name}
+                                            </h2>
+                                            <div className="flex text-xs flex-wrap text-[10px] mt-2 gap-x-2 gap-y-1">
+                                                <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                                    {picture.meal.calories}{" "}
+                                                    calories
+                                                </span>
+                                                <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                                    {picture.meal.protein}{" "}
+                                                    protein
+                                                </span>
+                                                <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                                    {picture.meal.carbs} carb
+                                                </span>
+                                                <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                                    {picture.meal.fiber} fiber
+                                                </span>
+                                                <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                                    {picture.meal.fats} fats
+                                                </span>
+                                            </div>
+                                        </header>
+                                        <div className="mt-2 relative">
+                                            <IsHealthy
+                                                className="absolute top-2 left-2"
+                                                healthy={
+                                                    picture.meal.is_healthy
+                                                }
+                                            />
+                                            <img
+                                                className="w-full rounded h-32 object-cover"
+                                                src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
+                                                alt=""
+                                            />
+                                        </div>
+                                    </div>
+                                </Card>
+                                <div className="flex flex-col items-center">
+                                    <div className="w-[2px] h-20 bg-slate-200"></div>
+                                </div>
+                            </>
+                        ))}
                         <div className="flex w-full flex-col justify-center items-center">
                             <Card className="max-w-[300px] text-sm mx-auto w-full">
                                 <div className="flex flex-col p-6 gap-2">
