@@ -28,3 +28,27 @@ export interface UserGoal extends DataRecord {
     goal_bodyfat: string
     meal_plan: string
 }
+
+interface Picture extends DataRecord {
+    id: number
+    file_extension: string
+    name: string
+    description: string
+    s3_url: string
+    file_path: string
+    meal: Meal
+}
+
+interface Meal extends DataRecord {
+    id: number
+    name: string
+    description: string
+    calories: number
+    protein: number
+    carbs: number
+    fats: number
+    sugar: number
+    fiber: number
+    is_healthy: boolean
+    is_healthy_reason: string
+}
