@@ -22,10 +22,16 @@ class Meal extends Model
         'fiber',
         'is_healthy',
         'is_healthy_reason',
+        'picture_id',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function picture(): BelongsTo
+    {
+        return $this->belongsTo(Picture::class);
     }
 }
