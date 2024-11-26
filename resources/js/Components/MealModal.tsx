@@ -104,7 +104,7 @@ export const MealModal = () => {
                             {response.is_healthy_reason}
                         </p>
                     </div>
-                    <div className="flex mt-4 justify-between">
+                    <div className="flex mt-4 justify-between w-full">
                         <Button>Swap</Button>
                         <Button variant={"outline"}>Close</Button>
                     </div>
