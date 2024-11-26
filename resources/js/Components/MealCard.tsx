@@ -12,6 +12,7 @@ import {
     DialogTrigger,
 } from "./ui/dialog"
 import { Button } from "./ui/button"
+import { InfinitySpin } from "react-loader-spinner"
 
 export const MealCard: FC<{
     picture: Picture
@@ -85,7 +86,10 @@ const MealInfo: FC<{
                 <DialogDescription>{meal.description}</DialogDescription>
             </DialogHeader>
 
-            <div className="flex items-start px-2 gap-3 flex-col">
+            <div className="flex items-start px-2 gap-3 flex-col relative">
+                <div className="absolute inset-0 bg-background/90 flex items-center justify-center">
+                    <InfinitySpin width="200" color="#818cf8" />
+                </div>
                 <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                     {meal.calories} calories
                 </span>
