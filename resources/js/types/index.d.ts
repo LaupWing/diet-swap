@@ -49,6 +49,6 @@ interface Meal extends DataRecord {
     fats: number
     sugar: number
     fiber: number
-    is_healthy: boolean
+    is_healthy: string
     is_healthy_reason: string
 }

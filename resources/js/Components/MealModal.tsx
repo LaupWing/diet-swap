@@ -15,6 +15,7 @@ import { useForm } from "@inertiajs/react"
 import { MutatingDots } from "react-loader-spinner"
 import axios from "axios"
 import { Meal } from "@/types"
+import { IsHealthy } from "./IsHealthy"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
@@ -92,15 +93,13 @@ export const MealModal = () => {
                             <span className="uppercase text-slate-500">
                                 Healthy:
                             </span>{" "}
-                            <div className="rounded-full bg-background px-2 py-[2px] text-xs uppercase font-bold text-yellow-500">
-                                It's okay 👍
-                            </div>
+                            <IsHealthy healthy={response.is_healthy!} />
                         </div>
                         <p>
                             <span className="uppercase text-slate-500">
                                 Reason:
                             </span>{" "}
-                            High in sugar
+                            {response.is_healthy_reason}
                         </p>
                     </div>
                     <Button className="ml-auto mt-4">Close</Button>
