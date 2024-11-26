@@ -76,7 +76,7 @@ class MealController extends Controller
 
         $data = json_decode($response->choices[0]->message->content);
 
-        $user->meals()->create([
+        $pictureRecord->meal()->create([
             'name' => $name,
             'description' => $description,
             'calories' => $data->calories,
