@@ -17,7 +17,6 @@ import axios from "axios"
 import { Meal, Picture } from "@/types"
 import { IsHealthy } from "./IsHealthy"
 import { useMealsStore } from "@/stores/mealsStore"
-// import { Inertia } from '@inertiajs/inertia';
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
