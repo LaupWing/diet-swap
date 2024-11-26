@@ -20,6 +20,7 @@ export default function Welcome(
 ) {
     const date = new Date()
     const [open, setOpen] = useState(false)
+    const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
 
     useEffect(() => {
@@ -278,13 +279,13 @@ export default function Welcome(
                             </Card> */}
                             <div className="flex flex-col items-center">
                                 <div className="w-[2px] h-14 bg-slate-200"></div>
-                                <Dialog>
+                                <Dialog onOpenChange={setShowModal}>
                                     <DialogTrigger asChild>
                                         <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow bg-background">
                                             <Plus className="text-slate-400" />
                                         </button>
                                     </DialogTrigger>
-                                    <MealModal />
+                                    {showModal && <MealModal />}
                                 </Dialog>
                             </div>
                             <div className="h-8"></div>
