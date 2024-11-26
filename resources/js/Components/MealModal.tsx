@@ -70,7 +70,7 @@ export const MealModal = () => {
             )}
             {true ? (
                 <div className="flex items-start px-10 gap-2 flex-col">
-                    <h2>Reese's Chocolate</h2>
+                    <h2 className="text-xl font-bold">Reese's Chocolate</h2>
                     <p>Calories: 200</p>
                     <p>Protein: 10g</p>
                     <p>Carbs: 20g</p>
