@@ -9,25 +9,28 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    /** @var \App\Models\User $user **/
-    $user = Auth::user();
-    $timezone = $user->userInfo->timezone;
+Route::middleware("auth")->group(function () {
+    Route::get('/', function () {
+        /** @var \App\Models\User $user **/
+        $user = Auth::user();
+        $timezone = $user->userInfo->timezone;
 
-    $startOfDay = Carbon::now($timezone)->startOfDay()->setTimezone('UTC');
-    $endOfDay = Carbon::now($timezone)->endOfDay()->setTimezone('UTC');
+        $startOfDay = Carbon::now($timezone)->startOfDay()->setTimezone('UTC');
+        $endOfDay = Carbon::now($timezone)->endOfDay()->setTimezone('UTC');
 
-    $pictures = $user->pictures()
-        ->with('meal')
-        ->whereBetween('created_at', [$startOfDay, $endOfDay])
-        ->orderBy('created_at', 'asc')
-        ->get();
+        $pictures = $user->pictures()
+            ->with('meal')
+            ->whereBetween('created_at', [$startOfDay, $endOfDay])
+            ->orderBy('created_at', 'asc')
+            ->get();
 
-    return Inertia::render('Welcome', [
-        'userGoal' => Auth::user()->userGoal,
-        'pictures' => $pictures
-    ]);
+        return Inertia::render('Welcome', [
+            'userGoal' => Auth::user()->userGoal,
+            'pictures' => $pictures
+        ]);
+    });
 });
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
