@@ -29,6 +29,12 @@ Route::middleware("auth")->group(function () {
             'pictures' => $pictures
         ]);
     });
+
+    Route::prefix('meals')->group(function () {
+        Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.analyze');
+        Route::get('/', [MealController::class, 'getMeals'])->name('meals.get');
+        Route::get('/{meal}/swap', [MealController::class, 'swapMeal'])->name('meals.swap');
+    });
 });
 
 
@@ -37,11 +43,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/generate', [AiController::class, 'generate'])->name('generate');
-Route::prefix('meals')->group(function () {
-    Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.analyze');
-    Route::get('/', [MealController::class, 'getMeals'])->name('meals.get');
-    Route::get('/{meal}/swap', [MealController::class, 'swapMeal'])->name('meals.swap');
-});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
