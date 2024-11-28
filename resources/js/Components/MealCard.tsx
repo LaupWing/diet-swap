@@ -82,7 +82,7 @@ const MealInfo: FC<{
     meal: Meal
 }> = ({ meal }) => {
     const [loading, setLoading] = useState(false)
-    const [showSwapList, setShowSwapList] = useState(true)
+    const [showSwapList, setShowSwapList] = useState(false)
     const [swapList, setSwapList] = useState<
         Array<{
             name: string
@@ -169,7 +169,9 @@ const MealInfo: FC<{
         setLoading(false)
     }
 
-    const SwapList = () => {
+    const SwapList: FC<{
+        close: () => void
+    }> = ({ close }) => {
         const [details, setDetails] = useState<any>(null)
 
         return !details ? (
@@ -210,7 +212,7 @@ const MealInfo: FC<{
                     </ul>
                 </ScrollArea>
                 <div className="flex mt-6 justify-between w-full">
-                    <Button onClick={swapMeal}>Back</Button>
+                    <Button onClick={() => close()}>Back</Button>
                     <Button variant={"outline"}>Close</Button>
                 </div>
             </div>
@@ -274,7 +276,7 @@ const MealInfo: FC<{
             </DialogHeader>
 
             {showSwapList ? (
-                <SwapList />
+                <SwapList close={() => setShowSwapList(false)} />
             ) : (
                 <div className="flex items-start px-2 gap-3 flex-col relative">
                     {loading && (
@@ -312,7 +314,13 @@ const MealInfo: FC<{
                         </p>
                     </div>
                     <div className="flex mt-4 justify-between w-full">
-                        <Button onClick={swapMeal}>Swap</Button>
+                        <Button
+                            onClick={() => {
+                                setShowSwapList(true)
+                            }}
+                        >
+                            Swap
+                        </Button>
                         <Button variant={"outline"}>Close</Button>
                     </div>
                 </div>
