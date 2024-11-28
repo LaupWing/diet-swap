@@ -238,8 +238,21 @@ const MealInfo: FC<{
                     </span>
                 </div>
                 <p className="text-slate-800 text-sm uppercase font-bold">
-                    Calorie Difference: {details.calorie_difference}
+                    <span className="uppercase text-slate-500">
+                        Calorie Difference:
+                    </span>{" "}
+                    {details.calorie_difference}
                 </p>
+                <p className="text-slate-800 text-sm">
+                    <span className="uppercase font-bold text-slate-500">
+                        Why:
+                    </span>{" "}
+                    {details.why}
+                </p>
+                <div className="flex mt-2 justify-between w-full">
+                    <Button variant={"outline"}>Back</Button>
+                    <Button>Save</Button>
+                </div>
             </div>
         )
     }
