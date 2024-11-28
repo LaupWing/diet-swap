@@ -182,7 +182,7 @@ const MealInfo: FC<{
                         <ul className="flex items-start min-h-0 px-2 gap-4 flex-col relative">
                             {swapList.map((meal, i) => (
                                 <li
-                                    className="text-xs flex gap-2 border rounded px-3 py-4 flex-col"
+                                    className="text-xs hover:border-slate-300 cursor-pointer flex gap-2 border rounded px-3 py-4 flex-col"
                                     key={i}
                                 >
                                     <h2 className="flex text-sm text-slate-500 items-center gap-1">
