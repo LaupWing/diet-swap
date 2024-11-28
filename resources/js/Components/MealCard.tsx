@@ -210,7 +210,7 @@ const MealInfo: FC<{
                     </ul>
                 </ScrollArea>
                 <div className="flex mt-6 justify-between w-full">
-                    <Button onClick={swapMeal}>Swap</Button>
+                    <Button onClick={swapMeal}>Back</Button>
                     <Button variant={"outline"}>Close</Button>
                 </div>
             </div>
