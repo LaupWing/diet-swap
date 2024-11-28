@@ -216,10 +216,14 @@ const MealInfo: FC<{
             </div>
         ) : (
             <div className="flex flex-col gap-4">
-                <h2 className="flex font-bold items-center gap-1">
-                    {details.name}
-                </h2>
-                <p className="text-slate-500 text-sm">{details.description}</p>
+                <div className="flex flex-col">
+                    <h2 className="flex font-bold items-center gap-1">
+                        {details.name}
+                    </h2>
+                    <p className="text-slate-500 text-sm">
+                        {details.description}
+                    </p>
+                </div>
                 <div className="flex gap-1 flex-wrap text-sm">
                     <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
                         {details.calories} calories
@@ -250,7 +254,12 @@ const MealInfo: FC<{
                     {details.why}
                 </p>
                 <div className="flex mt-2 justify-between w-full">
-                    <Button variant={"outline"}>Back</Button>
+                    <Button
+                        onClick={() => setDetails(null)}
+                        variant={"outline"}
+                    >
+                        Back
+                    </Button>
                     <Button>Save</Button>
                 </div>
             </div>
