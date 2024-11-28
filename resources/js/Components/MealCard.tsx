@@ -169,6 +169,43 @@ const MealInfo: FC<{
         setLoading(false)
     }
 
+    const SwapList = () => {
+        return (
+            <ScrollArea className=" overflow-auto flex-1 flex flex-col">
+                <ul className="flex items-start min-h-0 px-2 gap-4 flex-col relative">
+                    {swapList.map((meal, i) => (
+                        <li
+                            className="text-xs hover:border-slate-300 cursor-pointer flex gap-2 border rounded px-3 py-4 flex-col"
+                            key={i}
+                        >
+                            <h2 className="flex text-sm text-slate-500 items-center gap-1">
+                                {meal.name}
+                            </h2>
+                            <p className="text-slate-500">{meal.description}</p>
+                            <div className="flex gap-1 flex-wrap">
+                                <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.calories} calories
+                                </span>
+                                <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.protein} protein
+                                </span>
+                                <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.carb} carb
+                                </span>
+                                <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.fiber} fiber
+                                </span>
+                                <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
+                                    {meal.fats} fats
+                                </span>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </ScrollArea>
+        )
+    }
+
     return (
         <DialogContent className="max-w-md flex max-h-[90vh] flex-col w-[90%] min-h-0 rounded">
             <DialogHeader className="text-left">
