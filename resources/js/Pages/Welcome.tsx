@@ -247,7 +247,7 @@ const Dates = () => {
     const start_date = new Date()
     start_date.setDate(today.getDate() - 14)
     const end_date = new Date()
-    end_date.setDate(today.getDate() + 14)
+    end_date.setDate(today.getDate())
     const date_array = generateDateArray(start_date, end_date)
     const date_container = useRef<HTMLUListElement>(null)
 
@@ -264,7 +264,7 @@ const Dates = () => {
             <li
                 ref={date_item}
                 className={cn(
-                    "w-[14.3%] snap-start opacity-10 flex flex-col pt-2 flex-shrink-0 text-center",
+                    "w-[20%] snap-start opacity-10 flex flex-col pt-2 flex-shrink-0 text-center",
                     date.toLocaleDateString() === today.toLocaleDateString() &&
                         "opacity-100"
                 )}
@@ -291,6 +291,7 @@ const Dates = () => {
                 {date_array.map((date) => (
                     <DateItem key={date.toISOString()} date={date} />
                 ))}
+                <li className="w-[60%]"></li>
             </ul>
             <button className="w-[14.3%] flex items-center justify-center pt-1 absolute left-0">
                 <ChevronUpIcon className="w-6 h-6" />
