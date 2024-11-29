@@ -1,15 +1,13 @@
-import { Card } from "@/Components/ui/card"
 import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Command, Info, PanelsTopLeft, Plus } from "lucide-react"
+import { Command, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, Picture, UserGoal } from "@/types"
-import { IsHealthy } from "@/Components/IsHealthy"
 import { useMealsStore } from "@/stores/mealsStore"
 import { MealCard } from "@/Components/MealCard"
 
@@ -106,122 +104,6 @@ export default function Welcome(
                                     </div>
                                 </>
                             ))}
-
-                            {/* <Card className="max-w-[300px] text-sm mx-auto w-full">
-                                <div className="flex flex-col p-6 gap-2">
-                                    <header className="flex flex-col">
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-slate-400">
-                                                18:15
-                                            </span>
-                                            <Info />
-                                        </div>
-                                        <h2 className="font-bold text-base">
-                                            Spaghetti Bolgonese
-                                        </h2>
-                                        <div className="flex text-xs flex-wrap text-[10px] mt-2 gap-x-2 gap-y-1">
-                                            <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                913 calories
-                                            </span>
-                                            <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 protein
-                                            </span>
-                                            <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 carb
-                                            </span>
-                                            <span className="bg-yellow-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 fiber
-                                            </span>
-                                            <span className="bg-orange-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 fats
-                                            </span>
-                                        </div>
-                                    </header>
-                                    <div className="mt-2 relative">
-                                        <div className="absolute top-2 left-2 rounded-full bg-background px-2 py-[2px] text-xs uppercase font-bold text-red-400">
-                                            Unhealthy ☹️
-                                        </div>
-                                        <img
-                                            className="w-full rounded h-32 object-cover"
-                                            src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </Card>
-                            <div className="flex flex-col items-center">
-                                <div className="w-[2px] h-20 bg-slate-200"></div>
-                            </div>
-
-                            <Card className="max-w-[300px] mx-auto text-sm w-full">
-                                <div className="flex flex-col p-6 gap-2">
-                                    <header className="flex flex-col">
-                                        <span className="text-slate-400">
-                                            18:15
-                                        </span>
-                                        <h2 className="font-bold text-base">
-                                            Spaghetti Bolgonese
-                                        </h2>
-                                        <div className="flex text-xs flex-wrap text-[10px] mt-2 gap-x-2 gap-y-1">
-                                            <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                913 calories
-                                            </span>
-                                            <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 protein
-                                            </span>
-                                            <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 carb
-                                            </span>
-                                        </div>
-                                    </header>
-                                    <div className="mt-2 relative">
-                                        <div className="absolute top-2 left-2 rounded-full bg-background px-2 py-[2px] text-xs uppercase font-bold text-green-500">
-                                            Healthy 😃
-                                        </div>
-                                        <img
-                                            className="w-full rounded h-32 object-cover"
-                                            src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </Card>
-                            <div className="flex flex-col items-center">
-                                <div className="w-[2px] h-20 bg-slate-200"></div>
-                            </div>
-                            <Card className="max-w-[300px] mx-auto text-sm w-full">
-                                <div className="flex flex-col p-6 gap-2">
-                                    <header className="flex flex-col">
-                                        <span className="text-slate-400">
-                                            18:15
-                                        </span>
-                                        <h2 className="font-bold text-base">
-                                            Spaghetti Bolgonese
-                                        </h2>
-                                        <div className="flex text-xs flex-wrap text-[10px] mt-2 gap-x-2 gap-y-1">
-                                            <span className="bg-green-300  text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                913 calories
-                                            </span>
-                                            <span className="bg-blue-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 protein
-                                            </span>
-                                            <span className="bg-red-300 text-slate-600 font-bold uppercase py-0.5 px-2 rounded-md">
-                                                98 carb
-                                            </span>
-                                        </div>
-                                    </header>
-                                    <div className="mt-2 relative">
-                                        <div className="absolute top-2 left-2 rounded-full bg-background px-2 py-[2px] text-xs uppercase font-bold text-yellow-500">
-                                            It's okay 👍
-                                        </div>
-                                        <img
-                                            className="w-full rounded h-32 object-cover"
-                                            src="https://www.allrecipes.com/thmb/mvO1mRRH1zTz1SvbwBCTz78CRJI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/67700_RichPastaforthePoorKitchen_ddmfs_4x3_2284-220302ec8328442096df370dede357d7.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                </div>
-                            </Card> */}
                             <div className="flex flex-col items-center">
                                 <div className="w-[2px] h-14 bg-slate-200"></div>
                                 <Dialog onOpenChange={setShowModal}>
