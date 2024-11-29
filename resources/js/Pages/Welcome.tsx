@@ -147,8 +147,13 @@ const Dates = () => {
             //         left: date_item.current!.offsetLeft,
             //     })
             // }
+            const midpoint =
+                // @ts-ignore
+                date_item.current?.getBoundingClientRect().left +
+                // @ts-ignore
+                date_item.current?.getBoundingClientRect().width / 2
+
             if (index === 0) {
-                console.log(date_item.current)
                 setBeginPoint(date_item.current?.offsetLeft || 0)
                 setEndPoint(
                     date_item.current!.offsetLeft +
