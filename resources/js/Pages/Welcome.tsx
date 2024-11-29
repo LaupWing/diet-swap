@@ -132,6 +132,7 @@ const Dates = () => {
     end_date.setDate(today.getDate())
     const date_array = generateDateArray(start_date, end_date)
     const date_container = useRef<HTMLUListElement>(null)
+    const [scrollLeft, setScrollLeft] = useState(0)
 
     const DateItem = ({ date }: { date: Date }) => {
         const date_item = useRef<HTMLLIElement>(null)
@@ -144,6 +145,10 @@ const Dates = () => {
                     left: date_item.current!.offsetLeft,
                 })
             }
+            console.log({
+                date: date.toLocaleDateString(),
+                left: date_item.current?.offsetLeft,
+            })
         }, [])
         return (
             <li
@@ -172,6 +177,10 @@ const Dates = () => {
             <ul
                 ref={date_container}
                 className="flex border-b border-slate-100 snap-x gap-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
+                onScroll={(e) => {
+                    // @ts-ignore
+                    setScrollLeft(e.target.scrollLeft)
+                }}
             >
                 <li className="w-[20%] snap-start flex-shrink-0"></li>
                 {date_array.map((date) => (
