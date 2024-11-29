@@ -291,7 +291,7 @@ const Dates = () => {
                 {date_array.map((date) => (
                     <DateItem key={date.toISOString()} date={date} />
                 ))}
-                <li className="w-[60%]"></li>
+                <li className="w-[60%] flex-shrink-0"></li>
             </ul>
             <button className="w-[14.3%] flex items-center justify-center pt-1 absolute left-0">
                 <ChevronUpIcon className="w-6 h-6" />
