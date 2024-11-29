@@ -181,8 +181,10 @@ const Dates = () => {
                         weekday: "short",
                     })}
                 </span>
-                {date.toLocaleDateString() === today.toLocaleDateString() && (
+                {active ? (
                     <div className="h-1 rounded-full bg-foreground mt-3"></div>
+                ) : (
+                    <div className="h-1 rounded-full bg-transparent mt-3"></div>
                 )}
             </li>
         )
