@@ -140,14 +140,17 @@ const Dates = () => {
         yesterday.setDate(today.getDate() - 1)
 
         useEffect(() => {
-            if (date.toLocaleDateString() === yesterday.toLocaleDateString()) {
-                date_container.current?.scrollTo({
-                    left: date_item.current!.offsetLeft,
-                })
-            }
+            // if (date.toLocaleDateString() === yesterday.toLocaleDateString()) {
+            //     date_container.current?.scrollTo({
+            //         left: date_item.current!.offsetLeft,
+            //     })
+            // }
             console.log({
                 date: date.toLocaleDateString(),
                 left: date_item.current?.offsetLeft,
+                right:
+                    date_item.current!.offsetLeft +
+                    date_item.current!.offsetWidth,
             })
         }, [])
         return (
