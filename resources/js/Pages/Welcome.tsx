@@ -253,8 +253,11 @@ const Dates = () => {
 
     const DateItem = ({ date }: { date: Date }) => {
         const date_item = useRef<HTMLLIElement>(null)
+        const yesterday = new Date()
+        yesterday.setDate(today.getDate() - 1)
+
         useEffect(() => {
-            if (date.toLocaleDateString() === today.toLocaleDateString()) {
+            if (date.toLocaleDateString() === yesterday.toLocaleDateString()) {
                 date_container.current?.scrollTo({
                     left: date_item.current!.offsetLeft,
                 })
@@ -288,12 +291,13 @@ const Dates = () => {
                 ref={date_container}
                 className="flex border-b border-slate-100 snap-x gap-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
             >
+                <li className="w-[20%] snap-start flex-shrink-0"></li>
                 {date_array.map((date) => (
                     <DateItem key={date.toISOString()} date={date} />
                 ))}
                 <li className="w-[60%] flex-shrink-0"></li>
             </ul>
-            <button className="w-[20%] ml-[20%] flex items-center justify-center pt-1 absolute left-0">
+            <button className="w-[20%] ml-[20%] pl-4 flex items-center justify-center pt-1 absolute left-0">
                 <ChevronUpIcon className="w-6 h-6" />
             </button>
         </div>
