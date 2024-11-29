@@ -147,13 +147,16 @@ const Dates = () => {
             //         left: date_item.current!.offsetLeft,
             //     })
             // }
-            console.log({
-                date: date.toLocaleDateString(),
-                left: date_item.current?.offsetLeft,
-                right:
-                    date_item.current!.offsetLeft +
-                    date_item.current!.offsetWidth,
-            })
+            if (index === 0) {
+                console.log(date_item.current)
+                console.log({
+                    date: date.toLocaleDateString(),
+                    left: date_item.current?.offsetLeft,
+                    right:
+                        date_item.current!.offsetLeft +
+                        date_item.current!.offsetWidth,
+                })
+            }
         }, [])
         return (
             <li
