@@ -149,13 +149,11 @@ const Dates = () => {
             // }
             if (index === 0) {
                 console.log(date_item.current)
-                console.log({
-                    date: date.toLocaleDateString(),
-                    left: date_item.current?.offsetLeft,
-                    right:
-                        date_item.current!.offsetLeft +
-                        date_item.current!.offsetWidth,
-                })
+                setBeginPoint(date_item.current?.offsetLeft || 0)
+                setEndPoint(
+                    date_item.current!.offsetLeft +
+                        date_item.current!.offsetWidth
+                )
             }
         }, [])
         return (
