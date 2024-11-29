@@ -133,8 +133,10 @@ const Dates = () => {
     const date_array = generateDateArray(start_date, end_date)
     const date_container = useRef<HTMLUListElement>(null)
     const [scrollLeft, setScrollLeft] = useState(0)
+    const [beginPoint, setBeginPoint] = useState(0)
+    const [endPoint, setEndPoint] = useState(0)
 
-    const DateItem = ({ date }: { date: Date }) => {
+    const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
         const yesterday = new Date()
         yesterday.setDate(today.getDate() - 1)
@@ -186,8 +188,12 @@ const Dates = () => {
                 }}
             >
                 <li className="w-[20%] snap-start flex-shrink-0"></li>
-                {date_array.map((date) => (
-                    <DateItem key={date.toISOString()} date={date} />
+                {date_array.map((date, index) => (
+                    <DateItem
+                        index={index}
+                        key={date.toISOString()}
+                        date={date}
+                    />
                 ))}
                 <li className="w-[60%] flex-shrink-0 -ml-4"></li>
             </ul>
