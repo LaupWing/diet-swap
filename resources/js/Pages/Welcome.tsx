@@ -5,7 +5,7 @@ import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, PanelsTopLeft, Plus } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { act, useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, Picture, UserGoal } from "@/types"
 import { useMealsStore } from "@/stores/mealsStore"
@@ -133,12 +133,14 @@ const Dates = () => {
     const date_array = generateDateArray(start_date, end_date)
     const date_container = useRef<HTMLUListElement>(null)
     const [beginPoint, setBeginPoint] = useState(0)
+    const [_, setScroll] = useState(0)
     const [endPoint, setEndPoint] = useState(0)
 
     const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
         const yesterday = new Date()
         yesterday.setDate(today.getDate() - 1)
+        const [active, setActive] = useState(false)
 
         useEffect(() => {
             // if (date.toLocaleDateString() === yesterday.toLocaleDateString()) {
@@ -151,7 +153,12 @@ const Dates = () => {
                 date_item.current?.getBoundingClientRect().left +
                 // @ts-ignore
                 date_item.current?.getBoundingClientRect().width / 2
-
+            console.log(midpoint, beginPoint, endPoint)
+            if (midpoint > beginPoint && midpoint < endPoint) {
+                setActive(true)
+            } else {
+                setActive(false)
+            }
             if (index === 0 && !beginPoint && !endPoint) {
                 setBeginPoint(date_item.current?.offsetLeft || 0)
                 setEndPoint(
@@ -165,8 +172,7 @@ const Dates = () => {
                 ref={date_item}
                 className={cn(
                     "w-[20%] snap-start opacity-10 flex flex-col pt-2 flex-shrink-0 text-center",
-                    date.toLocaleDateString() === today.toLocaleDateString() &&
-                        "opacity-100"
+                    active && "opacity-100"
                 )}
             >
                 <b className="text-lg">{date.getDate()}</b>
@@ -187,6 +193,9 @@ const Dates = () => {
             <ul
                 ref={date_container}
                 className="flex border-b border-slate-100 snap-x gap-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
+                onScroll={(e) => {
+                    setScroll(e.currentTarget.scrollLeft)
+                }}
             >
                 <li className="w-[20%] snap-start flex-shrink-0"></li>
                 {date_array.map((date, index) => (
