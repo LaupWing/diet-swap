@@ -135,6 +135,7 @@ const Dates = () => {
     const [beginPoint, setBeginPoint] = useState(0)
     const [_, setScroll] = useState(0)
     const [endPoint, setEndPoint] = useState(0)
+    const [activeDate, setActiveDate] = useState<null | Date>(null)
 
     const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
