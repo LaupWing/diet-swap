@@ -154,7 +154,7 @@ const Dates = () => {
                 date_item.current?.getBoundingClientRect().left +
                 // @ts-ignore
                 date_item.current?.getBoundingClientRect().width / 2
-            console.log(midpoint, beginPoint, endPoint)
+
             if (midpoint > beginPoint && midpoint < endPoint) {
                 setActive(true)
             } else {
