@@ -150,10 +150,8 @@ const Dates = () => {
             //     })
             // }
             const midpoint =
-                // @ts-ignore
-                date_item.current?.getBoundingClientRect().left +
-                // @ts-ignore
-                date_item.current?.getBoundingClientRect().width / 2
+                date_item.current!.getBoundingClientRect().left +
+                date_item.current!.getBoundingClientRect().width / 2
 
             if (midpoint > beginPoint && midpoint < endPoint) {
                 setActive(true)
