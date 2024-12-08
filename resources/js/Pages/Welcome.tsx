@@ -146,11 +146,11 @@ const Dates = () => {
         }
     }, [])
 
-    useEffect(() => {
-        if (activeDate) {
-            console.log(activeDate)
-        }
-    }, [activeDate])
+    // useEffect(() => {
+    //     if (activeDate) {
+    //         console.log(activeDate)
+    //     }
+    // }, [activeDate])
 
     const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
@@ -165,7 +165,7 @@ const Dates = () => {
 
             if (midpoint > beginPoint && midpoint < endPoint) {
                 setActive(true)
-                setActiveDate(date)
+                // setActiveDate(date)
             } else {
                 setActive(false)
             }
