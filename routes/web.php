@@ -26,7 +26,7 @@ Route::middleware("auth")->group(function () {
 
         return Inertia::render('Welcome', [
             'userGoal' => Auth::user()->userGoal,
-            'pictures' => $pictures
+            // 'pictures' => $pictures
         ]);
     });
 

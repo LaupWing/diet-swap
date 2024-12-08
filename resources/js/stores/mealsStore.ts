@@ -19,7 +19,8 @@ export const useMealsStore = create<MealsState>((set) => ({
         const response = await axios(
             route("meals.date", { date: date.toISOString() })
         )
-        console.log(response.data)
+
+        set({ pictures: response.data.meals })
         // const pictures = await response.json()
         // console.log(pictures)
     },

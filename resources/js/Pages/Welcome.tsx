@@ -22,9 +22,9 @@ export default function Welcome(
     const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
 
-    useEffect(() => {
-        mealsStore.setPictures(props.pictures)
-    }, [])
+    // useEffect(() => {
+    //     mealsStore.setPictures(props.pictures)
+    // }, [])
 
     return (
         <div className="flex min-w-0 min-h-screen">
