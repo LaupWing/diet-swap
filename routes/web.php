@@ -30,6 +30,14 @@ Route::middleware("auth")->group(function () {
         ]);
     });
 
+    Route::get('/meals/{date}', function (string $date) {
+        logger($date);
+
+        return response()->json([
+            'message' => 'This route is not implemented yet'
+        ], 501);
+    })->name('meals.date');
+
     Route::prefix('meals')->group(function () {
         Route::post('/analyze', [MealController::class, 'analyze'])->name('meals.analyze');
         Route::get('/', [MealController::class, 'getMeals'])->name('meals.get');
