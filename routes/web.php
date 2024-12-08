@@ -4,7 +4,6 @@ use App\Http\Controllers\AiController;
 use App\Http\Controllers\MealController;
 use App\Http\Controllers\ProfileController;
 use Carbon\Carbon;
-use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
