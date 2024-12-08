@@ -5,6 +5,7 @@ use App\Http\Controllers\MealController;
 use App\Http\Controllers\ProfileController;
 use Carbon\Carbon;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,8 +31,8 @@ Route::middleware("auth")->group(function () {
         ]);
     });
 
-    Route::get('/api/meals', function () {
-        logger('test');
+    Route::get('/api/meals', function (Request $request) {
+        logger($request->query('date'));
 
         return response()->json([
             'message' => 'This route is not implemented yet'

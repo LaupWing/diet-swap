@@ -16,8 +16,10 @@ export const useMealsStore = create<MealsState>((set) => ({
     date: new Date(),
     setDate: (date) => set({ date }),
     fetchPictures: async (date) => {
-        console.log(route("meals.date", { date: date.toISOString() }))
-        const response = await axios(`/meals?date=${date.toISOString()}`)
+        const response = await axios(
+            route("meals.date", { date: date.toISOString() })
+        )
+        console.log(response.data)
         // const pictures = await response.json()
         // console.log(pictures)
     },
