@@ -14,17 +14,12 @@ import { MealCard } from "@/Components/MealCard"
 export default function Welcome(
     props: PageProps<{
         userGoal: UserGoal
-        pictures: Picture[]
     }>
 ) {
     const date = new Date()
     const [open, setOpen] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
-
-    // useEffect(() => {
-    //     mealsStore.setPictures(props.pictures)
-    // }, [])
 
     return (
         <div className="flex min-w-0 min-h-screen">
