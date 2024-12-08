@@ -30,7 +30,7 @@ Route::middleware("auth")->group(function () {
         ]);
     });
 
-    Route::get('/meals', function () {
+    Route::get('/api/meals', function () {
         logger('test');
 
         return response()->json([
