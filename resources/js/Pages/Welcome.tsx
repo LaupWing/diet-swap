@@ -7,7 +7,7 @@ import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { Command, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
-import { PageProps, Picture, UserGoal } from "@/types"
+import { PageProps, UserGoal } from "@/types"
 import { useMealsStore } from "@/stores/mealsStore"
 import { MealCard } from "@/Components/MealCard"
 
