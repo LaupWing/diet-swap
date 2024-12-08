@@ -30,8 +30,8 @@ Route::middleware("auth")->group(function () {
         ]);
     });
 
-    Route::get('/meals/{date}', function (string $date) {
-        logger($date);
+    Route::get('/meals', function () {
+        logger('test');
 
         return response()->json([
             'message' => 'This route is not implemented yet'

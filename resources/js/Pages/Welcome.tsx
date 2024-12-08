@@ -136,6 +136,7 @@ const Dates = () => {
     const [_, setScroll] = useState(0)
     const [endPoint, setEndPoint] = useState(0)
     const activeDateRef = useRef<null | Date>(null)
+    const mealsStore = useMealsStore()
 
     useEffect(() => {
         if (date_container.current) {
@@ -148,7 +149,7 @@ const Dates = () => {
 
     useEffect(() => {
         if (activeDateRef.current) {
-            console.log(activeDateRef.current)
+            mealsStore.fetchPictures(activeDateRef.current)
         }
     }, [activeDateRef.current])
 
