@@ -166,6 +166,14 @@ const Dates = () => {
                 )
             }
         }, [])
+
+        window.addEventListener("resize", () => {
+            if (index !== 0) return
+            setBeginPoint(date_item.current?.offsetLeft || 0)
+            setEndPoint(
+                date_item.current!.offsetLeft + date_item.current!.offsetWidth
+            )
+        })
         return (
             <li
                 ref={date_item}
