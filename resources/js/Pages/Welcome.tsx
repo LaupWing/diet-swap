@@ -159,6 +159,7 @@ const Dates = () => {
 
             if (midpoint > beginPoint && midpoint < endPoint) {
                 setActive(true)
+                console.log(date)
             } else {
                 setActive(false)
             }
