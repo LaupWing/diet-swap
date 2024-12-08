@@ -34,7 +34,7 @@ Route::middleware("auth")->group(function () {
     Route::get('/api/meals', function (Request $request) {
         logger($request->query('date'));
         $date = Carbon::parse($request->query('date'));
-        $meals = $request->user()->meals()->whereDate('created_at', $date)->get();
+        $meals = $request->user()->pictures()->whereDate('created_at', $date)->get();
         logger($meals);
 
         return response()->json([
