@@ -146,11 +146,11 @@ const Dates = () => {
         }
     }, [])
 
-    // useEffect(() => {
-    //     if (activeDate) {
-    //         console.log(activeDate)
-    //     }
-    // }, [activeDate])
+    useEffect(() => {
+        if (activeDateRef.current) {
+            console.log(activeDateRef.current)
+        }
+    }, [activeDateRef.current])
 
     const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
