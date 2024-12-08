@@ -137,24 +137,6 @@ const Dates = () => {
     const [endPoint, setEndPoint] = useState(0)
     const activeDateRef = useRef<null | Date>(null)
     const mealsStore = useMealsStore()
-    const scrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-    const handleScrollEnd = () => {
-        if (activeDateRef.current) {
-            console.log("Fetching pictures for:", activeDateRef.current)
-            mealsStore.fetchPictures(activeDateRef.current)
-        }
-    }
-
-    const handleScroll = () => {
-        if (scrollTimeout.current) {
-            clearTimeout(scrollTimeout.current)
-        }
-
-        scrollTimeout.current = setTimeout(() => {
-            handleScrollEnd()
-        }, 200)
-    }
 
     useEffect(() => {
         if (date_container.current) {
@@ -240,7 +222,6 @@ const Dates = () => {
                 className="flex border-b border-slate-100 snap-x gap-2 w-full overflow-x-auto scrollbar-thin scrollbar-track-background scrollbar-thumb-slate-200"
                 onScroll={(e) => {
                     setScroll(e.currentTarget.scrollLeft)
-                    handleScroll()
                 }}
             >
                 <li className="w-[20%] snap-start flex-shrink-0"></li>
