@@ -153,11 +153,6 @@ const Dates = () => {
         const [active, setActive] = useState(false)
 
         useEffect(() => {
-            // if (date.toLocaleDateString() === yesterday.toLocaleDateString()) {
-            //     date_container.current?.scrollTo({
-            //         left: date_item.current!.offsetLeft,
-            //     })
-            // }
             const midpoint =
                 date_item.current!.getBoundingClientRect().left +
                 date_item.current!.getBoundingClientRect().width / 2
