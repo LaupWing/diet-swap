@@ -137,6 +137,15 @@ const Dates = () => {
     const [endPoint, setEndPoint] = useState(0)
     const [activeDate, setActiveDate] = useState<null | Date>(null)
 
+    useEffect(() => {
+        if (date_container.current) {
+            date_container.current.scrollTo(
+                date_container.current.scrollWidth,
+                0
+            )
+        }
+    }, [])
+
     const DateItem = ({ date, index }: { date: Date; index: number }) => {
         const date_item = useRef<HTMLLIElement>(null)
         const yesterday = new Date()
