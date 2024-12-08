@@ -135,7 +135,7 @@ const Dates = () => {
     const [beginPoint, setBeginPoint] = useState(0)
     const [_, setScroll] = useState(0)
     const [endPoint, setEndPoint] = useState(0)
-    const [activeDate, setActiveDate] = useState<null | Date>(null)
+    const activeDateRef = useRef<null | Date>(null)
 
     useEffect(() => {
         if (date_container.current) {
@@ -166,7 +166,11 @@ const Dates = () => {
             if (midpoint > beginPoint && midpoint < endPoint) {
                 setActive(true)
 
-                // setActiveDate(date)
+                if (
+                    activeDateRef.current?.toISOString() !== date.toISOString()
+                ) {
+                    activeDateRef.current = date
+                }
             } else {
                 setActive(false)
             }
