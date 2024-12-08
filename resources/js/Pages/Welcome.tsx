@@ -168,7 +168,8 @@ const Dates = () => {
                 setActive(true)
 
                 if (
-                    activeDateRef.current?.toISOString() !== date.toISOString()
+                    activeDateRef.current?.toDateString() !==
+                    date.toDateString()
                 ) {
                     activeDateRef.current = date
                 }
