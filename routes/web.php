@@ -33,10 +33,13 @@ Route::middleware("auth")->group(function () {
 
     Route::get('/api/meals', function (Request $request) {
         logger($request->query('date'));
+        $date = Carbon::parse($request->query('date'));
+        $meals = $request->user()->meals()->whereDate('created_at', $date)->get();
+        logger($meals);
 
         return response()->json([
             'message' => 'This route is not implemented yet'
-        ], 501);
+        ]);
     })->name('meals.date');
 
     Route::prefix('meals')->group(function () {
