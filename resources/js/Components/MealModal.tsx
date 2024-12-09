@@ -161,7 +161,7 @@ export const MealModal = () => {
                         </div>
                     )}
                     <div className="grid gap-1 w-full mt-4">
-                        <Label htmlFor="gender">Gender</Label>
+                        <Label htmlFor="type">Type</Label>
                         <Select
                             onValueChange={(e) => {
                                 // setData({
@@ -171,12 +171,15 @@ export const MealModal = () => {
                             // value={formData.gender || ""}
                         >
                             <SelectTrigger className="w-auto">
-                                <SelectValue placeholder="Gender" />
+                                <SelectValue placeholder="Type" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="male">Male</SelectItem>
-                                <SelectItem value="female">Female</SelectItem>
-                                <SelectItem value="other">Other</SelectItem>
+                                <SelectItem value="breakfast">
+                                    Breakfast
+                                </SelectItem>
+                                <SelectItem value="lunch">Lunch</SelectItem>
+                                <SelectItem value="diner">Diner</SelectItem>
+                                <SelectItem value="snacks">Snacks</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>
