@@ -4,7 +4,7 @@ import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
 import { Head } from "@inertiajs/react"
 import { ChevronUpIcon } from "@radix-ui/react-icons"
-import { Command, PanelsTopLeft, Plus } from "lucide-react"
+import { CircleAlert, Command, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
 import { PageProps, UserGoal } from "@/types"
@@ -101,12 +101,15 @@ export default function Welcome(
                         <div className="flex gap-2 sticky top-8 w-full px-4 pt-2 pb-4 text-xs font-bold z-50">
                             <div
                                 className={cn(
-                                    "px-2 py-1 rounded-lg border-2",
+                                    "px-2 py-1 relative rounded-lg border-2",
                                     +calories > +props.userGoal.calories
                                         ? "border-red-400 bg-red-300"
                                         : "border-transparent bg-green-300"
                                 )}
                             >
+                                {+calories > +props.userGoal.calories && (
+                                    <CircleAlert className="absolute text-red-400 -top-6 -right-3" />
+                                )}
                                 {calories} /{props.userGoal.calories} calories
                             </div>
                             <div className="px-2 py-1 rounded-lg bg-orange-300 border-transparent border-2">
