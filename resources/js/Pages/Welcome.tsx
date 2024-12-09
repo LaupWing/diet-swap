@@ -60,7 +60,7 @@ export default function Welcome(
             <div className="flex-1 w-full bg-background h-screen flex flex-col">
                 <header className="z-50 bg-background border-b">
                     <div className="">
-                        <div className="px-2 pt-3 pb-2 flex items-center justify-between gap-1">
+                        <div className="px-2 pr-3 pt-3 pb-2 flex items-center justify-between gap-1">
                             <div className="flex items-center gap-1">
                                 <Button
                                     onClick={() => setOpen(!open)}
