@@ -110,7 +110,9 @@ export default function Welcome(
                                 </>
                             ))}
                             <div className="flex flex-col items-center">
-                                <div className="w-[2px] h-14 bg-slate-200"></div>
+                                {mealsStore.pictures.length > 0 && (
+                                    <div className="w-[2px] h-14 bg-slate-200"></div>
+                                )}
                                 <Dialog onOpenChange={setShowModal}>
                                     <DialogTrigger asChild>
                                         <button className="w-10 h-10 flex items-center justify-center rounded-full border-slate-200 border shadow bg-background">
