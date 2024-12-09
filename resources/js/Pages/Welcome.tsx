@@ -26,7 +26,7 @@ export default function Welcome(
         <div className="flex min-w-0 min-h-screen">
             <div
                 className={cn(
-                    "border-r hidden duration-200 bg-background sm:flex-shrink-0",
+                    "border-r fixed overflow-hidden left-0 z-[100] h-screen duration-200 bg-background sm:flex-shrink-0",
                     open ? "w-52 p-4 " : "w-0 p-0"
                 )}
             >
