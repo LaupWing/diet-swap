@@ -59,19 +59,22 @@ export default function Welcome(
             <div className="flex-1 w-full bg-background h-screen flex flex-col">
                 <header className="z-50 bg-background border-b">
                     <div className="">
-                        <div className="pl-2 pt-3 pb-2 flex items-center gap-1">
-                            <Button
-                                onClick={() => setOpen(!open)}
-                                variant={"ghost"}
-                                size={"icon"}
-                            >
-                                <PanelsTopLeft />
-                            </Button>
-                            <h2 className="uppercase  font-bold">
-                                {date.toLocaleString("en-US", {
-                                    month: "long",
-                                })}
-                            </h2>
+                        <div className="pl-2 pt-3 pb-2 flex items-center justify-between gap-1">
+                            <div className="flex items-center gap-1">
+                                <Button
+                                    onClick={() => setOpen(!open)}
+                                    variant={"ghost"}
+                                    size={"icon"}
+                                >
+                                    <PanelsTopLeft />
+                                </Button>
+                                <h2 className="uppercase  font-bold">
+                                    {date.toLocaleString("en-US", {
+                                        month: "long",
+                                    })}
+                                </h2>
+                            </div>
+                            <div className="flex items-center gap-1"></div>
                         </div>
                         <Dates />
                     </div>
