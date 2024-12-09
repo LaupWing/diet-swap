@@ -10,6 +10,7 @@ import { Button } from "@/Components/ui/button"
 import { PageProps, UserGoal } from "@/types"
 import { useMealsStore } from "@/stores/mealsStore"
 import { MealCard } from "@/Components/MealCard"
+import { Badge } from "@/Components/ui/badge"
 
 export default function Welcome(
     props: PageProps<{
@@ -59,7 +60,7 @@ export default function Welcome(
             <div className="flex-1 w-full bg-background h-screen flex flex-col">
                 <header className="z-50 bg-background border-b">
                     <div className="">
-                        <div className="pl-2 pt-3 pb-2 flex items-center justify-between gap-1">
+                        <div className="px-2 pt-3 pb-2 flex items-center justify-between gap-1">
                             <div className="flex items-center gap-1">
                                 <Button
                                     onClick={() => setOpen(!open)}
@@ -74,7 +75,7 @@ export default function Welcome(
                                     })}
                                 </h2>
                             </div>
-                            <div className="flex items-center gap-1"></div>
+                            <Badge>10 credits</Badge>
                         </div>
                         <Dates />
                     </div>
