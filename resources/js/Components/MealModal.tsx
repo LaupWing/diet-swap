@@ -33,6 +33,7 @@ export const MealModal = () => {
     const form = useForm({
         name: "",
         description: "",
+        type: "",
         picture: null,
     })
 
@@ -164,11 +165,9 @@ export const MealModal = () => {
                         <Label htmlFor="type">Type</Label>
                         <Select
                             onValueChange={(e) => {
-                                // setData({
-                                //     gender: e,
-                                // })
+                                form.setData("type", e)
                             }}
-                            // value={formData.gender || ""}
+                            value={form.data.type || ""}
                         >
                             <SelectTrigger className="w-auto">
                                 <SelectValue placeholder="Type" />
