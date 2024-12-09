@@ -21,8 +21,19 @@ export default function Welcome(
     const [open, setOpen] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
-    // const calories = mealsStore.pictures.
-    console.log(mealsStore.pictures)
+
+    const protein = mealsStore.pictures.reduce(
+        (acc, picture) => acc + picture.meal.protein,
+        0
+    )
+    const calories = mealsStore.pictures.reduce(
+        (acc, picture) => acc + picture.meal.calories,
+        0
+    )
+    console.log({
+        protein,
+        calories,
+    })
 
     return (
         <div className="flex min-w-0 min-h-screen">
