@@ -30,6 +30,7 @@ export default function Welcome(
         (acc, picture) => acc + picture.meal.calories,
         0
     )
+    console.log(mealsStore.pictures)
     console.log({
         protein,
         calories,
@@ -104,10 +105,10 @@ export default function Welcome(
                     <div className="flex flex-col relative items-center mt-8">
                         <div className="flex gap-2 sticky top-8 w-full px-4 pt-2 pb-4 text-xs font-bold z-50">
                             <div className="px-2 py-1 rounded-lg bg-green-300">
-                                0 /{props.userGoal.calories} calories
+                                {calories} /{props.userGoal.calories} calories
                             </div>
                             <div className="px-2 py-1 rounded-lg bg-orange-300">
-                                0 / {props.userGoal.protein} protein
+                                {protein} / {props.userGoal.protein} protein
                             </div>
                         </div>
                         <div className="flex w-full flex-col justify-center items-center">
