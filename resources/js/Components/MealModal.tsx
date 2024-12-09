@@ -17,6 +17,13 @@ import axios from "axios"
 import { Meal, Picture } from "@/types"
 import { IsHealthy } from "./IsHealthy"
 import { useMealsStore } from "@/stores/mealsStore"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "./ui/select"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
@@ -153,7 +160,26 @@ export const MealModal = () => {
                             />
                         </div>
                     )}
-
+                    <div className="grid gap-1 ">
+                        <Label htmlFor="gender">Gender</Label>
+                        <Select
+                            onValueChange={(e) => {
+                                // setData({
+                                //     gender: e,
+                                // })
+                            }}
+                            // value={formData.gender || ""}
+                        >
+                            <SelectTrigger className="w-auto">
+                                <SelectValue placeholder="Gender" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="male">Male</SelectItem>
+                                <SelectItem value="female">Female</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
                     <div className="grid gap-1 w-full mt-4">
                         <Label htmlFor="name">Name</Label>
                         <p className="text-xs text-slate-400">
