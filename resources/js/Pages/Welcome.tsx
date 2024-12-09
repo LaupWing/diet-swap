@@ -99,10 +99,17 @@ export default function Welcome(
                 <ScrollArea className="flex flex-col w-full bg-secondary/70 flex-1 min-h-0 items-center">
                     <div className="flex flex-col relative items-center mt-8">
                         <div className="flex gap-2 sticky top-8 w-full px-4 pt-2 pb-4 text-xs font-bold z-50">
-                            <div className="px-2 py-1 rounded-lg bg-green-300">
+                            <div
+                                className={cn(
+                                    "px-2 py-1 rounded-lg border-2",
+                                    +calories > +props.userGoal.calories
+                                        ? "border-red-400 bg-red-300"
+                                        : "border-transparent bg-green-300"
+                                )}
+                            >
                                 {calories} /{props.userGoal.calories} calories
                             </div>
-                            <div className="px-2 py-1 rounded-lg bg-orange-300">
+                            <div className="px-2 py-1 rounded-lg bg-orange-300 border-transparent border-2">
                                 {protein} / {props.userGoal.protein} protein
                             </div>
                         </div>
