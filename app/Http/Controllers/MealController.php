@@ -21,10 +21,12 @@ class MealController extends Controller
         $picture = $data["picture"];
         $name = $data["name"];
         $description = $data["description"];
+        $type = $data["type"];
 
         $pictureRecord = $user->pictures()->create([
             'file_extension' => $picture->extension(),
             'name' => $name,
+            'type' => $type,
             'description' => $description,
         ]);
 

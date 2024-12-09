@@ -25,6 +25,7 @@ class AnalyzeMealRequest extends FormRequest
             'picture' => ['required', 'file', 'mimes:jpg,jpeg,png,gif,webp', 'max:20480'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
+            'type' => ['required', 'string'],
         ];
     }
 }
