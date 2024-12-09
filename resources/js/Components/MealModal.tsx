@@ -160,7 +160,7 @@ export const MealModal = () => {
                             />
                         </div>
                     )}
-                    <div className="grid gap-1 ">
+                    <div className="grid gap-1 w-full mt-4">
                         <Label htmlFor="gender">Gender</Label>
                         <Select
                             onValueChange={(e) => {
