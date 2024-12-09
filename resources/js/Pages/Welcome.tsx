@@ -40,6 +40,12 @@ export default function Welcome(
                     </div>
                 </a>
             </div>
+            {open && (
+                <div
+                    onClick={() => setOpen(false)}
+                    className="bg-black/50 sm:hidden fixed inset-0 z-[80] animate-fade"
+                ></div>
+            )}
             <div
                 className={cn(
                     "border-r hidden duration-200 bg-background sm:block flex-shrink-0",
