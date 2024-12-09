@@ -57,6 +57,7 @@ class AiController extends Controller
             'special_notes' => $special_notes,
             'timezone' => $timezone,
         ]);
+        $user->credits()->create();
 
         Auth::login($user);
 
