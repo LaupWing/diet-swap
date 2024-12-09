@@ -21,6 +21,8 @@ export default function Welcome(
     const [open, setOpen] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
+    // const calories = mealsStore.pictures.
+    console.log(mealsStore.pictures)
 
     return (
         <div className="flex min-w-0 min-h-screen">
@@ -91,7 +93,7 @@ export default function Welcome(
                     <div className="flex flex-col relative items-center mt-8">
                         <div className="flex gap-2 sticky top-8 w-full px-4 pt-2 pb-4 text-xs font-bold z-50">
                             <div className="px-2 py-1 rounded-lg bg-green-300">
-                                {props.userGoal.calories} calories
+                                0 /{props.userGoal.calories} calories
                             </div>
                             <div className="px-2 py-1 rounded-lg bg-orange-300">
                                 0 / {props.userGoal.protein} protein
