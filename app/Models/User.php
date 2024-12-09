@@ -63,8 +63,8 @@ class User extends Authenticatable
         return $this->hasOne(UserGoal::class);
     }
 
-    public function credits(): HasMany
+    public function credits(): HasOne
     {
-        return $this->hasMany(Credit::class);
+        return $this->hasOne(Credit::class);
     }
 }
