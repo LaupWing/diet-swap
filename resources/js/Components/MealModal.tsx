@@ -232,6 +232,7 @@ export const MealModal = () => {
                                     "description",
                                     form.data.description
                                 )
+                                formData.append("type", form.data.type)
 
                                 const res = await axios.post<{
                                     meal: Meal
@@ -240,15 +241,16 @@ export const MealModal = () => {
                                         "Content-Type": "multipart/form-data",
                                     },
                                 })
-                                setResponse(res.data.meal)
+                                console.log(res.data)
+                                // setResponse(res.data.meal)
 
-                                const mealPictures = await axios.get<Picture[]>(
-                                    route("meals.get")
-                                )
-                                console.log(mealPictures)
-                                mealsStore.setPictures(mealPictures.data)
+                                // const mealPictures = await axios.get<Picture[]>(
+                                //     route("meals.get")
+                                // )
+                                // console.log(mealPictures)
+                                // mealsStore.setPictures(mealPictures.data)
 
-                                setLoading(false)
+                                // setLoading(false)
                             }}
                             className="ml-auto mt-4"
                         >
