@@ -52,3 +52,9 @@ interface Meal extends DataRecord {
     is_healthy: string
     is_healthy_reason: string
 }
+
+interface Credit extends DataRecord {
+    id: number
+    user_id: number
+    amount: number
+}
