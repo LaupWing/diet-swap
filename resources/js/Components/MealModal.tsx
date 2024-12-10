@@ -233,15 +233,18 @@ export const MealModal = () => {
                                     form.data.description
                                 )
                                 formData.append("type", form.data.type)
-
-                                const res = await axios.post<{
-                                    meal: Meal
-                                }>(route("meals.analyze"), formData, {
-                                    headers: {
-                                        "Content-Type": "multipart/form-data",
-                                    },
-                                })
-                                console.log(res.data)
+                                try {
+                                    const res = await axios.post<{
+                                        meal: Meal
+                                    }>(route("meals.analyze"), formData, {
+                                        headers: {
+                                            "Content-Type":
+                                                "multipart/form-data",
+                                        },
+                                    })
+                                } catch (e: any) {
+                                    console.log(e.data.response.message)
+                                }
                                 // setResponse(res.data.meal)
 
                                 // const mealPictures = await axios.get<Picture[]>(
