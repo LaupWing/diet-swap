@@ -249,7 +249,7 @@ export const MealModal = () => {
                                         title: "Error",
                                         description: e.response.data.message,
                                     })
-                                    console.log(e.data.response.message)
+                                    setLoading(false)
                                 }
                                 // setResponse(res.data.meal)
 
