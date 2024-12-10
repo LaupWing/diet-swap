@@ -119,6 +119,7 @@ class AiController extends Controller
         ]);
 
         $data = json_decode($response->choices[0]->message->content);
+        logger($data);
 
         $user->userGoal()->create([
             'calories' => $data->calories,
