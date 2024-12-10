@@ -2,7 +2,7 @@ import { FC, useState } from "react"
 import { Label } from "@/Components/ui/label"
 import { Input } from "@/Components/ui/input"
 import { Button } from "@/Components/ui/button"
-import { Check, ChevronLeft, ChevronRight } from "lucide-react"
+import { Check, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react"
 import {
     Select,
     SelectContent,
@@ -252,7 +252,7 @@ const Step2: FC<{
     const [timezones, setTimezones] = useState(
         Intl.supportedValuesOf("timeZone")
     )
-    console.log(formData)
+
     return (
         <form className="flex flex-col">
             <div className=" my-8 flex flex-col">
@@ -321,23 +321,38 @@ const Step2: FC<{
                 </div>
                 <div className="grid gap-1">
                     <Label htmlFor="timezone">Timezone</Label>
-                    <Select
-                        onValueChange={(e) => {
-                            setData({ timezone: e })
-                        }}
-                        value={formData.timezone || ""}
-                    >
-                        <SelectTrigger className="w-auto">
-                            <SelectValue placeholder="Timezone" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {timezones.map((timezone) => (
-                                <SelectItem key={timezone} value={timezone}>
-                                    {timezone}
-                                </SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
+                    <div className="flex items-center gap-1">
+                        <Select
+                            onValueChange={(e) => {
+                                setData({ timezone: e })
+                            }}
+                            value={formData.timezone || ""}
+                        >
+                            <SelectTrigger className="w-auto flex-1">
+                                <SelectValue placeholder="Timezone" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {timezones.map((timezone) => (
+                                    <SelectItem key={timezone} value={timezone}>
+                                        {timezone}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                        <Button
+                            onClick={() => {
+                                setData({
+                                    timezone:
+                                        Intl.DateTimeFormat().resolvedOptions()
+                                            .timeZone,
+                                })
+                            }}
+                            variant={"outline"}
+                            size="icon"
+                        >
+                            <RotateCcw size={20} />
+                        </Button>
+                    </div>
                 </div>
                 <div className="grid gap-1 ">
                     <Label htmlFor="height">Height</Label>
