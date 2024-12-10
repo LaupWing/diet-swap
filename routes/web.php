@@ -15,13 +15,9 @@ Route::middleware("auth")->group(function () {
         $user = Auth::user();
         $timezone = $user->userInfo->timezone;
 
-        $startOfDay = Carbon::now($timezone)->startOfDay()->setTimezone('UTC');
-        $endOfDay = Carbon::now($timezone)->endOfDay()->setTimezone('UTC');
-
         return Inertia::render('Welcome', [
             'userGoal' => Auth::user()->userGoal,
             'credits' => Auth::user()->credits,
-            // 'pictures' => $pictures
         ]);
     });
 
