@@ -25,6 +25,7 @@ import {
     SelectValue,
 } from "./ui/select"
 import { ScrollArea } from "./ui/scroll-area"
+import { toast } from "@/hooks/use-toast"
 
 export const MealModal = () => {
     const [preview, setPreview] = useState<string | null>(null)
@@ -243,6 +244,11 @@ export const MealModal = () => {
                                         },
                                     })
                                 } catch (e: any) {
+                                    toast({
+                                        variant: "destructive",
+                                        title: "Error",
+                                        description: e.response.data.message,
+                                    })
                                     console.log(e.data.response.message)
                                 }
                                 // setResponse(res.data.meal)
