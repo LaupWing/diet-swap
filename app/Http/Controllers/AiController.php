@@ -88,37 +88,49 @@ class AiController extends Controller
         if ($special_notes) {
             $content .= " $special_notes.";
         }
+        while (true) {
 
-        $response = $open_ai->chat()->create([
-            "model" => "gpt-3.5-turbo-1106",
-            "response_format" => [
-                "type" => "json_object",
-            ],
-            "messages" => [
-                [
-                    "role" => "system",
-                    "content" => "You are a helpful assistant designed to help users to achieve their bodyweight goal by providing them with a personalized diet plan. The output should be a JSON object with the following keys: 'protein', 'bodyfat', 'current_bodyfat', 'calories', 'meal_plan'.
-                    
-                    'protein' - The amount of protein in grams that the user should consume daily.
-
-                    'current_bodyfat' - The exact current bodyfat percentage the user has as a number.
-
-                    'goal_bodyfat' - The exact bodyfat percentage the user aim for as a number.
-
-                    'calories' - The amount of calories that the user should consume daily.
-
-                    'meal_plan' - A short description of what fo meals the user can expect as a meal plan.
-                    "
+            $response = $open_ai->chat()->create([
+                "model" => "gpt-3.5-turbo-1106",
+                "response_format" => [
+                    "type" => "json_object",
                 ],
-                [
-                    "role" => "user",
-                    "content" => $content
-                ]
-            ],
-            "max_tokens" => 4000,
-        ]);
+                "messages" => [
+                    [
+                        "role" => "system",
+                        "content" => "You are a helpful assistant designed to help users to achieve their bodyweight goal by providing them with a personalized diet plan. The output should be a JSON object with the following keys: 'protein', 'bodyfat', 'current_bodyfat', 'calories', 'meal_plan'.
+                        
+                        'protein' - The amount of protein in grams that the user should consume daily.
+    
+                        'current_bodyfat' - The exact current bodyfat percentage the user has as a number.
+    
+                        'goal_bodyfat' - The exact bodyfat percentage the user aim for as a number.
+    
+                        'calories' - The amount of calories that the user should consume daily.
+    
+                        'meal_plan' - A short description of what fo meals the user can expect as a meal plan.
+                        "
+                    ],
+                    [
+                        "role" => "user",
+                        "content" => $content
+                    ]
+                ],
+                "max_tokens" => 4000,
+            ]);
 
-        $data = json_decode($response->choices[0]->message->content);
+            $data = json_decode($response->choices[0]->message->content);
+
+            if (
+                isset($data->calories)
+                && isset($data->protein)
+                && isset($data->current_bodyfat)
+                && isset($data->goal_bodyfat)
+                && isset($data->meal_plan)
+            ) {
+                break;
+            }
+        }
         logger(print_r($data, true));
 
         $user->userGoal()->create([
