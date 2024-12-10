@@ -340,6 +340,7 @@ const Step2: FC<{
                             </SelectContent>
                         </Select>
                         <Button
+                            type="button"
                             onClick={() => {
                                 setData({
                                     timezone:
