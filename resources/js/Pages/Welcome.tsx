@@ -20,6 +20,8 @@ import { MealCard } from "@/Components/MealCard"
 import { Badge } from "@/Components/ui/badge"
 import { useCreditsStore } from "@/stores/creditsStore"
 import { Slider } from "@/Components/ui/slider"
+import { RadioGroup, RadioGroupItem } from "@/Components/ui/radio-group"
+import { Label } from "@/Components/ui/label"
 
 export default function Welcome(
     props: PageProps<{
@@ -114,25 +116,48 @@ export default function Welcome(
                                         <DialogTitle>
                                             Buying Credits
                                         </DialogTitle>
-                                        <DialogDescription className="text-left text-xs">
+                                        <DialogDescription className="text-xs">
                                             No I'm not making any money from
-                                            this app. I'm just using it to learn
-                                            how to build a SaaS app. You can buy
-                                            credits to use the app. 1 credit = 1
-                                            meal. You can buy 10 credits for
-                                            $10.00.
+                                            this app. This is just so I can
+                                            cover the cost for the AI I'm using.
+                                            I maybe make 5 dollars if you buy
+                                            100 credits. But the goal is to make
+                                            this app free for everyone.
                                         </DialogDescription>
                                     </DialogHeader>
-                                    <div>
-                                        <Slider
-                                            defaultValue={[10]} // Starting value
-                                            min={10} // Minimum value
-                                            max={100} // Maximum value
-                                            step={40} // Step between values: 10 → 50 → 100
-                                            onValueChange={(value) =>
-                                                console.log(value)
-                                            } // Log selected value
-                                        />
+                                    <div className="flex flex-col">
+                                        <RadioGroup defaultValue="comfortable">
+                                            <div className="flex items-center space-x-2">
+                                                <RadioGroupItem
+                                                    value="default"
+                                                    id="r1"
+                                                />
+                                                <Label htmlFor="r1">
+                                                    10 Credits ($1.00)
+                                                </Label>
+                                            </div>
+                                            <div className="flex items-center space-x-2">
+                                                <RadioGroupItem
+                                                    value="comfortable"
+                                                    id="r2"
+                                                />
+                                                <Label htmlFor="r2">
+                                                    50 Credits ($5.00)
+                                                </Label>
+                                            </div>
+                                            <div className="flex items-center space-x-2">
+                                                <RadioGroupItem
+                                                    value="compact"
+                                                    id="r3"
+                                                />
+                                                <Label htmlFor="r3">
+                                                    100 Credits ($10.00)
+                                                </Label>
+                                            </div>
+                                        </RadioGroup>
+                                        <Button className="mt-4">
+                                            Buy Credits
+                                        </Button>
                                     </div>
                                 </DialogContent>
                             </Dialog>
