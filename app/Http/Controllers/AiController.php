@@ -131,7 +131,6 @@ class AiController extends Controller
                 break;
             }
         }
-        logger(print_r($data, true));
 
         $user->userGoal()->create([
             'calories' => $data->calories,
