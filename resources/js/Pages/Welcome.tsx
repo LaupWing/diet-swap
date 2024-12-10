@@ -65,6 +65,15 @@ export default function Welcome(
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
                 </a>
+                <nav className="mt-4">
+                    <ul className="flex flex-col gap-1 text-sm uppercase font-bold">
+                        <li className="py-1 px-2 rounded bg-foreground text-background">
+                            Meals
+                        </li>
+                        <li className="py-1 px-2">Diet</li>
+                        <li className="py-1 px-2">Profile</li>
+                    </ul>
+                </nav>
             </div>
             {open && (
                 <div
@@ -87,6 +96,13 @@ export default function Welcome(
                         <span className="truncate text-xs">Enterprise</span>
                     </div>
                 </a>
+                <nav>
+                    <ul>
+                        <li>Meals</li>
+                        <li>Diet</li>
+                        <li>Profile</li>
+                    </ul>
+                </nav>
             </div>
             <Head title="Welcome" />
             <div className="flex-1 w-full bg-background h-screen flex flex-col">
