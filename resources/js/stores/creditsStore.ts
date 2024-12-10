@@ -5,7 +5,7 @@ interface CreditsStore {
     setAmount: (amount: number) => void
 }
 
-export const useMealsStore = create<CreditsStore>((set) => ({
+export const useCreditsStore = create<CreditsStore>((set) => ({
     amount: 0,
     setAmount: (amount) => set({ amount }),
 }))

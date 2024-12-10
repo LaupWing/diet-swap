@@ -7,20 +7,23 @@ import { ChevronUpIcon } from "@radix-ui/react-icons"
 import { CircleAlert, Command, PanelsTopLeft, Plus } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/Components/ui/button"
-import { PageProps, UserGoal } from "@/types"
+import { Credit, PageProps, UserGoal } from "@/types"
 import { useMealsStore } from "@/stores/mealsStore"
 import { MealCard } from "@/Components/MealCard"
 import { Badge } from "@/Components/ui/badge"
+import { useCreditsStore } from "@/stores/creditsStore"
 
 export default function Welcome(
     props: PageProps<{
         userGoal: UserGoal
+        credits: Credit
     }>
 ) {
     const date = new Date()
     const [open, setOpen] = useState(false)
     const [showModal, setShowModal] = useState(false)
     const mealsStore = useMealsStore()
+    const creditsStore = useCreditsStore()
 
     const protein = mealsStore.pictures.reduce(
         (acc, picture) => acc + +picture.meal.protein,
@@ -30,6 +33,10 @@ export default function Welcome(
         (acc, picture) => acc + +picture.meal.calories,
         0
     )
+
+    useEffect(() => {
+        creditsStore.setAmount(props.credits.amount)
+    }, [])
 
     return (
         <div className="flex min-w-0 min-h-screen">
@@ -90,7 +97,7 @@ export default function Welcome(
                                     })}
                                 </h2>
                             </div>
-                            <Badge>10 credits</Badge>
+                            <Badge>{creditsStore.amount} credits</Badge>
                         </div>
                         <Dates />
                     </div>
