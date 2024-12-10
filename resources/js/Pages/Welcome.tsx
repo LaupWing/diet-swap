@@ -19,6 +19,7 @@ import { useMealsStore } from "@/stores/mealsStore"
 import { MealCard } from "@/Components/MealCard"
 import { Badge } from "@/Components/ui/badge"
 import { useCreditsStore } from "@/stores/creditsStore"
+import { Slider } from "@/Components/ui/slider"
 
 export default function Welcome(
     props: PageProps<{
@@ -111,15 +112,28 @@ export default function Welcome(
                                 <DialogContent className="max-w-md w-[95%] rounded">
                                     <DialogHeader>
                                         <DialogTitle>
-                                            Are you absolutely sure?
+                                            Buying Credits
                                         </DialogTitle>
-                                        <DialogDescription>
-                                            This action cannot be undone. This
-                                            will permanently delete your account
-                                            and remove your data from our
-                                            servers.
+                                        <DialogDescription className="text-left text-xs">
+                                            No I'm not making any money from
+                                            this app. I'm just using it to learn
+                                            how to build a SaaS app. You can buy
+                                            credits to use the app. 1 credit = 1
+                                            meal. You can buy 10 credits for
+                                            $10.00.
                                         </DialogDescription>
                                     </DialogHeader>
+                                    <div>
+                                        <Slider
+                                            defaultValue={[10]} // Starting value
+                                            min={10} // Minimum value
+                                            max={100} // Maximum value
+                                            step={40} // Step between values: 10 → 50 → 100
+                                            onValueChange={(value) =>
+                                                console.log(value)
+                                            } // Log selected value
+                                        />
+                                    </div>
                                 </DialogContent>
                             </Dialog>
                         </div>
