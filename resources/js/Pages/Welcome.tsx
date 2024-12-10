@@ -1,4 +1,11 @@
-import { Dialog, DialogTrigger } from "@/Components/ui/dialog"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/Components/ui/dialog"
 import { ScrollArea } from "@/Components/ui/scroll-area"
 import { MealModal } from "@/Components/MealModal"
 import { cn, generateDateArray } from "@/lib/utils"
@@ -97,7 +104,24 @@ export default function Welcome(
                                     })}
                                 </h2>
                             </div>
-                            <Badge>{creditsStore.amount} credits</Badge>
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <Badge>{creditsStore.amount} credits</Badge>
+                                </DialogTrigger>
+                                <DialogContent className="max-w-md w-[95%] rounded">
+                                    <DialogHeader>
+                                        <DialogTitle>
+                                            Are you absolutely sure?
+                                        </DialogTitle>
+                                        <DialogDescription>
+                                            This action cannot be undone. This
+                                            will permanently delete your account
+                                            and remove your data from our
+                                            servers.
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                         <Dates />
                     </div>
