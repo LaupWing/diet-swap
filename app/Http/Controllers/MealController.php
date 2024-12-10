@@ -18,6 +18,12 @@ class MealController extends Controller
         /** @var \App\Models\User $user **/
         $user = Auth::user();
 
+        if ($user->credits->amount <= 0) {
+            return response()->json([
+                'message' => 'You do not have enough credits to analyze this meal.'
+            ], 402);
+        }
+
         $picture = $data["picture"];
         $name = $data["name"];
         $description = $data["description"];
